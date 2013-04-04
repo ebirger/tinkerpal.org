@@ -29,9 +29,9 @@ get_header(); ?>
         <div class="span3 bs-docs-sidebar">
 	  <div class="nav nav-list bs-docs-sidenav affix">
 	    <ul>
-	      <li>Test 1</li>
-	      <li>Test 2</li>
-	      <li>Test 3</li>
+	      <li><a href="#">Test 1</a></li>
+	      <li><a href="#">Test 2</a></li>
+	      <li><a href="#">Test 3</a></li>
 	    </ul>
 	  </div>
 	</div>
