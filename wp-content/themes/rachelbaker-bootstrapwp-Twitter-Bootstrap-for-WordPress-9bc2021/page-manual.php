@@ -26,7 +26,16 @@ get_header(); ?>
       </header>
 
       <div class="row content">
-	<div class="span8">
+        <div class="span3 bs-docs-sidebar">
+	  <div class="nav nav-list bs-docs-sidenav affix">
+	    <ul>
+	      <li>Test 1</li>
+	      <li>Test 2</li>
+	      <li>Test 3</li>
+	    </ul>
+	  </div>
+	</div>
+	<div class="span5">
 
 <?php endwhile; // end of the loop. ?>
       </div><!-- /.span8 -->
