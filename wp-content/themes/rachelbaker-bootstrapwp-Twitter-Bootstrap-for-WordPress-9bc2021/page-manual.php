@@ -30,7 +30,6 @@ get_header(); ?>
 	<div class="span9 offset3">
 	  <div id="doc">
    	    <?php include_once "markdown.php"; $docmd=file_get_contents("./docs/man.md"); $doc = Markdown($docmd); echo $doc; ?>
-	    <?php the_content();?>
 	  </div>
 	</div>
       </div>
