@@ -3,6 +3,9 @@
  * Author: @gregfranko
  */
 
+#toc { position: fixed;}
+@media (min-width:1px) and (max-width:767px) { #toc { position: static} }
+
 /* The Table of Contents container element */
 #toc {
     width: 20%;
@@ -10,7 +13,6 @@
     height: 90%;
     overflow: auto;
     margin-left: 2%;
-    position: fixed;
     border: none;
     webkit-border-radius: 6px;
     moz-border-radius: 6px;
