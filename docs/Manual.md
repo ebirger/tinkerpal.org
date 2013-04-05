@@ -1,22 +1,34 @@
-1. tink.js 0.1 Manual
-=====================
-1.1. Overview
--------------
+1. Overview
+=============
 tink.js is a lightweight Javascript interpreter designed for low cost, low power
 microcontrollers (MCUs) allowing rapid prototyping of embedded projects
 
-1.2. Supported Boards
-------------------------
-### TI Stellaris ###
+2. Supported Boards
+===================
+2.1. TI''s Stellaris&reg;
+--------------------
 * EK-LM4F120XL (Stellaris Launchpad)
 * EK-LM3S6965
 
-### STM32 ###
-* STM32F3Discovery
+2.2. STM32
+----------
+* STM32F3DISCOVERY
 
-1.3. Peripherals Support
+3. Quick Start
+==============
+3.1. Downloading tink.js
 ------------------------
-### 1.3.1. Summary ###
+3.2. Flashing tink.js
+---------------------
+3.3. Connecting via Serial
+--------------------------
+3.4. Quick Examples
+-------------------
+
+4. Peripherals Support
+======================
+4.1. Summary
+------------
 
 <table class="table table-bordered table-condensed">
 <tbody>
@@ -65,21 +77,17 @@ microcontrollers (MCUs) allowing rapid prototyping of embedded projects
   </tbody>
 </table>
 
-### 1.3.2. Hardware Pin Mapping ###
+4.2. Hardware Pin Mapping
+-------------------------
 
-1.4 Hacking tink.js
--------------------
-### Development Environment ###
-### Porting tink.js to a New Board ###
-### Porting tink.js to a new Chipset ###
+5. Hacking tink.js
+===================
+5.1. Development Environment
+----------------------------
 
-2. Quick Start
-==============
-2.1. Downloading tink.js
-------------------------
-2.2. Flashing tink.js
----------------------
-2.3. Connecting via Serial
---------------------------
-2.4. Quick Examples
--------------------
+5.2. Porting tink.js to a New Board
+-----------------------------------
+
+5.3. Porting tink.js to a new Chipset
+-------------------------------------
+
