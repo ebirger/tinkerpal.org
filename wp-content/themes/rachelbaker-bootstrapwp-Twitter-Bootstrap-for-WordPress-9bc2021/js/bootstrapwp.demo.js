@@ -71,10 +71,7 @@
 	if (cur_width > 768) { $.sidr('close', 'sidr-main'); }
     });
 
-    $(function() {
-	    //Calls the tocify method on your HTML div.
-	    $("#toc").tocify();
-	    });
+    $("#toc").tocify({context : '#doc'});
  });
 
 }(window.jQuery);

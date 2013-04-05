@@ -27,7 +27,7 @@ get_header(); ?>
 
       <div class="row">
         <div class="span3"><div id="toc"></div></div>
-	<div class="span9"><h1>title1</h1>text1<h2>title2</h2>text2<h3>title3</h3>text3</div>
+	<div class="span9"><div id="doc"><h1>title1</h1>text1<h2>title2</h2>text2<h3>title3</h3>text3</div></div>
       </div>
 
 <?php endwhile; // end of the loop. ?>
