@@ -67,6 +67,28 @@ test testtttttttttest testest testest testest testest testest testest testest
 * STM32F3Discovery
 
 1.3. Peripheral Support
+<table class="table table-bordered table-condensed">
+<tbody>
+  <tr>
+    <th></th>
+    <th>Stellaris Launchpad</th>
+    <th>EK-LM3S6965</th>
+    <th>STM32F3Discovery</th>
+  </tr>
+  <tr>
+    <td>GPIO - digitalWrite</td>
+    <td>Supported</td>
+    <td>Supported</td>
+    <td>Supported</td>
+  <tr>
+  <tr>
+    <td>GPIO - digitalRead</td>
+    <td>Supported</td>
+    <td>Not Supportd</td>
+    <td>Not Supported</td>
+  <tr>
+  </tbody>
+</table>
 -----------------------
 Platform | GPIO Support | SPI
 -------- | ------------ | ---
