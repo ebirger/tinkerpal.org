@@ -102,6 +102,12 @@ test testtttttttttest testest testest testest testest testest testest testest
     <td>Not Supported</td>
   <tr>
   <tr>
+    <td>GPIO - setWatch</td>
+    <td>Supported</td>
+    <td>Not Supported</td>
+    <td>Not Supported</td>
+  <tr>
+  <tr>
     <td>UART</td>
     <td>Supported</td>
     <td>Partial</td>
