@@ -26,7 +26,7 @@ get_header(); ?>
       </header>
 
         <div class="span3"><div id="toc"></div></div>
-	<div class="span9"></div>
+	<div class="span9"><ul><li>content</li><li>content</li></ul></div>
 
 <?php endwhile; // end of the loop. ?>
       </div><!-- /.span8 -->
