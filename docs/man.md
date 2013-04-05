@@ -89,12 +89,6 @@ test testtttttttttest testest testest testest testest testest testest testest
   <tr>
   </tbody>
 </table>
------------------------
-Platform | GPIO Support | SPI
--------- | ------------ | ---
-EK-LM4F120XL | Full | Partial
-EK-LM3S6965 | Partial | Partial
-STM32F3Discovery | Partial | No
 
 2. Quick Start
 ==============
