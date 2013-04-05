@@ -2,7 +2,7 @@
 /**
  * The template for displaying all pages.
  *
- * Template Name: Manual Page
+ * Template Name: Document Page
  * Description: Page template with a content container and right sidebar
  *
  * @package WordPress
@@ -29,7 +29,7 @@ get_header(); ?>
       <div class="row">
         <div class="span3" id="toc"></div>
 	<div class="span9 offset3" id="doc">
-   	  <?php include_once "markdown.php"; $docmd=file_get_contents("./docs/man.md"); $doc = Markdown($docmd); echo $doc; ?>
+   	  <?php include_once "markdown.php"; $docmd=file_get_contents("./docs/" . the_title() . ".md"); $doc = Markdown($docmd); echo $doc; ?>
 	</div>
       </div>
       </div>

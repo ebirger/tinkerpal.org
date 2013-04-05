@@ -80,6 +80,3 @@ microcontrollers (MCUs) allowing rapid prototyping of embedded projects
 --------------------------
 2.4. Quick Examples
 -------------------
-
-3. Contributing
-===============
