@@ -67,6 +67,8 @@ test testtttttttttest testest testest testest testest testest testest testest
 * STM32F3Discovery
 
 1.3. Peripheral Support
+-----------------------
+
 <table class="table table-bordered table-condensed">
 <tbody>
   <tr>
@@ -86,6 +88,24 @@ test testtttttttttest testest testest testest testest testest testest testest
     <td>Supported</td>
     <td>Not Supportd</td>
     <td>Not Supported</td>
+  <tr>
+  <tr>
+    <td>GPIO - analogWrite</td>
+    <td>Supported</td>
+    <td>Partial</td>
+    <td>Not Supported</td>
+  <tr>
+  <tr>
+    <td>GPIO - analogRead</td>
+    <td>Supported</td>
+    <td>Not Supported</td>
+    <td>Not Supported</td>
+  <tr>
+  <tr>
+    <td>UART</td>
+    <td>Supported</td>
+    <td>Partial</td>
+    <td>Partial</td>
   <tr>
   </tbody>
 </table>
