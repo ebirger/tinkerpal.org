@@ -2,7 +2,7 @@
 =====================
 1.1. Overview
 -------------
-tink.js is a Javascript interpreter designed for low cost, low power
+tink.js is a lightweight Javascript interpreter designed for low cost, low power
 microcontrollers (MCUs) allowing rapid prototyping of embedded projects
 
 1.2. Supported Platforms
@@ -64,53 +64,22 @@ microcontrollers (MCUs) allowing rapid prototyping of embedded projects
   </tbody>
 </table>
 
+1.4 Hacking tink.js
+-------------------
+### Development Environment ###
+### Porting tink.js to a New Board ###
+### Porting tink.js to a new Chipset ###
+
 2. Quick Start
 ==============
-Test TestTTTTTTTTTest Testest Testest Testest Testest Testest Testest Testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-Test TestTTTTTTTTTest Testest Testest Testest Testest Testest Testest Testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
+2.1. Downloading tink.js
+------------------------
+2.2. Flashing tink.js
+---------------------
+2.3. Connecting via Serial
+--------------------------
+2.4. Quick Examples
+-------------------
+
+3. Contributing
+===============
