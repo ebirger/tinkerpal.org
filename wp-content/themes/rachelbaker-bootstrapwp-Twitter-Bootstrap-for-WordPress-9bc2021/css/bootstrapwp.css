@@ -3195,7 +3195,7 @@ input[type="submit"].btn.btn-mini {
 .nav-list .nav-header {
   margin-left: -15px;
   margin-right: -15px;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  text-shadow: 0 1px 0 rgba(37, 37, 37, 0.5);
 }
 .nav-list > li > a {
   padding: 3px 15px;
@@ -6498,7 +6498,7 @@ form.bs-docs-example {
   *width: 190px;
   margin: 0 0 -1px;
   padding: 8px 14px;
-  border: 1px solid #e5e5e5;
+  border: 1px solid #444;
 }
 .bs-docs-sidenav > li:first-child > a {
   -webkit-border-radius: 6px 6px 0 0;
