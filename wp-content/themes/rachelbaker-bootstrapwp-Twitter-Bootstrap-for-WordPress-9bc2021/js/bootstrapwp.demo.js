@@ -71,7 +71,7 @@
 	if (cur_width > 768) { $.sidr('close', 'sidr-main'); }
     });
 
-    $("#toc").tocify({context : '#doc'});
+    $("#toc").tocify({context : '#doc', scrollTo: 20});
  });
 
 }(window.jQuery);
