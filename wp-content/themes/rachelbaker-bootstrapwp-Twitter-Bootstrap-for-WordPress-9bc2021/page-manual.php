@@ -25,11 +25,13 @@ get_header(); ?>
         <h1><?php the_title();?></h1>
       </header>
 
+      <div class="container">
       <div class="row">
         <div class="span3" id="toc"></div>
 	<div class="span9 offset3" id="doc">
    	  <?php include_once "markdown.php"; $docmd=file_get_contents("./docs/man.md"); $doc = Markdown($docmd); echo $doc; ?>
 	</div>
+      </div>
       </div>
 
 <?php endwhile; // end of the loop. ?>
