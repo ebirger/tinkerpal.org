@@ -68,11 +68,11 @@ test testtttttttttest testest testest testest testest testest testest testest
 
 1.3. Peripheral Support
 -----------------------
-Platform		GPIO Support	SPI
---------		------------	---
-EK-LM4F120XL		Full		Partial
-EK-LM3S6965		Partial		Partial
-STM32F3Discovery	Partial		No
+Platform | GPIO Support | SPI
+-------- | ------------ | ---
+EK-LM4F120XL | Full | Partial
+EK-LM3S6965 | Partial | Partial
+STM32F3Discovery | Partial | No
 
 2. Quick Start
 ==============
