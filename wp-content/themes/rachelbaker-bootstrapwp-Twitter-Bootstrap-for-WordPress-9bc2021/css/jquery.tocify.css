@@ -7,7 +7,7 @@
 @media (min-width:1px) and (max-width:767px) { #toc { position: static} }
 
 /* The Table of Contents container element */
-#toc {
+/*#toc {
     width: 20%;
     max-height: 90%;
     height: 90%;
@@ -17,7 +17,7 @@
     webkit-border-radius: 6px;
     moz-border-radius: 6px;
     border-radius: 6px;
-}
+}*/
 
 /* The Table of Contents is composed of multiple nested unordered lists.  These styles remove the default styling of an unordered list because it is ugly. */
 #toc ul, #toc li {
