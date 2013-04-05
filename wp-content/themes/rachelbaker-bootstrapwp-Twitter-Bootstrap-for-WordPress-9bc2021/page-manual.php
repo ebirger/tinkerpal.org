@@ -25,22 +25,11 @@ get_header(); ?>
         <h1><?php the_title();?></h1>
       </header>
 
-      <div class="row content">
-        <div class="span3 bs-docs-sidebar">
-	  <div class="nav nav-list bs-docs-sidenav affix">
-	    <ul>
-	      <li><a href="#">Test 1</a></li>
-	      <li><a href="#">Test 2</a></li>
-	      <li><a href="#">Test 3</a></li>
-	    </ul>
-	  </div>
-	</div>
-	<div class="span5">
+        <div class="span3"><div id="toc"></div></div>
+	<div class="span9"></div>
 
 <?php endwhile; // end of the loop. ?>
       </div><!-- /.span8 -->
-<div class="span4">
-</div>
 </div>
 </div>
 

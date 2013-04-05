@@ -70,6 +70,11 @@
 	cur_width = window.innerWidth || document.documentElement.clientWidth;
 	if (cur_width > 768) { $.sidr('close', 'sidr-main'); }
     });
+
+    $(function() {
+	    //Calls the tocify method on your HTML div.
+	    $("#toc").tocify();
+	    });
  });
 
 }(window.jQuery);
