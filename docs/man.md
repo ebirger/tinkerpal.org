@@ -66,8 +66,8 @@ test testtttttttttest testest testest testest testest testest testest testest
 ### STM32 ###
 * STM32F3Discovery
 
-1.3. Peripheral Support
------------------------
+1.3. Peripherals Support
+------------------------
 
 <table class="table table-bordered table-condensed">
 <tbody>
@@ -78,31 +78,31 @@ test testtttttttttest testest testest testest testest testest testest testest
     <th>STM32F3Discovery</th>
   </tr>
   <tr>
-    <td>GPIO - digitalWrite</td>
+    <td>GPIO - Digital Write</td>
     <td>Supported</td>
     <td>Supported</td>
     <td>Supported</td>
   <tr>
   <tr>
-    <td>GPIO - digitalRead</td>
+    <td>GPIO - Digital Read</td>
     <td>Supported</td>
     <td>Not Supportd</td>
     <td>Not Supported</td>
   <tr>
   <tr>
-    <td>GPIO - analogWrite</td>
+    <td>GPIO - Analog Write</td>
     <td>Supported</td>
     <td>Partial</td>
     <td>Not Supported</td>
   <tr>
   <tr>
-    <td>GPIO - analogRead</td>
+    <td>GPIO - Analog Read</td>
     <td>Supported</td>
     <td>Not Supported</td>
     <td>Not Supported</td>
   <tr>
   <tr>
-    <td>GPIO - setWatch</td>
+    <td>GPIO - Set Watch</td>
     <td>Supported</td>
     <td>Not Supported</td>
     <td>Not Supported</td>
