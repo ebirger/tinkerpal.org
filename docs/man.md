@@ -2,60 +2,8 @@
 =====================
 1.1. Overview
 -------------
-Test TestTTTTTTTTTest Testest Testest Testest Testest Testest Testest Testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-Test TestTTTTTTTTTest Testest Testest Testest Testest Testest Testest Testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
-test testtttttttttest testest testest testest testest testest testest testest
+tink.js is a Javascript interpreter designed for low cost, low power
+microcontrollers (MCUs) allowing rapid prototyping of embedded projects
 
 1.2. Supported Platforms
 ------------------------
@@ -75,7 +23,7 @@ test testtttttttttest testest testest testest testest testest testest testest
     <th></th>
     <th>Stellaris Launchpad</th>
     <th>EK-LM3S6965</th>
-    <th>STM32F3Discovery</th>
+    <th>STM32F3DISCOVERY</th>
   </tr>
   <tr>
     <td>GPIO - Digital Write</td>
