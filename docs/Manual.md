@@ -5,9 +5,9 @@ microcontrollers (MCUs) allowing rapid prototyping of embedded projects
 
 2. Supported Boards
 ===================
-2.1. TI''s Stellaris&reg;
+2.1. TI's Stellaris&reg;
 --------------------
-* EK-LM4F120XL (Stellaris Launchpad)
+* EK-LM4F120XL (Stellaris&reg; LaunchPad)
 * EK-LM3S6965
 
 2.2. STM32
@@ -34,7 +34,7 @@ microcontrollers (MCUs) allowing rapid prototyping of embedded projects
 <tbody>
   <tr>
     <th></th>
-    <th>Stellaris Launchpad</th>
+    <th>Stellaris&reg; LaunchPad</th>
     <th>EK-LM3S6965</th>
     <th>STM32F3DISCOVERY</th>
   </tr>
