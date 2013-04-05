@@ -5,7 +5,7 @@
 tink.js is a lightweight Javascript interpreter designed for low cost, low power
 microcontrollers (MCUs) allowing rapid prototyping of embedded projects
 
-1.2. Supported Platforms
+1.2. Supported Boards
 ------------------------
 ### TI Stellaris ###
 * EK-LM4F120XL (Stellaris Launchpad)
@@ -16,6 +16,7 @@ microcontrollers (MCUs) allowing rapid prototyping of embedded projects
 
 1.3. Peripherals Support
 ------------------------
+### 1.3.1. Summary ###
 
 <table class="table table-bordered table-condensed">
 <tbody>
@@ -63,6 +64,8 @@ microcontrollers (MCUs) allowing rapid prototyping of embedded projects
   <tr>
   </tbody>
 </table>
+
+### 1.3.2. Hardware Pin Mapping ###
 
 1.4 Hacking tink.js
 -------------------
