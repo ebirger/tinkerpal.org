@@ -10,8 +10,8 @@ microcontrollers (MCUs) allowing rapid prototyping of embedded projects
 * EK-LM4F120XL (Stellaris&reg; LaunchPad)
 * EK-LM3S6965
 
-2.2. STM32
-----------
+2.2. STMicroelectronics' STM32&trade;
+------------------------------
 * STM32F3DISCOVERY
 
 3. Quick Start
@@ -39,34 +39,10 @@ microcontrollers (MCUs) allowing rapid prototyping of embedded projects
     <th>STM32F3DISCOVERY</th>
   </tr>
   <tr>
-    <td>GPIO - Digital Write</td>
-    <td>Supported</td>
-    <td>Supported</td>
-    <td>Supported</td>
-  <tr>
-  <tr>
-    <td>GPIO - Digital Read</td>
-    <td>Supported</td>
-    <td>Not Supportd</td>
-    <td>Not Supported</td>
-  <tr>
-  <tr>
-    <td>GPIO - Analog Write</td>
+    <td>GPIO</td>
     <td>Supported</td>
     <td>Partial</td>
-    <td>Not Supported</td>
-  <tr>
-  <tr>
-    <td>GPIO - Analog Read</td>
-    <td>Supported</td>
-    <td>Not Supported</td>
-    <td>Not Supported</td>
-  <tr>
-  <tr>
-    <td>GPIO - Set Watch</td>
-    <td>Supported</td>
-    <td>Not Supported</td>
-    <td>Not Supported</td>
+    <td>Partial</td>
   <tr>
   <tr>
     <td>UART</td>
