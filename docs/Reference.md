@@ -1,4 +1,3 @@
-==== Using Local GCC environment ====
 Timer Functions 
 ====
 ### setTimeout(cb, ms)  ###  
