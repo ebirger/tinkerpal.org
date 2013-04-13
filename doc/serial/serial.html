@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>API documentation</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <link type='text/css' rel='stylesheet' href='http://tinkjs.org/wp-content/themes/tinkjs/css/bootstrapwp.css?ver=0.90'/>
+  <!-- IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div id='container'>
+<ul class='breadcrumb'>
+  <li>
+   <a href='../index.html'>tink.js 0.1.0 API</a>
+    <span class='divider'>/</span>
+  </li>
+  <li class='active'>
+    <a href='serial.html'>Serial</a>
+  </li>
+</ul>
+<div>
+  <div class='page-header'>
+    <h1>
+      Serial<br>
+      <small></small>
+    </h1>
+  </div>
+</div>
+<div class='accordion' id='accordion'>
+  <hr>
+  <div class='pull-right small'>
+    <a href='./serial_enable.html'> >>> </a>
+  </div>
+  <div>
+    <h2>
+      <a href='#description-index'
+        class='accordion-toggle'
+        data-toggle='collapse'
+        data-parent='#accordion'>
+         enable
+      </a><br>
+      <small>Enable a serial port</small>
+    </h2>
+  </div>
+  <div id='description-index' class='collapse accordion-body'>
+    <h3>Examples</h3>
+    <pre class="prettyprint">var s = new Serial(UART1);
+s.enable();</pre>
+  </div>
+  <hr>
+  <div class='pull-right small'>
+    <a href='./serial_disable.html'> >>> </a>
+  </div>
+  <div>
+    <h2>
+      <a href='#description-index'
+        class='accordion-toggle'
+        data-toggle='collapse'
+        data-parent='#accordion'>
+         disable
+      </a><br>
+      <small>Disable a serial port</small>
+    </h2>
+  </div>
+  <div id='description-index' class='collapse accordion-body'>
+    <h3>Examples</h3>
+    <pre class="prettyprint">var s = new Serial(UART1);
+s.disable();</pre>
+  </div>
+  <hr>
+  <div class='pull-right small'>
+    <a href='./serial_print.html'> >>> </a>
+  </div>
+  <div>
+    <h2>
+      <a href='#description-index'
+        class='accordion-toggle'
+        data-toggle='collapse'
+        data-parent='#accordion'>
+         print
+      </a><br>
+      <small>Prints string</small>
+    </h2>
+  </div>
+  <div id='description-index' class='collapse accordion-body'>
+    <h3>Examples</h3>
+    <pre class="prettyprint">var s = new Serial(UART1);
+s.print('Hello World!');</pre>
+<h2>Params</h2>
+<table class='table'>
+  <thead>
+    <tr>
+      <th>Parameter name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <strong>string</strong><br>
+      </td>
+      <td>
+        <p>String to be printed to serial port</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+  <hr>
+  <div class='pull-right small'>
+    <a href='./serial_on_data.html'> >>> </a>
+  </div>
+  <div>
+    <h2>
+      <a href='#description-index'
+        class='accordion-toggle'
+        data-toggle='collapse'
+        data-parent='#accordion'>
+         onData
+      </a><br>
+      <small>Calls 'cb' when data is available on serial port</small>
+    </h2>
+  </div>
+  <div id='description-index' class='collapse accordion-body'>
+    <h3>Examples</h3>
+    <pre class="prettyprint">var s = new Serial(UART1);
+s.onData(function(e) { s.print(e.data); });</pre>
+<h2>Params</h2>
+<table class='table'>
+  <thead>
+    <tr>
+      <th>Parameter name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <strong>cb</strong><br>
+      </td>
+      <td>
+        <p>callback function acceping a data object</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+  <hr>
+  <div class='pull-right small'>
+    <a href='./serial_set_console.html'> >>> </a>
+  </div>
+  <div>
+    <h2>
+      <a href='#description-index'
+        class='accordion-toggle'
+        data-toggle='collapse'
+        data-parent='#accordion'>
+         setConsole
+      </a><br>
+      <small>Sets tink.js console to the given serial port</small>
+    </h2>
+  </div>
+  <div id='description-index' class='collapse accordion-body'>
+    <h3>Examples</h3>
+    <pre class="prettyprint">var s = new Serial(UART1);
+s.setConsole</pre>
+  </div>
+</div>
+      </div>
+    </div>
+    <hr>
+    <footer>
+    </footer>
+  </div>
+  <script type='text/javascript' src='http://code.jquery.com/jquery-1.9.1.min.js'></script>
+<script type='text/javascript' src='https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?lang=css&skin=desert'></script>
+</body>
+</html>
