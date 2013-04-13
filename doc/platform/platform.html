@@ -19,13 +19,13 @@
     <span class='divider'>/</span>
   </li>
   <li class='active'>
-    <a href='fs.html'>File System</a>
+    <a href='platform.html'>Platform</a>
   </li>
 </ul>
 <div>
   <div class='page-header'>
     <h1>
-      File System<br>
+      Platform<br>
       <small></small>
     </h1>
   </div>
@@ -33,7 +33,7 @@
 <div class='accordion' id='accordion'>
   <hr>
   <div class='pull-right small'>
-    <a href='./read_file_sync.html'> >>> </a>
+    <a href='./meminfo.html'> >>> </a>
   </div>
   <div>
     <h2>
@@ -41,71 +41,14 @@
         class='accordion-toggle'
         data-toggle='collapse'
         data-parent='#accordion'>
-         readFileSync
+         meminfo
       </a><br>
-      <small>Synchronously reads the entire contents of a file</small>
+      <small>Prints platform dependent memory information</small>
     </h2>
   </div>
   <div id='description-index' class='collapse accordion-body'>
     <h3>Examples</h3>
-    <pre class="prettyprint">var s = fs.readFileSync('FAT/file.txt');</pre>
-<h2>Params</h2>
-<table class='table'>
-  <thead>
-    <tr>
-      <th>Parameter name</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <strong>path</strong><br>
-      </td>
-      <td>
-        <p>File Path</p>
-      </td>
-    </tr>
-  </tbody>
-</table>
-  </div>
-  <hr>
-  <div class='pull-right small'>
-    <a href='./readdir_sync.html'> >>> </a>
-  </div>
-  <div>
-    <h2>
-      <a href='#description-index'
-        class='accordion-toggle'
-        data-toggle='collapse'
-        data-parent='#accordion'>
-         readdirSync
-      </a><br>
-      <small>Synchronously reads the directory listing of a path</small>
-    </h2>
-  </div>
-  <div id='description-index' class='collapse accordion-body'>
-    <h3>Examples</h3>
-    <pre class="prettyprint">var s = fs.readdirSync('FAT/');</pre>
-<h2>Params</h2>
-<table class='table'>
-  <thead>
-    <tr>
-      <th>Parameter name</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <strong>path</strong><br>
-      </td>
-      <td>
-        <p>Directory Path</p>
-      </td>
-    </tr>
-  </tbody>
-</table>
+    <pre class="prettyprint">meminfo()</pre>
   </div>
 </div>
       </div>
