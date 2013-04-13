@@ -11,11 +11,12 @@
 get_header(); ?>
 <?php while ( have_posts() ) : the_post(); ?>
   <div class="main-content">
+  <!--
   <div class="row">
     <div class="container">
       <?php if (function_exists('bootstrapwp_breadcrumbs')) bootstrapwp_breadcrumbs(); ?>
-    </div><!--/.container -->
-  </div><!--/.row -->
+    </div>
+  </div> -->
   <div class="container">
  <!-- Masthead
  ================================================== -->
