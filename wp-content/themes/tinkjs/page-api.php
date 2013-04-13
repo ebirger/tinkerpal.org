@@ -17,7 +17,7 @@ get_header(); ?>
 <div class="container">
   <div id="main">
     <div id="content" class="container">
-      <iframe src="./doc/index.html" frameborder="0" width="100%" height="1675px" ></iframe>
+      <iframe src="./doc/index.html" frameborder="0" width="100%" height="5675px" ></iframe>
     </div>
   </div>
 </div>
