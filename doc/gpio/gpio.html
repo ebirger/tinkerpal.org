@@ -4,8 +4,6 @@
   <title>API documentation</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <link type='text/css' rel='stylesheet' href='http://tinkjs.org/wp-content/themes/tinkjs/css/bootstrapwp.css?ver=0.90'/>
-<link type='text/css' rel='stylesheet' href='./apidoc/stylesheets/bundled/bootstrap-responsive.min.css'/>
-  <link type='text/css' rel='stylesheet' href='./apidoc/stylesheets/application.css'/>
   <!-- IE6-8 support of HTML5 elements -->
   <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -136,6 +134,175 @@ first array element maps to the MSB</p>
   </tbody>
 </table>
   </div>
+  <hr>
+  <div class='pull-right small'>
+    <a href='./digital_read.html'> >>> </a>
+  </div>
+  <div>
+    <h2>
+      <a href='#description-index'
+        class='accordion-toggle'
+        data-toggle='collapse'
+        data-parent='#accordion'>
+         digitalRead
+      </a><br>
+      <small>Read the digital state of a GPIO pin or a number of pins</small>
+    </h2>
+  </div>
+  <div id='description-index' class='collapse accordion-body'>
+    <h3>Examples</h3>
+    <pre class="prettyprint">var state = digitalRead(GPIO_PF2);
+var a = digitalRead([GPIO_PF0, GPIO_PF1, GPIO_PF2</pre>
+<h2>Params</h2>
+<table class='table'>
+  <thead>
+    <tr>
+      <th>Parameter name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <strong>pin[s]</strong><br>
+      </td>
+      <td>
+        <p>GPIO pin ID or array of GPIO pin IDs</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+  <hr>
+  <div class='pull-right small'>
+    <a href='./analog_write.html'> >>> </a>
+  </div>
+  <div>
+    <h2>
+      <a href='#description-index'
+        class='accordion-toggle'
+        data-toggle='collapse'
+        data-parent='#accordion'>
+         analogWrite
+      </a><br>
+      <small>Set the analog value of a GPIO pin</small>
+    </h2>
+  </div>
+  <div id='description-index' class='collapse accordion-body'>
+    <h3>Examples</h3>
+    <pre class="prettyprint">analogWrite(GPIO_PF2, 0.5);</pre>
+<h2>Params</h2>
+<table class='table'>
+  <thead>
+    <tr>
+      <th>Parameter name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <strong>pin</strong><br>
+      </td>
+      <td>
+        <p>GPIO pin ID</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong>value</strong><br>
+      </td>
+      <td>
+        <p>Floating point number with range [0-1]</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+  <hr>
+  <div class='pull-right small'>
+    <a href='./analog_read.html'> >>> </a>
+  </div>
+  <div>
+    <h2>
+      <a href='#description-index'
+        class='accordion-toggle'
+        data-toggle='collapse'
+        data-parent='#accordion'>
+         analogRead
+      </a><br>
+      <small>Read the analog value of a GPIO pin</small>
+    </h2>
+  </div>
+  <div id='description-index' class='collapse accordion-body'>
+    <h3>Examples</h3>
+    <pre class="prettyprint">var f = analogRead(GPIO_PF2);</pre>
+<h2>Params</h2>
+<table class='table'>
+  <thead>
+    <tr>
+      <th>Parameter name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <strong>pin</strong><br>
+      </td>
+      <td>
+        <p>GPIO pin ID</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+  <hr>
+  <div class='pull-right small'>
+    <a href='./set_watch.html'> >>> </a>
+  </div>
+  <div>
+    <h2>
+      <a href='#description-index'
+        class='accordion-toggle'
+        data-toggle='collapse'
+        data-parent='#accordion'>
+         setWatch
+      </a><br>
+      <small>Calls a callback function whenever the GPIO pin changes state</small>
+    </h2>
+  </div>
+  <div id='description-index' class='collapse accordion-body'>
+    <h3>Examples</h3>
+    <pre class="prettyprint">setWatch(function() { debug.dump('button changed state'); }, GPIO_PF0);</pre>
+<h2>Params</h2>
+<table class='table'>
+  <thead>
+    <tr>
+      <th>Parameter name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <strong>cb</strong><br>
+      </td>
+      <td>
+        <p>callback function</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong>pin</strong><br>
+      </td>
+      <td>
+        <p>GPIO pin ID</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+  </div>
 </div>
       </div>
     </div>
@@ -144,7 +311,6 @@ first array element maps to the MSB</p>
     </footer>
   </div>
   <script type='text/javascript' src='http://code.jquery.com/jquery-1.9.1.min.js'></script>
-  <script type='text/javascript' src='./apidoc/javascripts/bundled/bootstrap-collapse.js'></script>
 <script type='text/javascript' src='https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?lang=css&skin=desert'></script>
 </body>
 </html>

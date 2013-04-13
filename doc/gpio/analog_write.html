@@ -19,22 +19,22 @@
     <span class='divider'>/</span>
   </li>
   <li>
-   <a href='../math/math.html'>Math</a>
+   <a href='../gpio/gpio.html'>GPIO</a>
     <span class='divider'>/</span>
   </li>
   <li class='active'>
-    <a href='sin.html'>sin</a>
+    <a href='analog_write.html'>analogWrite</a>
   </li>
 </ul>
 <div>
   <div class='page-header'>
     <h1>
-      sin(angle)<br>      <small>Compute the sine of an angle</small>
+      analogWrite(pin, value)<br>      <small>Set the analog value of a GPIO pin</small>
     </h1>
   </div>
 <div>
 <h2>Example</h2>
-<pre class="prettyprint">var zero = Math.sin(Pi);</pre>
+<pre class="prettyprint">analogWrite(GPIO_PF2, 0.5);</pre>
 <h2>Params</h2>
 <table class='table'>
   <thead>
@@ -46,16 +46,24 @@
   <tbody>
     <tr>
       <td>
-        <strong>angle</strong><br>
+        <strong>pin</strong><br>
       </td>
       <td>
-        <p>angle in radians</p>
+        <p>GPIO pin ID</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong>value</strong><br>
+      </td>
+      <td>
+        <p>Floating point number with range [0-1]</p>
       </td>
     </tr>
   </tbody>
 </table>
 <h2>Return Value</h2>
-sine of angle
+None
       </div>
     </div>
     <hr>
