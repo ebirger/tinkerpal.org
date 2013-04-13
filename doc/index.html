@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>API documentation</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <link type='text/css' rel='stylesheet' href='http://tinkjs.org/wp-content/themes/tinkjs/css/bootstrapwp.css?ver=0.90'/>
+<link type='text/css' rel='stylesheet' href='./apidoc/stylesheets/bundled/bootstrap-responsive.min.css'/>
+  <link type='text/css' rel='stylesheet' href='./apidoc/stylesheets/application.css'/>
+  <!-- IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div id='container'>
+<ul class='breadcrumb'>
+  <li class='active'>
+    <a href='index.html'>Main</a>
+  </li>
+</ul>
+<div>API description</div>
+<h1 class='page-header'>Functions</h1>
+<h2>
+  <a href='./global_env/global_env.html'>Global</a></br>
+  <small></small>
+</h2>
+<table class='table'>
+  <thead>
+    <tr>
+      <th>Function</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href='./global_env/set_timeout.html'>setTimeout</a></td>
+      <td width='60%'>Schedule 'cb' to run in ms milliseconds</td>
+    </tr>
+    <tr>
+      <td><a href='./global_env/set_interval.html'>setInterval</a></td>
+      <td width='60%'>Schedule 'cb' to run periodically every ms milliseconds</td>
+    </tr>
+    <tr>
+      <td><a href='./global_env/clear_timeout.html'>clearTimeout</a></td>
+      <td width='60%'>Cancel timeout timer if timeout hadn't expired</td>
+    </tr>
+    <tr>
+      <td><a href='./global_env/clear_interval.html'>clearInterval</a></td>
+      <td width='60%'>Cancel periodic timer</td>
+    </tr>
+    <tr>
+      <td><a href='./global_env/get_time.html'>getTime</a></td>
+      <td width='60%'>Get number of seconds since system startup</td>
+    </tr>
+    <tr>
+      <td><a href='./global_env/eval.html'>eval</a></td>
+      <td width='60%'>Evaluate the given String</td>
+    </tr>
+    <tr>
+      <td><a href='./global_env/to_integer.html'>toInteger</a></td>
+      <td width='60%'>Convert the given object to an integer value</td>
+    </tr>
+  </tbody>
+</table>
+<h2>
+  <a href='./debug/debug.html'>Debug</a></br>
+  <small></small>
+</h2>
+<table class='table'>
+  <thead>
+    <tr>
+      <th>Function</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href='./debug/assert.html'>assert</a></td>
+      <td width='60%'>Panic on mismatch between two objects</td>
+    </tr>
+    <tr>
+      <td><a href='./debug/assert_cond.html'>assert_cond</a></td>
+      <td width='60%'>Panic if object is false</td>
+    </tr>
+    <tr>
+      <td><a href='./debug/dump.html'>dump</a></td>
+      <td width='60%'>Dump object to the console</td>
+    </tr>
+  </tbody>
+</table>
+<h2>
+  <a href='./math/math.html'>Math</a></br>
+  <small></small>
+</h2>
+<table class='table'>
+  <thead>
+    <tr>
+      <th>Function</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href='./math/sin.html'>sin</a></td>
+      <td width='60%'>Compute the sine of an angle</td>
+    </tr>
+    <tr>
+      <td><a href='./math/asin.html'>asin</a></td>
+      <td width='60%'>Compute the arc sine of a number</td>
+    </tr>
+    <tr>
+      <td><a href='./math/cos.html'>cos</a></td>
+      <td width='60%'>Compute the cosine of an angle</td>
+    </tr>
+    <tr>
+      <td><a href='./math/acos.html'>acos</a></td>
+      <td width='60%'>Compute the arc cosine of a number</td>
+    </tr>
+    <tr>
+      <td><a href='./math/tan.html'>tan</a></td>
+      <td width='60%'>Compute the tangent of an angle</td>
+    </tr>
+    <tr>
+      <td><a href='./math/atan.html'>atan</a></td>
+      <td width='60%'>Compute the arc tangent of a number</td>
+    </tr>
+    <tr>
+      <td><a href='./math/sqrt.html'>sqrt</a></td>
+      <td width='60%'>Compute the square root of a number</td>
+    </tr>
+  </tbody>
+</table>
+<h2>
+  <a href='./fs/fs.html'>File System</a></br>
+  <small></small>
+</h2>
+<table class='table'>
+  <thead>
+    <tr>
+      <th>Function</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href='./fs/read_file_sync.html'>readFileSync</a></td>
+      <td width='60%'>Synchronously reads the entire contents of a file</td>
+    </tr>
+  </tbody>
+</table>
+<h2>
+  <a href='./gpio/gpio.html'>GPIO</a></br>
+  <small></small>
+</h2>
+<table class='table'>
+  <thead>
+    <tr>
+      <th>Function</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href='./gpio/digital_write.html'>digitalWrite</a></td>
+      <td width='60%'>Set the digital value of a GPIO or a number of GPIOs</td>
+    </tr>
+    <tr>
+      <td><a href='./gpio/digital_pulse.html'>digitalPulse</a></td>
+      <td width='60%'>Create a digital pulse on a GPIO pin for a given period</td>
+    </tr>
+  </tbody>
+</table>
+      </div>
+    </div>
+    <hr>
+    <footer>
+    </footer>
+  </div>
+  <script type='text/javascript' src='http://code.jquery.com/jquery-1.9.1.min.js'></script>
+  <script type='text/javascript' src='./apidoc/javascripts/bundled/bootstrap-collapse.js'></script>
+<script type='text/javascript' src='https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?lang=css&skin=desert'></script>
+</body>
+</html>

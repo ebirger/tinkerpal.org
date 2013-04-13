@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>API documentation</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <link type='text/css' rel='stylesheet' href='http://tinkjs.org/wp-content/themes/tinkjs/css/bootstrapwp.css?ver=0.90'/>
+<link type='text/css' rel='stylesheet' href='./apidoc/stylesheets/bundled/bootstrap-responsive.min.css'/>
+  <link type='text/css' rel='stylesheet' href='./apidoc/stylesheets/application.css'/>
+  <!-- IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div id='container'>
+<ul class='breadcrumb'>
+  <li>
+   <a href='../index.html'>Main</a>
+    <span class='divider'>/</span>
+  </li>
+  <li class='active'>
+    <a href='gpio.html'>GPIO</a>
+  </li>
+</ul>
+<div>
+  <div class='page-header'>
+    <h1>
+      GPIO<br>
+      <small></small>
+    </h1>
+  </div>
+</div>
+<div class='accordion' id='accordion'>
+  <hr>
+  <div class='pull-right small'>
+    <a href='./digital_write.html'> >>> </a>
+  </div>
+  <div>
+    <h2>
+      <a href='#description-index'
+        class='accordion-toggle'
+        data-toggle='collapse'
+        data-parent='#accordion'>
+         digitalWrite
+      </a><br>
+      <small>Set the digital value of a GPIO or a number of GPIOs</small>
+    </h2>
+  </div>
+  <div id='description-index' class='collapse accordion-body'>
+    <h3>Examples</h3>
+    <pre class="prettyprint">digitalWrite(GPIO_PF2, true); /* Turn on PF2 */
+digitalWrite([GPIO_PF1, GPIO_PF2, GPIO_PF3], 0x5); /* Turn on PF1 & PF3 */</pre>
+<h2>Params</h2>
+<table class='table'>
+  <thead>
+    <tr>
+      <th>Parameter name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <strong>pin[s]</strong><br>
+      </td>
+      <td>
+        <p>Single GPIO ID or array of GPIO IDs</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong>value</strong><br>
+      </td>
+      <td>
+        <p>Boolean for a single GPIO
+In case of an array, value is considered an integer where the
+first array element maps to the MSB</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+  <hr>
+  <div class='pull-right small'>
+    <a href='./digital_pulse.html'> >>> </a>
+  </div>
+  <div>
+    <h2>
+      <a href='#description-index'
+        class='accordion-toggle'
+        data-toggle='collapse'
+        data-parent='#accordion'>
+         digitalPulse
+      </a><br>
+      <small>Create a digital pulse on a GPIO pin for a given period</small>
+    </h2>
+  </div>
+  <div id='description-index' class='collapse accordion-body'>
+    <h3>Examples</h3>
+    <pre class="prettyprint">digitalPulse(GPIO_PF2, true, 0.1);</pre>
+<h2>Params</h2>
+<table class='table'>
+  <thead>
+    <tr>
+      <th>Parameter name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <strong>pin</strong><br>
+      </td>
+      <td>
+        <p>GPIO pin ID</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong>value</strong><br>
+      </td>
+      <td>
+        <p>Boolean</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong>ms</strong><br>
+      </td>
+      <td>
+        <p>Pulse period in milliseconds</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+</div>
+      </div>
+    </div>
+    <hr>
+    <footer>
+    </footer>
+  </div>
+  <script type='text/javascript' src='http://code.jquery.com/jquery-1.9.1.min.js'></script>
+  <script type='text/javascript' src='./apidoc/javascripts/bundled/bootstrap-collapse.js'></script>
+<script type='text/javascript' src='https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?lang=css&skin=desert'></script>
+</body>
+</html>
