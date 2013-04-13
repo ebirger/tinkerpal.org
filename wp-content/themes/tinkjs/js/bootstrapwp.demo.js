@@ -72,6 +72,17 @@
     });
 
     $("#toc").tocify({context : '#doc', scrollTo: 20, selectors : "h1, h2"});
- });
+
+    /* Scroll iframe to top if needed */
+    $(function (){
+	    var iframe = $('iframe').first();
+	    iframe.on('load', function(){frameScroll(iframe);})
+	    });
+
+    function frameScroll(item) {
+	item[0].scrollIntoView();
+	window.scrollBy(0,-50);
+    }
+  });
 
 }(window.jQuery);
