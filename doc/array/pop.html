@@ -23,40 +23,21 @@
     <span class='divider'>/</span>
   </li>
   <li class='active'>
-    <a href='push.html'>push</a>
+    <a href='pop.html'>pop</a>
   </li>
 </ul>
 <div>
   <div class='page-header'>
     <h1>
-      push(item1 [, item2 [, ...] ])<br>      <small>The arguments are appended to the end of the array, in the order in which they appear</small>
+      pop()<br>      <small>The last element of the array is removed from the array and returned</small>
     </h1>
   </div>
 <div>
 <h2>Example</h2>
-<pre class="prettyprint">var a = [];
-a.push(1);</pre>
-<h2>Params</h2>
-<table class='table'>
-  <thead>
-    <tr>
-      <th>Parameter name</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <strong>item1 [, item2 [, ...] ]</strong><br>
-      </td>
-      <td>
-        <p>object[s] to be added</p>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<pre class="prettyprint">var a = [ 2, 1 ];
+var one = a.pop();</pre>
 <h2>Return Value</h2>
-The new length of the array
+Popped object
       </div>
     </div>
     <hr>

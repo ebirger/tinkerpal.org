@@ -23,19 +23,19 @@
     <span class='divider'>/</span>
   </li>
   <li class='active'>
-    <a href='push.html'>push</a>
+    <a href='foreach.html'>forEach</a>
   </li>
 </ul>
 <div>
   <div class='page-header'>
     <h1>
-      push(item1 [, item2 [, ...] ])<br>      <small>The arguments are appended to the end of the array, in the order in which they appear</small>
+      forEach(cb, this)<br>      <small>Calls cb once for each element present in the array, in ascending order</small>
     </h1>
   </div>
 <div>
 <h2>Example</h2>
-<pre class="prettyprint">var a = [];
-a.push(1);</pre>
+<pre class="prettyprint">var a = [ 1, 2, 3];
+a.forEach(function(value, k, obj) { debug.dump(value + ' [' + k + '] ' + ' @ ' + obj); });</pre>
 <h2>Params</h2>
 <table class='table'>
   <thead>
@@ -47,16 +47,27 @@ a.push(1);</pre>
   <tbody>
     <tr>
       <td>
-        <strong>item1 [, item2 [, ...] ]</strong><br>
+        <strong>cb</strong><br>
       </td>
       <td>
-        <p>object[s] to be added</p>
+        <p>function that accepts three arguments:
+Value of the element, 
+Index of the element, 
+The object being traversed</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong>this</strong><br>
+      </td>
+      <td>
+        <p>[optional] if provided, used as the 'this' value for each invocation of 'cb'. If not provided, 'undefined' is used</p>
       </td>
     </tr>
   </tbody>
 </table>
 <h2>Return Value</h2>
-The new length of the array
+undefined
       </div>
     </div>
     <hr>
