@@ -21,7 +21,7 @@
 <div>API description</div>
 <h1 class='page-header'>Functions</h1>
 <h2>
-  <a href='./global_env/global_env.html'>Global</a></br>
+  <a href='./global/global.html'>Global</a></br>
   <small></small>
 </h2>
 <table class='table'>
@@ -33,37 +33,55 @@
   </thead>
   <tbody>
     <tr>
-      <td><a href='./global_env/set_timeout.html'>setTimeout</a></td>
-      <td width='60%'>Schedule 'cb' to run in ms milliseconds</td>
-    </tr>
-    <tr>
-      <td><a href='./global_env/set_interval.html'>setInterval</a></td>
-      <td width='60%'>Schedule 'cb' to run periodically every ms milliseconds</td>
-    </tr>
-    <tr>
-      <td><a href='./global_env/clear_timeout.html'>clearTimeout</a></td>
-      <td width='60%'>Cancel timeout timer if timeout hadn't expired</td>
-    </tr>
-    <tr>
-      <td><a href='./global_env/clear_interval.html'>clearInterval</a></td>
-      <td width='60%'>Cancel periodic timer</td>
-    </tr>
-    <tr>
-      <td><a href='./global_env/get_time.html'>getTime</a></td>
-      <td width='60%'>Get number of seconds since system startup</td>
-    </tr>
-    <tr>
-      <td><a href='./global_env/eval.html'>eval</a></td>
+      <td><a href='./global/eval.html'>eval</a></td>
       <td width='60%'>Evaluate the given String</td>
     </tr>
     <tr>
-      <td><a href='./global_env/to_integer.html'>toInteger</a></td>
+      <td><a href='./global/toInteger.html'>toInteger</a></td>
       <td width='60%'>Convert the given object to an integer value</td>
+    </tr>
+    <tr>
+      <td><a href='./global/meminfo.html'>meminfo</a></td>
+      <td width='60%'>Prints platform dependent memory information</td>
     </tr>
   </tbody>
 </table>
 <h2>
-  <a href='./debug/debug.html'>Debug</a></br>
+  <a href='./timers/timers.html'>Timer Functions</a></br>
+  <small></small>
+</h2>
+<table class='table'>
+  <thead>
+    <tr>
+      <th>Function</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href='./timers/setTimeout.html'>setTimeout</a></td>
+      <td width='60%'>Schedule 'cb' to run in ms milliseconds</td>
+    </tr>
+    <tr>
+      <td><a href='./timers/setInterval.html'>setInterval</a></td>
+      <td width='60%'>Schedule 'cb' to run periodically every ms milliseconds</td>
+    </tr>
+    <tr>
+      <td><a href='./timers/clearTimeout.html'>clearTimeout</a></td>
+      <td width='60%'>Cancel timeout timer if timeout hadn't expired</td>
+    </tr>
+    <tr>
+      <td><a href='./timers/clearInterval.html'>clearInterval</a></td>
+      <td width='60%'>Cancel periodic timer</td>
+    </tr>
+    <tr>
+      <td><a href='./timers/getTime.html'>getTime</a></td>
+      <td width='60%'>Get number of seconds since system startup</td>
+    </tr>
+  </tbody>
+</table>
+<h2>
+  <a href='./debug/debug.html'>debug</a></br>
   <small></small>
 </h2>
 <table class='table'>
@@ -85,6 +103,10 @@
     <tr>
       <td><a href='./debug/dump.html'>dump</a></td>
       <td width='60%'>Dump object to the console</td>
+    </tr>
+    <tr>
+      <td><a href='./debug/dump_env.html'>dump_env</a></td>
+      <td width='60%'>Dump global environment information to the console</td>
     </tr>
   </tbody>
 </table>
@@ -163,7 +185,7 @@
   </tbody>
 </table>
 <h2>
-  <a href='./function/function.html'>Function</a></br>
+  <a href='./module/module.html'>Module Functions</a></br>
   <small></small>
 </h2>
 <table class='table'>
@@ -175,13 +197,31 @@
   </thead>
   <tbody>
     <tr>
-      <td><a href='./function/call.html'>call</a></td>
+      <td><a href='./module/require.html'>require</a></td>
+      <td width='60%'>Searches for a module and evaluates its code</td>
+    </tr>
+  </tbody>
+</table>
+<h2>
+  <a href='./function_prototype/function_prototype.html'>Function</a></br>
+  <small></small>
+</h2>
+<table class='table'>
+  <thead>
+    <tr>
+      <th>Function</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href='./function_prototype/call.html'>call</a></td>
       <td width='60%'>Calls a function</td>
     </tr>
   </tbody>
 </table>
 <h2>
-  <a href='./array/array.html'>Array</a></br>
+  <a href='./array_prototype/array_prototype.html'>Array</a></br>
   <small></small>
 </h2>
 <table class='table'>
@@ -193,33 +233,33 @@
   </thead>
   <tbody>
     <tr>
-      <td><a href='./array/push.html'>push</a></td>
+      <td><a href='./array_prototype/push.html'>push</a></td>
       <td width='60%'>The arguments are appended to the end of the array, in the order in which they appear</td>
     </tr>
     <tr>
-      <td><a href='./array/pop.html'>pop</a></td>
+      <td><a href='./array_prototype/pop.html'>pop</a></td>
       <td width='60%'>The last element of the array is removed from the array and returned</td>
     </tr>
     <tr>
-      <td><a href='./array/foreach.html'>forEach</a></td>
+      <td><a href='./array_prototype/forEach.html'>forEach</a></td>
       <td width='60%'>Calls cb once for each element present in the array, in ascending order</td>
     </tr>
     <tr>
-      <td><a href='./array/indexof.html'>indexOf</a></td>
+      <td><a href='./array_prototype/indexOf.html'>indexOf</a></td>
       <td width='60%'>Searches for searchElement in the elements of the array</td>
     </tr>
     <tr>
-      <td><a href='./array/join.html'>join</a></td>
+      <td><a href='./array_prototype/join.html'>join</a></td>
       <td width='60%'>Joins the string coversions of the elements of the array separated by occurrences of the separator</td>
     </tr>
     <tr>
-      <td><a href='./array/map.html'>map</a></td>
+      <td><a href='./array_prototype/map.html'>map</a></td>
       <td width='60%'>Calls cb once for each element present in the array, in ascending order, and constructs a new Array from the results</td>
     </tr>
   </tbody>
 </table>
 <h2>
-  <a href='./string/string.html'>String</a></br>
+  <a href='./object_prototype/object_prototype.html'>Object</a></br>
   <small></small>
 </h2>
 <table class='table'>
@@ -231,23 +271,41 @@
   </thead>
   <tbody>
     <tr>
-      <td><a href='./string/split.html'>split</a></td>
+      <td><a href='./object_prototype/toString.html'>toString</a></td>
+      <td width='60%'>The object is converted to a string</td>
+    </tr>
+  </tbody>
+</table>
+<h2>
+  <a href='./string_prototype/string_prototype.html'>String</a></br>
+  <small></small>
+</h2>
+<table class='table'>
+  <thead>
+    <tr>
+      <th>Function</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href='./string_prototype/split.html'>split</a></td>
       <td width='60%'>Breaks a string into substrings based on occurences of 'separator'</td>
     </tr>
     <tr>
-      <td><a href='./string/indexof.html'>indexOf</a></td>
+      <td><a href='./string_prototype/indexOf.html'>indexOf</a></td>
       <td width='60%'>Search for occurences of 'searchString' in a given string</td>
     </tr>
     <tr>
-      <td><a href='./string/substring.html'>substring</a></td>
+      <td><a href='./string_prototype/substring.html'>substring</a></td>
       <td width='60%'>Creates a new string based on a subset of a given string</td>
     </tr>
     <tr>
-      <td><a href='./string/char_at.html'>charAt</a></td>
+      <td><a href='./string_prototype/charAt.html'>charAt</a></td>
       <td width='60%'>Creates a new string containing the character at a position</td>
     </tr>
     <tr>
-      <td><a href='./string/char_code_at.html'>charCodeAt</a></td>
+      <td><a href='./string_prototype/charCodeAt.html'>charCodeAt</a></td>
       <td width='60%'>Get the ASCII value of the character at a position</td>
     </tr>
   </tbody>
@@ -265,17 +323,17 @@
   </thead>
   <tbody>
     <tr>
-      <td><a href='./fs/read_file_sync.html'>readFileSync</a></td>
+      <td><a href='./fs/readFileSync.html'>readFileSync</a></td>
       <td width='60%'>Synchronously reads the entire contents of a file</td>
     </tr>
     <tr>
-      <td><a href='./fs/readdir_sync.html'>readdirSync</a></td>
+      <td><a href='./fs/readdirSync.html'>readdirSync</a></td>
       <td width='60%'>Synchronously reads the directory listing of a path</td>
     </tr>
   </tbody>
 </table>
 <h2>
-  <a href='./gpio/gpio.html'>GPIO</a></br>
+  <a href='./gpio/gpio.html'>GPIO Functions</a></br>
   <small></small>
 </h2>
 <table class='table'>
@@ -287,27 +345,27 @@
   </thead>
   <tbody>
     <tr>
-      <td><a href='./gpio/digital_write.html'>digitalWrite</a></td>
+      <td><a href='./gpio/digitalWrite.html'>digitalWrite</a></td>
       <td width='60%'>Set the digital value of a GPIO or a number of GPIOs</td>
     </tr>
     <tr>
-      <td><a href='./gpio/digital_pulse.html'>digitalPulse</a></td>
+      <td><a href='./gpio/digitalPulse.html'>digitalPulse</a></td>
       <td width='60%'>Create a digital pulse on a GPIO pin for a given period</td>
     </tr>
     <tr>
-      <td><a href='./gpio/digital_read.html'>digitalRead</a></td>
+      <td><a href='./gpio/digitalRead.html'>digitalRead</a></td>
       <td width='60%'>Read the digital state of a GPIO pin or a number of pins</td>
     </tr>
     <tr>
-      <td><a href='./gpio/analog_write.html'>analogWrite</a></td>
+      <td><a href='./gpio/analogWrite.html'>analogWrite</a></td>
       <td width='60%'>Set the analog value of a GPIO pin</td>
     </tr>
     <tr>
-      <td><a href='./gpio/analog_read.html'>analogRead</a></td>
+      <td><a href='./gpio/analogRead.html'>analogRead</a></td>
       <td width='60%'>Read the analog value of a GPIO pin</td>
     </tr>
     <tr>
-      <td><a href='./gpio/set_watch.html'>setWatch</a></td>
+      <td><a href='./gpio/setWatch.html'>setWatch</a></td>
       <td width='60%'>Calls a callback function whenever the GPIO pin changes state</td>
     </tr>
   </tbody>
@@ -325,42 +383,24 @@
   </thead>
   <tbody>
     <tr>
-      <td><a href='./serial/serial_enable.html'>enable</a></td>
+      <td><a href='./serial/enable.html'>enable</a></td>
       <td width='60%'>Enable a serial port</td>
     </tr>
     <tr>
-      <td><a href='./serial/serial_disable.html'>disable</a></td>
+      <td><a href='./serial/disable.html'>disable</a></td>
       <td width='60%'>Disable a serial port</td>
     </tr>
     <tr>
-      <td><a href='./serial/serial_print.html'>print</a></td>
+      <td><a href='./serial/print.html'>print</a></td>
       <td width='60%'>Prints string</td>
     </tr>
     <tr>
-      <td><a href='./serial/serial_on_data.html'>onData</a></td>
+      <td><a href='./serial/onData.html'>onData</a></td>
       <td width='60%'>Calls 'cb' when data is available on serial port</td>
     </tr>
     <tr>
-      <td><a href='./serial/serial_set_console.html'>setConsole</a></td>
+      <td><a href='./serial/setConsole.html'>setConsole</a></td>
       <td width='60%'>Sets tink.js console to the given serial port</td>
-    </tr>
-  </tbody>
-</table>
-<h2>
-  <a href='./platform/platform.html'>Platform</a></br>
-  <small></small>
-</h2>
-<table class='table'>
-  <thead>
-    <tr>
-      <th>Function</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href='./platform/meminfo.html'>meminfo</a></td>
-      <td width='60%'>Prints platform dependent memory information</td>
     </tr>
   </tbody>
 </table>
