@@ -1,6 +1,6 @@
 1. Overview
 =============
-tink.js is a lightweight Javascript interpreter designed for low cost, low power
+tink.js is a lightweight JavaScript interpreter designed for low cost, low power
 microcontrollers (MCUs) allowing rapid prototyping of embedded projects
 
 2. Supported Boards
