@@ -34,8 +34,10 @@
   </div>
 <div>
 <h2>Example</h2>
-<pre class="prettyprint">function fun(x) { return x; }
-var one = fun.call(undefined, 1);</pre>
+<pre class="prettyprint">function fun() { this.prop = 'prop' }
+var obj = {};
+fun.call(obj);
+obj; // { prop : 'prop' }</pre>
 <h2>Params</h2>
 <table class='table'>
   <thead>
