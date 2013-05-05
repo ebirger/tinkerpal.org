@@ -1,5 +1,5 @@
 CATEGORY(timers, global_env, {
-    .display_name = "Timer Functions",
+    .display_name = "Timer",
 })
 
 FUNCTION("setTimeout", timers, do_set_timeout, {
@@ -254,7 +254,7 @@ FUNCTION("pow", math, do_pow, {
 })
 /* XXX: this needs a lot more details */
 CATEGORY(module, global_env, {
-    .display_name = "Module Functions",
+    .display_name = "Module",
 })
 
 FUNCTION("require", module, do_require, {
@@ -276,10 +276,12 @@ FUNCTION("call", function_prototype, do_function_prototype_call, {
        { .name = "arg1, arg2, ...", .description = "[optional] arguments to "
            "pass to function" },
      },
-    .description = "Calls a function",
+    .description = "Invoke function call",
     .return_value = "The function's return value",
-    .example = "function fun(x) { return x; }\n"
-        "var one = fun.call(undefined, 1);",
+    .example = "function fun() { this.prop = 'prop' }\n"
+        "var obj = {};\n"
+	"fun.call(obj);\n"
+	"obj; // { prop : 'prop' }",
 })
 CLASS_PROTOTYPE("Array", array_prototype, object_prototype, array_class, {
 })
@@ -483,7 +485,7 @@ FUNCTION("readdirSync", fs, do_readdir_sync, {
     .example = "var s = fs.readdirSync('FAT/');",
 })
 CATEGORY(gpio, global_env, {
-    .display_name = "GPIO Functions",
+    .display_name = "GPIO",
 })
 
 FUNCTION("digitalWrite", gpio, do_digital_write, {
