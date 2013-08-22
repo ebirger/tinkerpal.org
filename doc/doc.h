@@ -596,7 +596,7 @@ FUNCTION("onData", serial, do_serial_on_data, {
 
 FUNCTION("setConsole", serial, do_serial_set_console, {
     .params = { },
-    .description = "Sets tink.js console to the given serial port",
+    .description = "Sets TinkerPal console to the given serial port",
     .return_value = "None",
     .example = "var s = new Serial(UART1);\n"
         "s.setConsole",
@@ -605,6 +605,29 @@ PROTOTYPE("MMC", mmc, {
 })
 
 CONSTRUCTOR("MMC", mmc, do_mmc_constructor)
+PROTOTYPE("SPI", spi, {
+})
+
+CONSTRUCTOR("SPI", spi, do_spi_constructor)
+
+FUNCTION("send", spi, do_spi_send, {
+    .params = {
+        { .name = "data" , .description = "Data to be sent on SPI (integer)" }
+    },
+    .description = "Sends data via SPI bus",
+    .return_value = "None",
+    .example = "var s = new SPI(SPI1);\n"
+        "s.send([ 0x0f, 0x0f]);",
+})
+
+FUNCTION("receive", spi, do_spi_receive, {
+    .params = {
+    },
+    .description = "Reads data via SPI bus (dummy data is sent)",
+    .return_value = "Integer - value read",
+    .example = "var s = new SPI(SPI1);\n"
+        "var data = s.receive();",
+})
 FUNCTION("meminfo", global_env, do_meminfo, {
     .params = { },
     .description = "Prints platform dependent memory information",

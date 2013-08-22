@@ -19,51 +19,25 @@
     <span class='divider'>/</span>
   </li>
   <li>
-   <a href='../math/math.html'>Math</a>
+   <a href='../spi/spi.html'>SPI</a>
     <span class='divider'>/</span>
   </li>
   <li class='active'>
-    pow
+    receive
   </li>
 </ul>
 <div>
   <div class='page-header'>
     <h1>
-      Math.pow(x, y)<br>      <small>Power function</small>
+      SPI.receive()<br>      <small>Reads data via SPI bus (dummy data is sent)</small>
     </h1>
   </div>
 <div>
 <h2>Example</h2>
-<pre class="prettyprint">var hundred = Math.pow(10, 2);</pre>
-<h2>Params</h2>
-<table class='table'>
-  <thead>
-    <tr>
-      <th>Parameter name</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <strong>x</strong><br>
-      </td>
-      <td>
-        <p>number</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <strong>y</strong><br>
-      </td>
-      <td>
-        <p>number</p>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<pre class="prettyprint">var s = new SPI(SPI1);
+var data = s.receive();</pre>
 <h2>Return Value</h2>
-x to the power of y
+Integer - value read
       </div>
     </div>
     <hr>
