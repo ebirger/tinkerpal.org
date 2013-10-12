@@ -19,13 +19,13 @@
     <span class='divider'>/</span>
   </li>
   <li class='active'>
-    File System
+    Graphics
   </li>
 </ul>
 <div>
   <div class='page-header'>
     <h1>
-      File System<br>
+      Graphics<br>
       <small></small>
     </h1>
   </div>
@@ -33,7 +33,7 @@
 <div class='accordion' id='accordion'>
   <hr>
   <div class='pull-right small'>
-    <a href='./readFileSync.html'> >>> </a>
+    <a href='./stringDraw.html'> >>> </a>
   </div>
   <div>
     <h2>
@@ -41,14 +41,16 @@
         class='accordion-toggle'
         data-toggle='collapse'
         data-parent='#accordion'>
-         readFileSync
+         stringDraw
       </a><br>
-      <small>Synchronously reads the entire contents of a file</small>
+      <small>Prints string on LCD</small>
     </h2>
   </div>
   <div id='description-index' class='collapse accordion-body'>
     <h3>Examples</h3>
-    <pre class="prettyprint">var s = fs.readFileSync('FAT/file.txt');</pre>
+    <pre class="prettyprint">var lcd = new Dogs102x6();
+var g = new Graphics(lcd);
+g.stringDraw(0, 0, 'Hello World!');</pre>
 <h2>Params</h2>
 <table class='table'>
   <thead>
@@ -60,10 +62,26 @@
   <tbody>
     <tr>
       <td>
-        <strong>path</strong><br>
+        <strong>x</strong><br>
       </td>
       <td>
-        <p>File Path</p>
+        <p>X coordinate</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong>y</strong><br>
+      </td>
+      <td>
+        <p>Y coordinate</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong>str</strong><br>
+      </td>
+      <td>
+        <p>String to be drawn</p>
       </td>
     </tr>
   </tbody>
@@ -71,7 +89,7 @@
   </div>
   <hr>
   <div class='pull-right small'>
-    <a href='./readdirSync.html'> >>> </a>
+    <a href='./circleDraw.html'> >>> </a>
   </div>
   <div>
     <h2>
@@ -79,14 +97,16 @@
         class='accordion-toggle'
         data-toggle='collapse'
         data-parent='#accordion'>
-         readdirSync
+         circleDraw
       </a><br>
-      <small>Synchronously reads the directory listing of a path</small>
+      <small>Draws a circle on LCD</small>
     </h2>
   </div>
   <div id='description-index' class='collapse accordion-body'>
     <h3>Examples</h3>
-    <pre class="prettyprint">var s = fs.readdirSync('FAT/');</pre>
+    <pre class="prettyprint">var lcd = new Dogs102x6();
+var g = new Graphics(lcd);
+g.circleDraw(20, 20, 10);</pre>
 <h2>Params</h2>
 <table class='table'>
   <thead>
@@ -98,10 +118,26 @@
   <tbody>
     <tr>
       <td>
-        <strong>path</strong><br>
+        <strong>x</strong><br>
       </td>
       <td>
-        <p>Directory Path</p>
+        <p>X coordinate</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong>y</strong><br>
+      </td>
+      <td>
+        <p>Y coordinate</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong>radius</strong><br>
+      </td>
+      <td>
+        <p>Circle Radius</p>
       </td>
     </tr>
   </tbody>

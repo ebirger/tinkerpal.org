@@ -15,7 +15,7 @@
       <div id='container'>
 <ul class='breadcrumb'>
   <li>
-   <a href='../index.html'>TinkerPal 0.1.0 API</a>
+   <a href='../index.html'>TinkerPal 0.1.1 API</a>
     <span class='divider'>/</span>
   </li>
   <li class='active'>
@@ -63,7 +63,7 @@ obj; // { prop : 'prop' }</pre>
   <tbody>
     <tr>
       <td>
-        <strong>this</strong><br>
+        <strong>thisArg</strong><br>
       </td>
       <td>
         <p>The 'this' value on function invokation</p>
@@ -75,6 +75,47 @@ obj; // { prop : 'prop' }</pre>
       </td>
       <td>
         <p>[optional] arguments to pass to function</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+  <hr>
+  <div class='pull-right small'>
+    <a href='./bind.html'> >>> </a>
+  </div>
+  <div>
+    <h2>
+      <a href='#description-index'
+        class='accordion-toggle'
+        data-toggle='collapse'
+        data-parent='#accordion'>
+         bind
+      </a><br>
+      <small>Returns a new Function object based on the current function object, but the 'this' value is bound to thisArg</small>
+    </h2>
+  </div>
+  <div id='description-index' class='collapse accordion-body'>
+    <h3>Examples</h3>
+    <pre class="prettyprint">function fun() { return this.prop; }
+var f = fun.bind({ prop : 1});
+f(); // 1
+</pre>
+<h2>Params</h2>
+<table class='table'>
+  <thead>
+    <tr>
+      <th>Parameter name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <strong>thisArg</strong><br>
+      </td>
+      <td>
+        <p>The 'this' value on function invokation</p>
       </td>
     </tr>
   </tbody>
