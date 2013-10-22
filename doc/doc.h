@@ -265,14 +265,30 @@ FUNCTION("require", module, do_require, {
     .return_value = "The module's 'exports' property",
     .example = "var as = require('assert');",
 })
-CLASS_PROTOTYPE("Function", function_prototype, object_prototype, function_class, {
+CLASS_PROTOTYPE("ArrayBuffer", array_buffer_prototype, object_prototype,
+    ARRAY_BUFFER_CLASS, {
+})
+
+CLASS_PROTOTYPE("ArrayBufferView", array_buffer_view_prototype, object_prototype,
+    ARRAY_BUFFER_VIEW_CLASS, {
+})
+
+CONSTRUCTOR("ArrayBuffer", array_buffer_prototype, do_array_buffer_constructor)
+
+CONSTRUCTOR("Int8Array", array_buffer_view_prototype, do_int8array_constructor)
+CONSTRUCTOR("Uint8Array", array_buffer_view_prototype, do_uint8array_constructor)
+CONSTRUCTOR("Int16Array", array_buffer_view_prototype, do_int16array_constructor)
+CONSTRUCTOR("Uint16Array", array_buffer_view_prototype, do_uint16array_constructor)
+CONSTRUCTOR("Int32Array", array_buffer_view_prototype, do_int32array_constructor)
+CONSTRUCTOR("Uint32Array", array_buffer_view_prototype, do_uint32array_constructor)
+CLASS_PROTOTYPE("Function", function_prototype, object_prototype, FUNCTION_CLASS, {
 })
 
 CONSTRUCTOR("Function", function_prototype, do_function_constructor)
 
 FUNCTION("call", function_prototype, do_function_prototype_call, { 
     .params = { 
-       { .name = "this", .description = "The 'this' value on function invokation" },
+       { .name = "thisArg", .description = "The 'this' value on function invocation" },
        { .name = "arg1, arg2, ...", .description = "[optional] arguments to "
            "pass to function" },
      },
@@ -283,7 +299,31 @@ FUNCTION("call", function_prototype, do_function_prototype_call, {
 	"fun.call(obj);\n"
 	"obj; // { prop : 'prop' }",
 })
-CLASS_PROTOTYPE("Array", array_prototype, object_prototype, array_class, {
+
+FUNCTION("apply", function_prototype, do_function_prototype_apply, { 
+    .params = { 
+       { .name = "thisArg", .description = "The 'this' value on function invocation" },
+       { .name = "argArray", .description = "[optional] Array of arguments to "
+           "pass to function" },
+     },
+    .description = "Invoke function call",
+    .return_value = "The function's return value",
+    .example = "function fun(a, b) { return a + b; }\n"
+	"fun.apply(undefined, [1, 2]); // 3 \n"
+})
+
+FUNCTION("bind", function_prototype, do_function_prototype_bind, { 
+    .params = { 
+       { .name = "thisArg", .description = "The 'this' value on function invokation" },
+     },
+    .description = "Returns a new Function object based on the current "
+      "function object, but the 'this' value is bound to thisArg",
+    .return_value = "A new Function object",
+    .example = "function fun() { return this.prop; }\n"
+        "var f = fun.bind({ prop : 1});\n"
+	"f(); // 1\n",
+})
+CLASS_PROTOTYPE("Array", array_prototype, object_prototype, ARRAY_CLASS, {
 })
 
 CONSTRUCTOR("Array", array_prototype, do_array_constructor)
@@ -326,7 +366,7 @@ FUNCTION("forEach", array_prototype, do_array_prototype_foreach, {
     .description = "Calls cb once for each element present in the "
           "array, in ascending order",
     .return_value = "undefined",
-    .example = "var a = [ 1, 2, 3];\n"
+    .example = "var a = [ 1, 2, 3 ];\n"
 	"a.forEach(function(value, k, obj) { debug.dump(value + ' [' + k + '] ' + ' @ ' + obj); });",
 })
 
@@ -338,7 +378,7 @@ FUNCTION("indexOf", array_prototype, do_array_prototype_indexof, {
     .description = "Searches for searchElement in the elements of the array",
     .return_value = "if found at one or more positions, returns the index of "
          "the first such position (zero based); otherwise, -1 is returned",
-    .example = "var a = [ 1, 2, 3];\n"
+    .example = "var a = [ 1, 2, 3 ];\n"
 	"var one = a.indexOf(2);\n",
 })
 
@@ -351,7 +391,7 @@ FUNCTION("join", array_prototype, do_array_prototype_join, {
         "separated by occurrences of the separator",
     .return_value = "The resulted string",
          "the first such position (zero based); otherwise, -1 is returned",
-    .example = "var a = [ 1, 2, 3];\n"
+    .example = "var a = [ 1, 2, 3 ];\n"
 	"debug.assert(a.join('-'), '1-2-3');\n",
 })
 
@@ -374,22 +414,22 @@ FUNCTION("map", array_prototype, do_array_prototype_map, {
     .description = "Calls cb once for each element present in the array, "
         "in ascending order, and constructs a new Array from the results",
     .return_value = "The constructed array",
-    .example = "var a = [ 1, 2, 3];\n"
+    .example = "var a = [ 1, 2, 3 ];\n"
 	"var b = a.map(function(value, k, obj) { return value + 1 });\n"
 	"debug.assert(b, [ 2, 3, 4]);",
 })
-CLASS_PROTOTYPE("Number", num_prototype, object_prototype, num_class, {
+CLASS_PROTOTYPE("Number", num_prototype, object_prototype, NUM_CLASS, {
 })
 
-CLASS_PROTOTYPE("Undefined", undefined_prototype, object_prototype, undefined_class, {
+CLASS_PROTOTYPE("Undefined", undefined_prototype, object_prototype, UNDEFINED_CLASS, {
 })
 
-CLASS_PROTOTYPE("Null", null_prototype, object_prototype, null_class, {
+CLASS_PROTOTYPE("Null", null_prototype, object_prototype, NULL_CLASS, {
 })
 
-CLASS_PROTOTYPE("Bool", bool_prototype, object_prototype, bool_class, {
+CLASS_PROTOTYPE("Bool", bool_prototype, object_prototype, BOOL_CLASS, {
 })
-CLASS_PROTOTYPE("Object", object_prototype, NULL, object_class, {
+CLASS_PROTOTYPE("Object", object_prototype, NULL, OBJECT_CLASS, {
 })
 
 CONSTRUCTOR("Object", object_prototype, do_object_constructor)
@@ -401,7 +441,7 @@ FUNCTION("toString", object_prototype, do_object_prototype_to_string, {
     .example = "var a = 1;\n"
         "debug.assert(a.toString(), '1');",
 })
-CLASS_PROTOTYPE("String", string_prototype, object_prototype, string_class, {
+CLASS_PROTOTYPE("String", string_prototype, object_prototype, STRING_CLASS, {
 })
 
 CONSTRUCTOR("String", string_prototype, do_string_constructor)
@@ -554,6 +594,37 @@ FUNCTION("setWatch", gpio, do_set_watch, {
     .return_value = "Event ID",
     .example = "setWatch(function() { debug.dump('button changed state'); }, GPIO_PF0);",
 })
+#define TpixelDraw "pixelDraw"
+PROTOTYPE("Graphics", graphics, {
+})
+
+CONSTRUCTOR("Graphics", graphics, do_graphics_constructor)
+
+FUNCTION("stringDraw", graphics, do_graphics_string_draw, {
+    .params = {
+        { .name = "x" , .description = "X coordinate" },
+        { .name = "y" , .description = "Y coordinate" },
+        { .name = "str" , .description = "String to be drawn" }
+    },
+    .description = "Prints string on LCD",
+    .return_value = "None",
+    .example = "var lcd = new Dogs102x6();\n"
+        "var g = new Graphics(lcd);\n"
+        "g.stringDraw(0, 0, 'Hello World!');",
+})
+
+FUNCTION("circleDraw", graphics, do_graphics_circle_draw, {
+    .params = {
+        { .name = "x" , .description = "X coordinate" },
+        { .name = "y" , .description = "Y coordinate" },
+        { .name = "radius" , .description = "Circle Radius" }
+    },
+    .description = "Draws a circle on LCD",
+    .return_value = "None",
+    .example = "var lcd = new Dogs102x6();\n"
+        "var g = new Graphics(lcd);\n"
+        "g.circleDraw(20, 20, 10);",
+})
 PROTOTYPE("Serial", serial, {
 })
 
@@ -627,6 +698,24 @@ FUNCTION("receive", spi, do_spi_receive, {
     .return_value = "Integer - value read",
     .example = "var s = new SPI(SPI1);\n"
         "var data = s.receive();",
+})
+#include "drivers/graphics/painter.desc"
+
+PROTOTYPE("dogs102x6", dogs102x6, {
+})
+
+CONSTRUCTOR("Dogs102x6", dogs102x6, do_dogs102x6_constructor)
+
+FUNCTION(TpixelDraw, dogs102x6, do_dogs102x6_pixel_draw, {
+    .params = {
+        { .name = "x" , .description = "X coordinate" },
+        { .name = "y" , .description = "Y coordinate" },
+        { .name = "enable" , .description = "Draw/Erase" }
+    },
+    .description = "Draw a pixel on the screen",
+    .return_value = "None",
+    .example = "var l = new Dogs102x6();\n"
+        "l.pixelDraw(10, 10, 1);",
 })
 FUNCTION("meminfo", global_env, do_meminfo, {
     .params = { },

@@ -15,7 +15,7 @@
       <div id='container'>
 <ul class='breadcrumb'>
   <li>
-   <a href='../index.html'>TinkerPal 0.1.1 API</a>
+   <a href='../index.html'>TinkerPal 0.1.2 API</a>
     <span class='divider'>/</span>
   </li>
   <li class='active'>
@@ -66,7 +66,7 @@ obj; // { prop : 'prop' }</pre>
         <strong>thisArg</strong><br>
       </td>
       <td>
-        <p>The 'this' value on function invokation</p>
+        <p>The 'this' value on function invocation</p>
       </td>
     </tr>
     <tr>
@@ -75,6 +75,54 @@ obj; // { prop : 'prop' }</pre>
       </td>
       <td>
         <p>[optional] arguments to pass to function</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+  <hr>
+  <div class='pull-right small'>
+    <a href='./apply.html'> >>> </a>
+  </div>
+  <div>
+    <h2>
+      <a href='#description-index'
+        class='accordion-toggle'
+        data-toggle='collapse'
+        data-parent='#accordion'>
+         apply
+      </a><br>
+      <small>Invoke function call</small>
+    </h2>
+  </div>
+  <div id='description-index' class='collapse accordion-body'>
+    <h3>Examples</h3>
+    <pre class="prettyprint">function fun(a, b) { return a + b; }
+fun.apply(undefined, [1, 2]); // 3 
+</pre>
+<h2>Params</h2>
+<table class='table'>
+  <thead>
+    <tr>
+      <th>Parameter name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <strong>thisArg</strong><br>
+      </td>
+      <td>
+        <p>The 'this' value on function invocation</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong>argArray</strong><br>
+      </td>
+      <td>
+        <p>[optional] Array of arguments to pass to function</p>
       </td>
     </tr>
   </tbody>
