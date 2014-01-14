@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>API documentation</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <link type='text/css' rel='stylesheet' href='http://tinkerpal.org/wp-content/themes/tinkjs/css/bootstrapwp.css?ver=0.90'/>
+  <!-- IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div id='container'>
+<ul class='breadcrumb'>
+  <li>
+   <a href='../index.html'>TinkerPal 0.1.2 API</a>
+    <span class='divider'>/</span>
+  </li>
+  <li class='active'>
+    Etherif
+  </li>
+</ul>
+<div>
+  <div class='page-header'>
+    <h1>
+      Etherif<br>
+      <small></small>
+    </h1>
+  </div>
+</div>
+<div class='accordion' id='accordion'>
+  <hr>
+  <div class='pull-right small'>
+    <a href='./LinuxPacketEth_constructor.html'> >>> </a>
+  </div>
+  <div>
+    <h2>
+      <a href='#description-index'
+        class='accordion-toggle'
+        data-toggle='collapse'
+        data-parent='#accordion'>
+         LinuxPacketEth
+      </a><br>
+      <small>Linux Packet Ethernet Object Constructor</small>
+    </h2>
+  </div>
+  <div id='description-index' class='collapse accordion-body'>
+    <h3>Examples</h3>
+    <pre class="prettyprint">var enc = new LinuxPacketEth('eth0');
+console.log('link status: ' + enc.linkState ? 'connected' : 'disconnected');</pre>
+<h2>Params</h2>
+<table class='table'>
+  <thead>
+    <tr>
+      <th>Parameter name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <strong>Net Device</strong><br>
+      </td>
+      <td>
+        <p>Linux Network Interface Name</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+  <hr>
+  <div class='pull-right small'>
+    <a href='./ENC28J60_constructor.html'> >>> </a>
+  </div>
+  <div>
+    <h2>
+      <a href='#description-index'
+        class='accordion-toggle'
+        data-toggle='collapse'
+        data-parent='#accordion'>
+         ENC28J60
+      </a><br>
+      <small>ENC28J60 Ethernet Constructor</small>
+    </h2>
+  </div>
+  <div id='description-index' class='collapse accordion-body'>
+    <h3>Examples</h3>
+    <pre class="prettyprint">var enc = new ENC28J60(SPI0, GPIO_PF0, GPIO_PF1);
+console.log('link status: ' + enc.linkState ? 'connected' : 'disconnected');</pre>
+<h2>Params</h2>
+<table class='table'>
+  <thead>
+    <tr>
+      <th>Parameter name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <strong>SPI port</strong><br>
+      </td>
+      <td>
+        <p>SPI Port</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong>CS</strong><br>
+      </td>
+      <td>
+        <p>SPI Chip Select Pin</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong>Interrupt</strong><br>
+      </td>
+      <td>
+        <p>Interrupt Pin</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+  <hr>
+  <div class='pull-right small'>
+    <a href='./StellarisEth_constructor.html'> >>> </a>
+  </div>
+  <div>
+    <h2>
+      <a href='#description-index'
+        class='accordion-toggle'
+        data-toggle='collapse'
+        data-parent='#accordion'>
+         StellarisEth
+      </a><br>
+      <small>Stellaris Ethernet Object Constructor</small>
+    </h2>
+  </div>
+  <div id='description-index' class='collapse accordion-body'>
+    <h3>Examples</h3>
+    <pre class="prettyprint">var enc = new StellarisEth();
+console.log('link status: ' + enc.linkState ? 'connected' : 'disconnected');</pre>
+  </div>
+  <hr>
+  <div class='pull-right small'>
+    <a href='./packetRecv.html'> >>> </a>
+  </div>
+  <div>
+    <h2>
+      <a href='#description-index'
+        class='accordion-toggle'
+        data-toggle='collapse'
+        data-parent='#accordion'>
+         packetRecv
+      </a><br>
+      <small>Receive packet data</small>
+    </h2>
+  </div>
+  <div id='description-index' class='collapse accordion-body'>
+    <h3>Examples</h3>
+    <pre class="prettyprint">var e = new ENC28J60(SPI1, GPIO_PE3, GPIO_PF4);
+e.onPacketReceived(function() { console.log('packet size: ' + e.packetRecv().length); });
+</pre>
+  </div>
+  <hr>
+  <div class='pull-right small'>
+    <a href='./linkStatus.html'> >>> </a>
+  </div>
+  <div>
+    <h2>
+      <a href='#description-index'
+        class='accordion-toggle'
+        data-toggle='collapse'
+        data-parent='#accordion'>
+         linkStatus
+      </a><br>
+      <small>Get link status</small>
+    </h2>
+  </div>
+  <div id='description-index' class='collapse accordion-body'>
+    <h3>Examples</h3>
+    <pre class="prettyprint">var e = new ENC28J60(SPI1, GPIO_PE3, GPIO_PF4);
+console.log('link status: ' + e.linkStatus ? 'connected' : 'disconnected')
+</pre>
+  </div>
+  <hr>
+  <div class='pull-right small'>
+    <a href='./MACAddrGet.html'> >>> </a>
+  </div>
+  <div>
+    <h2>
+      <a href='#description-index'
+        class='accordion-toggle'
+        data-toggle='collapse'
+        data-parent='#accordion'>
+         MACAddrGet
+      </a><br>
+      <small>Get Interface MAC Address</small>
+    </h2>
+  </div>
+  <div id='description-index' class='collapse accordion-body'>
+    <h3>Examples</h3>
+    <pre class="prettyprint">var e = new ENC28J60(SPI1, GPIO_PE3, GPIO_PF4);
+console.log(e.MACAddrGet());
+</pre>
+  </div>
+  <hr>
+  <div class='pull-right small'>
+    <a href='./onPortChange.html'> >>> </a>
+  </div>
+  <div>
+    <h2>
+      <a href='#description-index'
+        class='accordion-toggle'
+        data-toggle='collapse'
+        data-parent='#accordion'>
+         onPortChange
+      </a><br>
+      <small>Calls 'cb' when link state has changed</small>
+    </h2>
+  </div>
+  <div id='description-index' class='collapse accordion-body'>
+    <h3>Examples</h3>
+    <pre class="prettyprint">var e = new ENC28J60(SPI1, GPIO_PE3, GPIO_PF4);
+e.onPortChange(function() { e.print('port state changed!'); });</pre>
+<h2>Params</h2>
+<table class='table'>
+  <thead>
+    <tr>
+      <th>Parameter name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <strong>cb</strong><br>
+      </td>
+      <td>
+        <p>callback function called when link status has changed</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+  <hr>
+  <div class='pull-right small'>
+    <a href='./onPacketReceived.html'> >>> </a>
+  </div>
+  <div>
+    <h2>
+      <a href='#description-index'
+        class='accordion-toggle'
+        data-toggle='collapse'
+        data-parent='#accordion'>
+         onPacketReceived
+      </a><br>
+      <small>Calls 'cb' when packet was received</small>
+    </h2>
+  </div>
+  <div id='description-index' class='collapse accordion-body'>
+    <h3>Examples</h3>
+    <pre class="prettyprint">var e = new ENC28J60(SPI1, GPIO_PE3, GPIO_PF4);
+e.onPacketReceived(function() { e.print('packet received!'); });</pre>
+<h2>Params</h2>
+<table class='table'>
+  <thead>
+    <tr>
+      <th>Parameter name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <strong>cb</strong><br>
+      </td>
+      <td>
+        <p>call function when packet was received</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+  <hr>
+  <div class='pull-right small'>
+    <a href='./onPacketXmit.html'> >>> </a>
+  </div>
+  <div>
+    <h2>
+      <a href='#description-index'
+        class='accordion-toggle'
+        data-toggle='collapse'
+        data-parent='#accordion'>
+         onPacketXmit
+      </a><br>
+      <small>Calls 'cb' when packet was transmitted</small>
+    </h2>
+  </div>
+  <div id='description-index' class='collapse accordion-body'>
+    <h3>Examples</h3>
+    <pre class="prettyprint">var e = new ENC28J60(SPI1, GPIO_PE3, GPIO_PF4);
+e.onPacketXmit(function() { e.print('packet transmitted!'); });</pre>
+<h2>Params</h2>
+<table class='table'>
+  <thead>
+    <tr>
+      <th>Parameter name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <strong>cb</strong><br>
+      </td>
+      <td>
+        <p>call function when packet was transmitted</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+</div>
+      </div>
+    </div>
+    <hr>
+    <footer>
+    </footer>
+  </div>
+  <script type='text/javascript' src='http://code.jquery.com/jquery-1.9.1.min.js'></script>
+<script type='text/javascript' src='https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?lang=css&skin=desert'></script>
+</body>
+</html>

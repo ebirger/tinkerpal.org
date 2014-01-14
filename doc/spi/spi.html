@@ -33,6 +33,45 @@
 <div class='accordion' id='accordion'>
   <hr>
   <div class='pull-right small'>
+    <a href='./SPI_constructor.html'> >>> </a>
+  </div>
+  <div>
+    <h2>
+      <a href='#description-index'
+        class='accordion-toggle'
+        data-toggle='collapse'
+        data-parent='#accordion'>
+         SPI
+      </a><br>
+      <small>SPI Object Constructor</small>
+    </h2>
+  </div>
+  <div id='description-index' class='collapse accordion-body'>
+    <h3>Examples</h3>
+    <pre class="prettyprint">var s = new SPI(SPI1);
+s.send(0xff);</pre>
+<h2>Params</h2>
+<table class='table'>
+  <thead>
+    <tr>
+      <th>Parameter name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <strong>Port ID</strong><br>
+      </td>
+      <td>
+        <p>HW SPI Port ID</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+  <hr>
+  <div class='pull-right small'>
     <a href='./send.html'> >>> </a>
   </div>
   <div>
@@ -49,7 +88,7 @@
   <div id='description-index' class='collapse accordion-body'>
     <h3>Examples</h3>
     <pre class="prettyprint">var s = new SPI(SPI1);
-s.send([ 0x0f, 0x0f]);</pre>
+s.send(0x1f);</pre>
 <h2>Params</h2>
 <table class='table'>
   <thead>

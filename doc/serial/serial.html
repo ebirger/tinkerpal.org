@@ -33,6 +33,45 @@
 <div class='accordion' id='accordion'>
   <hr>
   <div class='pull-right small'>
+    <a href='./Serial_constructor.html'> >>> </a>
+  </div>
+  <div>
+    <h2>
+      <a href='#description-index'
+        class='accordion-toggle'
+        data-toggle='collapse'
+        data-parent='#accordion'>
+         Serial
+      </a><br>
+      <small>Serial Constructor</small>
+    </h2>
+  </div>
+  <div id='description-index' class='collapse accordion-body'>
+    <h3>Examples</h3>
+    <pre class="prettyprint">var s = new Serial(UART1);
+s.print('Hello World!);</pre>
+<h2>Params</h2>
+<table class='table'>
+  <thead>
+    <tr>
+      <th>Parameter name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <strong>UART</strong><br>
+      </td>
+      <td>
+        <p>HW UART ID</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+  <hr>
+  <div class='pull-right small'>
     <a href='./enable.html'> >>> </a>
   </div>
   <div>
@@ -148,26 +187,6 @@ s.onData(function(e) { s.print(e.data); });</pre>
     </tr>
   </tbody>
 </table>
-  </div>
-  <hr>
-  <div class='pull-right small'>
-    <a href='./setConsole.html'> >>> </a>
-  </div>
-  <div>
-    <h2>
-      <a href='#description-index'
-        class='accordion-toggle'
-        data-toggle='collapse'
-        data-parent='#accordion'>
-         setConsole
-      </a><br>
-      <small>Sets TinkerPal console to the given serial port</small>
-    </h2>
-  </div>
-  <div id='description-index' class='collapse accordion-body'>
-    <h3>Examples</h3>
-    <pre class="prettyprint">var s = new Serial(UART1);
-s.setConsole</pre>
   </div>
 </div>
       </div>

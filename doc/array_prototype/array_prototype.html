@@ -33,6 +33,45 @@
 <div class='accordion' id='accordion'>
   <hr>
   <div class='pull-right small'>
+    <a href='./Array_constructor.html'> >>> </a>
+  </div>
+  <div>
+    <h2>
+      <a href='#description-index'
+        class='accordion-toggle'
+        data-toggle='collapse'
+        data-parent='#accordion'>
+         Array
+      </a><br>
+      <small>Array Constructor</small>
+    </h2>
+  </div>
+  <div id='description-index' class='collapse accordion-body'>
+    <h3>Examples</h3>
+    <pre class="prettyprint">var a = new Array(5);
+var b = new Array(1, 2, 3);</pre>
+<h2>Params</h2>
+<table class='table'>
+  <thead>
+    <tr>
+      <th>Parameter name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <strong>Length or [item1, item2, ..]</strong><br>
+      </td>
+      <td>
+        <p>Number of entries to Allocate or comma separated list of items to push to the new array</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+  <hr>
+  <div class='pull-right small'>
     <a href='./push.html'> >>> </a>
   </div>
   <div>
@@ -108,7 +147,7 @@ var one = a.pop();</pre>
   <div id='description-index' class='collapse accordion-body'>
     <h3>Examples</h3>
     <pre class="prettyprint">var a = [ 1, 2, 3 ];
-a.forEach(function(value, k, obj) { debug.dump(value + ' [' + k + '] ' + ' @ ' + obj); });</pre>
+a.forEach(function(value, k, obj) { console.log(value + ' [' + k + '] ' + ' @ ' + obj); });</pre>
 <h2>Params</h2>
 <table class='table'>
   <thead>
@@ -247,7 +286,7 @@ debug.assert(a.join('-'), '1-2-3');
     <h3>Examples</h3>
     <pre class="prettyprint">var a = [ 1, 2, 3 ];
 var b = a.map(function(value, k, obj) { return value + 1 });
-debug.assert(b, [ 2, 3, 4]);</pre>
+debug.assert(b, [ 2, 3, 4 ]);</pre>
 <h2>Params</h2>
 <table class='table'>
   <thead>
