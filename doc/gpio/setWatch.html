@@ -30,11 +30,7 @@
   <div class='page-header'>
     <h1>
       GPIO.setWatch(cb, pin, options)<br>      <small>Calls a function whenever the GPIO pin changes state
-The function may receive an object of type: 
-{
-     timestamp: int - in 1/10 ms resolution,
-     state: int - current pin state
-}</small>
+</small>
     </h1>
   </div>
 <div>
@@ -54,7 +50,12 @@ The function may receive an object of type:
         <strong>cb</strong><br>
       </td>
       <td>
-        <p>callback function</p>
+        <p>callback function:
+The function may receive an object of type:
+{
+     timestamp: int - in 1/10 ms resolution,
+     state: int - current pin state
+}</p>
       </td>
     </tr>
     <tr>

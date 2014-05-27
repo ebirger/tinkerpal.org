@@ -270,11 +270,7 @@ var a = digitalRead([GPIO_PF0, GPIO_PF1, GPIO_PF2</pre>
          setWatch
       </a><br>
       <small>Calls a function whenever the GPIO pin changes state
-The function may receive an object of type: 
-{
-     timestamp: int - in 1/10 ms resolution,
-     state: int - current pin state
-}</small>
+</small>
     </h2>
   </div>
   <div id='description-index' class='collapse accordion-body'>
@@ -294,7 +290,12 @@ The function may receive an object of type:
         <strong>cb</strong><br>
       </td>
       <td>
-        <p>callback function</p>
+        <p>callback function:
+The function may receive an object of type:
+{
+     timestamp: int - in 1/10 ms resolution,
+     state: int - current pin state
+}</p>
       </td>
     </tr>
     <tr>
