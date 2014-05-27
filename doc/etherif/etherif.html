@@ -33,45 +33,6 @@
 <div class='accordion' id='accordion'>
   <hr>
   <div class='pull-right small'>
-    <a href='./LinuxPacketEth_constructor.html'> >>> </a>
-  </div>
-  <div>
-    <h2>
-      <a href='#description-index'
-        class='accordion-toggle'
-        data-toggle='collapse'
-        data-parent='#accordion'>
-         LinuxPacketEth
-      </a><br>
-      <small>Linux Packet Ethernet Object Constructor</small>
-    </h2>
-  </div>
-  <div id='description-index' class='collapse accordion-body'>
-    <h3>Examples</h3>
-    <pre class="prettyprint">var enc = new LinuxPacketEth('eth0');
-console.log('link status: ' + enc.linkState ? 'connected' : 'disconnected');</pre>
-<h2>Params</h2>
-<table class='table'>
-  <thead>
-    <tr>
-      <th>Parameter name</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <strong>Net Device</strong><br>
-      </td>
-      <td>
-        <p>Linux Network Interface Name</p>
-      </td>
-    </tr>
-  </tbody>
-</table>
-  </div>
-  <hr>
-  <div class='pull-right small'>
     <a href='./ENC28J60_constructor.html'> >>> </a>
   </div>
   <div>
@@ -124,26 +85,6 @@ console.log('link status: ' + enc.linkState ? 'connected' : 'disconnected');</pr
     </tr>
   </tbody>
 </table>
-  </div>
-  <hr>
-  <div class='pull-right small'>
-    <a href='./StellarisEth_constructor.html'> >>> </a>
-  </div>
-  <div>
-    <h2>
-      <a href='#description-index'
-        class='accordion-toggle'
-        data-toggle='collapse'
-        data-parent='#accordion'>
-         StellarisEth
-      </a><br>
-      <small>Stellaris Ethernet Object Constructor</small>
-    </h2>
-  </div>
-  <div id='description-index' class='collapse accordion-body'>
-    <h3>Examples</h3>
-    <pre class="prettyprint">var enc = new StellarisEth();
-console.log('link status: ' + enc.linkState ? 'connected' : 'disconnected');</pre>
   </div>
   <hr>
   <div class='pull-right small'>
@@ -324,6 +265,65 @@ e.onPacketXmit(function() { e.print('packet transmitted!'); });</pre>
     </tr>
   </tbody>
 </table>
+  </div>
+  <hr>
+  <div class='pull-right small'>
+    <a href='./LinuxPacketEth_constructor.html'> >>> </a>
+  </div>
+  <div>
+    <h2>
+      <a href='#description-index'
+        class='accordion-toggle'
+        data-toggle='collapse'
+        data-parent='#accordion'>
+         LinuxPacketEth
+      </a><br>
+      <small>Linux Packet Ethernet Object Constructor</small>
+    </h2>
+  </div>
+  <div id='description-index' class='collapse accordion-body'>
+    <h3>Examples</h3>
+    <pre class="prettyprint">var enc = new LinuxPacketEth('eth0');
+console.log('link status: ' + enc.linkState ? 'connected' : 'disconnected');</pre>
+<h2>Params</h2>
+<table class='table'>
+  <thead>
+    <tr>
+      <th>Parameter name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <strong>Net Device</strong><br>
+      </td>
+      <td>
+        <p>Linux Network Interface Name</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+  <hr>
+  <div class='pull-right small'>
+    <a href='./StellarisEth_constructor.html'> >>> </a>
+  </div>
+  <div>
+    <h2>
+      <a href='#description-index'
+        class='accordion-toggle'
+        data-toggle='collapse'
+        data-parent='#accordion'>
+         StellarisEth
+      </a><br>
+      <small>Stellaris Ethernet Object Constructor</small>
+    </h2>
+  </div>
+  <div id='description-index' class='collapse accordion-body'>
+    <h3>Examples</h3>
+    <pre class="prettyprint">var enc = new StellarisEth();
+console.log('link status: ' + enc.linkState ? 'connected' : 'disconnected');</pre>
   </div>
 </div>
       </div>

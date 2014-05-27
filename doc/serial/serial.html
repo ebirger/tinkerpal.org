@@ -151,6 +151,46 @@ s.print('Hello World!');</pre>
   </div>
   <hr>
   <div class='pull-right small'>
+    <a href='./write.html'> >>> </a>
+  </div>
+  <div>
+    <h2>
+      <a href='#description-index'
+        class='accordion-toggle'
+        data-toggle='collapse'
+        data-parent='#accordion'>
+         write
+      </a><br>
+      <small>Writes data to the serial port</small>
+    </h2>
+  </div>
+  <div id='description-index' class='collapse accordion-body'>
+    <h3>Examples</h3>
+    <pre class="prettyprint">var s = new Serial(UART1);
+s.write(255);
+s.write([1,2,3])</pre>
+<h2>Params</h2>
+<table class='table'>
+  <thead>
+    <tr>
+      <th>Parameter name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <strong>data</strong><br>
+      </td>
+      <td>
+        <p>Data (byte/array/string/typed array) to be sent</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+  <hr>
+  <div class='pull-right small'>
     <a href='./onData.html'> >>> </a>
   </div>
   <div>

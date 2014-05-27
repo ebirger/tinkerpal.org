@@ -19,27 +19,22 @@
     <span class='divider'>/</span>
   </li>
   <li>
-   <a href='../gpio/gpio.html'>GPIO</a>
+   <a href='../global/global.html'>Global</a>
     <span class='divider'>/</span>
   </li>
   <li class='active'>
-    setWatch
+    describe
   </li>
 </ul>
 <div>
   <div class='page-header'>
     <h1>
-      GPIO.setWatch(cb, pin, options)<br>      <small>Calls a function whenever the GPIO pin changes state
-The function may receive an object of type: 
-{
-     timestamp: int - in 1/10 ms resolution,
-     state: int - current pin state
-}</small>
+      describe(object)<br>      <small>Print object description to the console</small>
     </h1>
   </div>
 <div>
 <h2>Example</h2>
-<pre class="prettyprint">setWatch(function() { console.log('button changed state'); }, GPIO_PF0);</pre>
+<pre class="prettyprint">describe(describe);</pre>
 <h2>Params</h2>
 <table class='table'>
   <thead>
@@ -51,32 +46,16 @@ The function may receive an object of type:
   <tbody>
     <tr>
       <td>
-        <strong>cb</strong><br>
+        <strong>object</strong><br>
       </td>
       <td>
-        <p>callback function</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <strong>pin</strong><br>
-      </td>
-      <td>
-        <p>GPIO pin ID</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <strong>options</strong><br>
-      </td>
-      <td>
-        <p>optional options object of type { qlen : int // number of pending samples for processing  smaller than 128, must be power of 2. Default =1 } </p>
+        <p>Object to describe</p>
       </td>
     </tr>
   </tbody>
 </table>
 <h2>Return Value</h2>
-Event ID
+None
       </div>
     </div>
     <hr>

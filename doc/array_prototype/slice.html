@@ -19,27 +19,22 @@
     <span class='divider'>/</span>
   </li>
   <li>
-   <a href='../gpio/gpio.html'>GPIO</a>
+   <a href='../array_prototype/array_prototype.html'>Array</a>
     <span class='divider'>/</span>
   </li>
   <li class='active'>
-    setWatch
+    slice
   </li>
 </ul>
 <div>
   <div class='page-header'>
     <h1>
-      GPIO.setWatch(cb, pin, options)<br>      <small>Calls a function whenever the GPIO pin changes state
-The function may receive an object of type: 
-{
-     timestamp: int - in 1/10 ms resolution,
-     state: int - current pin state
-}</small>
+      Array.slice(start, end)<br>      <small>Creates a new array with elements from the specified array starting from index 'start' up to index 'end'</small>
     </h1>
   </div>
 <div>
 <h2>Example</h2>
-<pre class="prettyprint">setWatch(function() { console.log('button changed state'); }, GPIO_PF0);</pre>
+<pre class="prettyprint">[ 1, 2, 3].slice(1); // [2, 3]</pre>
 <h2>Params</h2>
 <table class='table'>
   <thead>
@@ -51,32 +46,24 @@ The function may receive an object of type:
   <tbody>
     <tr>
       <td>
-        <strong>cb</strong><br>
+        <strong>start</strong><br>
       </td>
       <td>
-        <p>callback function</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <strong>pin</strong><br>
-      </td>
-      <td>
-        <p>GPIO pin ID</p>
+        <p>Element index to start from, may be undefined</p>
       </td>
     </tr>
     <tr>
       <td>
-        <strong>options</strong><br>
+        <strong>end</strong><br>
       </td>
       <td>
-        <p>optional options object of type { qlen : int // number of pending samples for processing  smaller than 128, must be power of 2. Default =1 } </p>
+        <p>Last element index (not inclusive), may be undefined</p>
       </td>
     </tr>
   </tbody>
 </table>
 <h2>Return Value</h2>
-Event ID
+The constructed array
       </div>
     </div>
     <hr>
