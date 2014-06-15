@@ -19,23 +19,24 @@
     <span class='divider'>/</span>
   </li>
   <li>
-   <a href='../array_buffer_view_prototype/array_buffer_view_prototype.html'>ArrayBufferView</a>
+   <a href='../graphics/graphics.html'>Graphics</a>
     <span class='divider'>/</span>
   </li>
   <li class='active'>
-    Uint8Array
+    roundRectDraw
   </li>
 </ul>
 <div>
   <div class='page-header'>
     <h1>
-      ArrayBufferView.Uint8Array(ArrayBuffer/Size)<br>      <small>UInt8Array Constructor</small>
+      Graphics.roundRectDraw(x, y, w, h, r, color)<br>      <small>Draws a round rectangle on LCD</small>
     </h1>
   </div>
 <div>
 <h2>Example</h2>
-<pre class="prettyprint">var a = new UInt8Array(5);
-</pre>
+<pre class="prettyprint">var lcd = new Dogs102x6();
+var g = new Graphics(lcd);
+g.roundRectDraw(10, 10, 20, 20, 4, 0xffff);</pre>
 <h2>Params</h2>
 <table class='table'>
   <thead>
@@ -47,16 +48,56 @@
   <tbody>
     <tr>
       <td>
-        <strong>ArrayBuffer/Size</strong><br>
+        <strong>x</strong><br>
       </td>
       <td>
-        <p>ArrayBuffer or Number of Elements in a newly created ArrayBuffer</p>
+        <p>X coordinate</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong>y</strong><br>
+      </td>
+      <td>
+        <p>Y coordinate</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong>w</strong><br>
+      </td>
+      <td>
+        <p>Width</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong>h</strong><br>
+      </td>
+      <td>
+        <p>Height</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong>r</strong><br>
+      </td>
+      <td>
+        <p>Corner Radius</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong>color</strong><br>
+      </td>
+      <td>
+        <p>Color</p>
       </td>
     </tr>
   </tbody>
 </table>
 <h2>Return Value</h2>
-Created ArrayBufferView
+None
       </div>
     </div>
     <hr>

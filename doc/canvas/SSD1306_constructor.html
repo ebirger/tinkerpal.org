@@ -19,44 +19,25 @@
     <span class='divider'>/</span>
   </li>
   <li>
-   <a href='../array_buffer_view_prototype/array_buffer_view_prototype.html'>ArrayBufferView</a>
+   <a href='../canvas/canvas.html'>Canvas</a>
     <span class='divider'>/</span>
   </li>
   <li class='active'>
-    Uint8Array
+    SSD1306
   </li>
 </ul>
 <div>
   <div class='page-header'>
     <h1>
-      ArrayBufferView.Uint8Array(ArrayBuffer/Size)<br>      <small>UInt8Array Constructor</small>
+      Canvas.SSD1306()<br>      <small>SSD1306 Constructor</small>
     </h1>
   </div>
 <div>
 <h2>Example</h2>
-<pre class="prettyprint">var a = new UInt8Array(5);
-</pre>
-<h2>Params</h2>
-<table class='table'>
-  <thead>
-    <tr>
-      <th>Parameter name</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <strong>ArrayBuffer/Size</strong><br>
-      </td>
-      <td>
-        <p>ArrayBuffer or Number of Elements in a newly created ArrayBuffer</p>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<pre class="prettyprint">var lcd = new SSD1306();
+lcd.pixelDraw(10, 10, 1);</pre>
 <h2>Return Value</h2>
-Created ArrayBufferView
+Created object
       </div>
     </div>
     <hr>
