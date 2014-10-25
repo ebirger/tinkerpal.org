@@ -19,57 +19,23 @@
     <span class='divider'>/</span>
   </li>
   <li>
-   <a href='../gpio/gpio.html'>GPIO</a>
+   <a href='../netif/netif.html'>Netif</a>
     <span class='divider'>/</span>
   </li>
   <li class='active'>
-    analogWrite
+    TCPDisconnect
   </li>
 </ul>
 <div>
   <div class='page-header'>
     <h1>
-      GPIO.analogWrite(pin, value, options (Optional))<br>      <small>Set the analog value of a GPIO pin</small>
+      Netif.TCPDisconnect()<br>      <small>Release TCP connection</small>
     </h1>
   </div>
 <div>
 <h2>Example</h2>
-<pre class="prettyprint">analogWrite(GPIO_PF2, 0.5);</pre>
-<h2>Params</h2>
-<table class='table'>
-  <thead>
-    <tr>
-      <th>Parameter name</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <strong>pin</strong><br>
-      </td>
-      <td>
-        <p>GPIO pin ID</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <strong>value</strong><br>
-      </td>
-      <td>
-        <p>Floating point number with range [0-1]</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <strong>options (Optional)</strong><br>
-      </td>
-      <td>
-        <p>Object: { freq : <frequency> }</p>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<pre class="prettyprint">var e = new NetifINET();
+e.TCPIPConnect('192.168.1.10', 80, function() { console.log('connected'); e.TCPDisconnect() });</pre>
 <h2>Return Value</h2>
 None
       </div>

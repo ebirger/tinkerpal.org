@@ -117,7 +117,7 @@
   </div>
   <hr>
   <div class='pull-right small'>
-    <a href='./dump.html'> >>> </a>
+    <a href='./assert_exception.html'> >>> </a>
   </div>
   <div>
     <h2>
@@ -125,14 +125,14 @@
         class='accordion-toggle'
         data-toggle='collapse'
         data-parent='#accordion'>
-         dump
+         assert_exception
       </a><br>
-      <small>Dump object to the console</small>
+      <small>Panic if calling cb() does not raise an exception</small>
     </h2>
   </div>
   <div id='description-index' class='collapse accordion-body'>
     <h3>Examples</h3>
-    <pre class="prettyprint">debug.dump('Hello World');</pre>
+    <pre class="prettyprint">debug.assert_exception(function() { throw 'error'; });</pre>
 <h2>Params</h2>
 <table class='table'>
   <thead>
@@ -144,10 +144,10 @@
   <tbody>
     <tr>
       <td>
-        <strong>object</strong><br>
+        <strong>cb</strong><br>
       </td>
       <td>
-        <p>Object to display</p>
+        <p>function to test</p>
       </td>
     </tr>
   </tbody>

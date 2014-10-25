@@ -67,6 +67,14 @@ s.print('Hello World!);</pre>
         <p>HW UART ID</p>
       </td>
     </tr>
+    <tr>
+      <td>
+        <strong>options</strong><br>
+      </td>
+      <td>
+        <p>optional options object of type { baud_rate : int // Serial Baud Rate } </p>
+      </td>
+    </tr>
   </tbody>
 </table>
   </div>
@@ -201,7 +209,8 @@ s.write([1,2,3])</pre>
         data-parent='#accordion'>
          onData
       </a><br>
-      <small>Calls 'cb' when data is available on serial port</small>
+      <small>Calls 'cb' when data is available on serial port.
+If cb is undefined, removes the previously set cb</small>
     </h2>
   </div>
   <div id='description-index' class='collapse accordion-body'>

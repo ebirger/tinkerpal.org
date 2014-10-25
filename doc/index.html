@@ -52,6 +52,10 @@
       <td><a href='./global/describe.html'>describe()</a></td>
       <td width='60%'>Print object description to the console</td>
     </tr>
+    <tr>
+      <td><a href='./global/compile.html'>compile()</a></td>
+      <td width='60%'>Compiles a function for faster execution</td>
+    </tr>
   </tbody>
 </table>
 <h2>
@@ -66,6 +70,8 @@
   </thead>
   <tbody>
     <tr><td><a href='./canvas/SSD1306_constructor.html'>SSD1306()</a></td></tr>
+    <tr><td><a href='./canvas/SSD1329_constructor.html'>SSD1329()</a></td></tr>
+    <tr><td><a href='./canvas/PCD8544_constructor.html'>PCD8544()</a></td></tr>
     <tr><td><a href='./canvas/ILI93XX_constructor.html'>ILI93XX()</a></td></tr>
     <tr><td><a href='./canvas/Dogs102x6_constructor.html'>Dogs102x6()</a></td></tr>
     <tr><td><a href='./canvas/SDLScreen_constructor.html'>SDLScreen()</a></td></tr>
@@ -86,6 +92,10 @@
     <tr>
       <td><a href='./canvas/fill.html'>fill()</a></td>
       <td width='60%'>Fills the canvas with a color</td>
+    </tr>
+    <tr>
+      <td><a href='./canvas/flip.html'>flip()</a></td>
+      <td width='60%'>Publishes stored buffer onto canvas</td>
     </tr>
   </tbody>
 </table>
@@ -130,6 +140,32 @@
     <tr>
       <td><a href='./graphics/roundRectDraw.html'>roundRectDraw()</a></td>
       <td width='60%'>Draws a round rectangle on LCD</td>
+    </tr>
+  </tbody>
+</table>
+<h2>
+  <a href='./fs/fs.html'>File System</a></br>
+  <small></small>
+</h2>
+<table class='table'>
+  <thead>
+    <tr>
+      <th>Method</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href='./fs/readFileSync.html'>readFileSync()</a></td>
+      <td width='60%'>Synchronously reads the entire contents of a file</td>
+    </tr>
+    <tr>
+      <td><a href='./fs/writeFileSync.html'>writeFileSync()</a></td>
+      <td width='60%'>Synchronously writes the entire contents of a file</td>
+    </tr>
+    <tr>
+      <td><a href='./fs/readdirSync.html'>readdirSync()</a></td>
+      <td width='60%'>Synchronously reads the directory listing of a path</td>
     </tr>
   </tbody>
 </table>
@@ -209,7 +245,8 @@
     </tr>
     <tr>
       <td><a href='./serial/onData.html'>onData()</a></td>
-      <td width='60%'>Calls 'cb' when data is available on serial port</td>
+      <td width='60%'>Calls 'cb' when data is available on serial port.
+If cb is undefined, removes the previously set cb</td>
     </tr>
   </tbody>
 </table>
@@ -242,32 +279,6 @@
     <tr>
       <td><a href='./spi/receive.html'>receive()</a></td>
       <td width='60%'>Reads data via SPI bus (dummy data is sent)</td>
-    </tr>
-  </tbody>
-</table>
-<h2>
-  <a href='./fs/fs.html'>File System</a></br>
-  <small></small>
-</h2>
-<table class='table'>
-  <thead>
-    <tr>
-      <th>Method</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href='./fs/readFileSync.html'>readFileSync()</a></td>
-      <td width='60%'>Synchronously reads the entire contents of a file</td>
-    </tr>
-    <tr>
-      <td><a href='./fs/writeFileSync.html'>writeFileSync()</a></td>
-      <td width='60%'>Synchronously writes the entire contents of a file</td>
-    </tr>
-    <tr>
-      <td><a href='./fs/readdirSync.html'>readdirSync()</a></td>
-      <td width='60%'>Synchronously reads the directory listing of a path</td>
     </tr>
   </tbody>
 </table>
@@ -396,6 +407,10 @@
       <td><a href='./array_prototype/slice.html'>slice()</a></td>
       <td width='60%'>Creates a new array with elements from the specified array starting from index 'start' up to index 'end'</td>
     </tr>
+    <tr>
+      <td><a href='./array_prototype/sort.html'>sort()</a></td>
+      <td width='60%'>Sorts the array elements</td>
+    </tr>
   </tbody>
 </table>
 <h2>
@@ -423,6 +438,22 @@
     <tr>
       <td><a href='./object_prototype/toString.html'>toString()</a></td>
       <td width='60%'>The object is converted to a string</td>
+    </tr>
+    <tr>
+      <td><a href='./object_prototype/on.html'>on()</a></td>
+      <td width='60%'>Adds a listener for the specified event</td>
+    </tr>
+    <tr>
+      <td><a href='./object_prototype/emit.html'>emit()</a></td>
+      <td width='60%'>Execute each of the listeners on the event</td>
+    </tr>
+    <tr>
+      <td><a href='./object_prototype/removeAllListeners.html'>removeAllListeners()</a></td>
+      <td width='60%'>removes listeners on a specified event, or all events</td>
+    </tr>
+    <tr>
+      <td><a href='./object_prototype/listeners.html'>listeners()</a></td>
+      <td width='60%'>Returns an array with listeners for the specified event</td>
     </tr>
   </tbody>
 </table>
@@ -654,8 +685,8 @@
       <td width='60%'>Panic if object is false</td>
     </tr>
     <tr>
-      <td><a href='./debug/dump.html'>dump()</a></td>
-      <td width='60%'>Dump object to the console</td>
+      <td><a href='./debug/assert_exception.html'>assert_exception()</a></td>
+      <td width='60%'>Panic if calling cb() does not raise an exception</td>
     </tr>
     <tr>
       <td><a href='./debug/dump_env.html'>dump_env()</a></td>
@@ -682,7 +713,7 @@
   </tbody>
 </table>
 <h2>
-  <a href='./etherif/etherif.html'>Etherif</a></br>
+  <a href='./netif/netif.html'>Netif</a></br>
   <small></small>
 </h2>
 <table class='table'>
@@ -692,9 +723,11 @@
     </tr>
   </thead>
   <tbody>
-    <tr><td><a href='./etherif/ENC28J60_constructor.html'>ENC28J60()</a></td></tr>
-    <tr><td><a href='./etherif/LinuxPacketEth_constructor.html'>LinuxPacketEth()</a></td></tr>
-    <tr><td><a href='./etherif/StellarisEth_constructor.html'>StellarisEth()</a></td></tr>
+    <tr><td><a href='./netif/ESP8266_constructor.html'>ESP8266()</a></td></tr>
+    <tr><td><a href='./netif/ENC28J60_constructor.html'>ENC28J60()</a></td></tr>
+    <tr><td><a href='./netif/NetifINET_constructor.html'>NetifINET()</a></td></tr>
+    <tr><td><a href='./netif/LinuxPacketEth_constructor.html'>LinuxPacketEth()</a></td></tr>
+    <tr><td><a href='./netif/StellarisEth_constructor.html'>StellarisEth()</a></td></tr>
   </tbody>
 </table>
 <table class='table'>
@@ -706,28 +739,52 @@
   </thead>
   <tbody>
     <tr>
-      <td><a href='./etherif/packetRecv.html'>packetRecv()</a></td>
-      <td width='60%'>Receive packet data</td>
-    </tr>
-    <tr>
-      <td><a href='./etherif/linkStatus.html'>linkStatus()</a></td>
+      <td><a href='./netif/linkStatus.html'>linkStatus()</a></td>
       <td width='60%'>Get link status</td>
     </tr>
     <tr>
-      <td><a href='./etherif/MACAddrGet.html'>MACAddrGet()</a></td>
+      <td><a href='./netif/MACAddrGet.html'>MACAddrGet()</a></td>
       <td width='60%'>Get Interface MAC Address</td>
     </tr>
     <tr>
-      <td><a href='./etherif/onPortChange.html'>onPortChange()</a></td>
+      <td><a href='./netif/IPAddrGet.html'>IPAddrGet()</a></td>
+      <td width='60%'>Get Interface IP Address</td>
+    </tr>
+    <tr>
+      <td><a href='./netif/onPortChange.html'>onPortChange()</a></td>
       <td width='60%'>Calls 'cb' when link state has changed</td>
     </tr>
     <tr>
-      <td><a href='./etherif/onPacketReceived.html'>onPacketReceived()</a></td>
-      <td width='60%'>Calls 'cb' when packet was received</td>
+      <td><a href='./netif/IPConnect.html'>IPConnect()</a></td>
+      <td width='60%'>Obtain IP Address</td>
     </tr>
     <tr>
-      <td><a href='./etherif/onPacketXmit.html'>onPacketXmit()</a></td>
-      <td width='60%'>Calls 'cb' when packet was transmitted</td>
+      <td><a href='./netif/IPDisconnect.html'>IPDisconnect()</a></td>
+      <td width='60%'>Release IP Address</td>
+    </tr>
+    <tr>
+      <td><a href='./netif/TCPConnect.html'>TCPConnect()</a></td>
+      <td width='60%'>Connect to a TCP IP:PORT</td>
+    </tr>
+    <tr>
+      <td><a href='./netif/TCPDisconnect.html'>TCPDisconnect()</a></td>
+      <td width='60%'>Release TCP connection</td>
+    </tr>
+    <tr>
+      <td><a href='./netif/onTCPData.html'>onTCPData()</a></td>
+      <td width='60%'>Calls 'cb' when TCP data is available</td>
+    </tr>
+    <tr>
+      <td><a href='./netif/onTCPDisconnect.html'>onTCPDisconnect()</a></td>
+      <td width='60%'>Calls 'cb' when TCP stream is disconnected</td>
+    </tr>
+    <tr>
+      <td><a href='./netif/TCPWrite.html'>TCPWrite()</a></td>
+      <td width='60%'>Writes data to the TCP socket</td>
+    </tr>
+    <tr>
+      <td><a href='./netif/TCPRead.html'>TCPRead()</a></td>
+      <td width='60%'>Reads data from the TCP socket</td>
     </tr>
   </tbody>
 </table>

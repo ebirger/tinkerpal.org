@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>API documentation</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <link type='text/css' rel='stylesheet' href='http://tinkerpal.org/wp-content/themes/tinkjs/css/bootstrapwp.css?ver=0.90'/>
+  <!-- IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div id='container'>
+<ul class='breadcrumb'>
+  <li>
+   <a href='../index.html'>TinkerPal 0.1.3 API</a>
+    <span class='divider'>/</span>
+  </li>
+  <li class='active'>
+    Netif
+  </li>
+</ul>
+<div>
+  <div class='page-header'>
+    <h1>
+      Netif<br>
+      <small></small>
+    </h1>
+  </div>
+</div>
+<div class='accordion' id='accordion'>
+  <hr>
+  <div class='pull-right small'>
+    <a href='./ESP8266_constructor.html'> >>> </a>
+  </div>
+  <div>
+    <h2>
+      <a href='#description-index'
+        class='accordion-toggle'
+        data-toggle='collapse'
+        data-parent='#accordion'>
+         ESP8266
+      </a><br>
+      <small>ESP8266 Wi-Fi Constructor</small>
+    </h2>
+  </div>
+  <div id='description-index' class='collapse accordion-body'>
+    <h3>Examples</h3>
+    <pre class="prettyprint">var esp = new ESP8266(function() {
+esp.IPConnect(function() { console.log('connected'); });
+}, UART4);
+</pre>
+<h2>Params</h2>
+<table class='table'>
+  <thead>
+    <tr>
+      <th>Parameter name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <strong>cb</strong><br>
+      </td>
+      <td>
+        <p>Callback to be called when device is ready</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong>Serial port (optional)</strong><br>
+      </td>
+      <td>
+        <p>Serial Port</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+  <hr>
+  <div class='pull-right small'>
+    <a href='./ENC28J60_constructor.html'> >>> </a>
+  </div>
+  <div>
+    <h2>
+      <a href='#description-index'
+        class='accordion-toggle'
+        data-toggle='collapse'
+        data-parent='#accordion'>
+         ENC28J60
+      </a><br>
+      <small>ENC28J60 Ethernet Constructor</small>
+    </h2>
+  </div>
+  <div id='description-index' class='collapse accordion-body'>
+    <h3>Examples</h3>
+    <pre class="prettyprint">var enc = new ENC28J60(SPI0, GPIO_PF0, GPIO_PF1);
+console.log('link status: ' + enc.linkStatus() ? 'connected' : 'disconnected');</pre>
+<h2>Params</h2>
+<table class='table'>
+  <thead>
+    <tr>
+      <th>Parameter name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <strong>SPI port</strong><br>
+      </td>
+      <td>
+        <p>SPI Port</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong>CS</strong><br>
+      </td>
+      <td>
+        <p>SPI Chip Select Pin</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong>Interrupt</strong><br>
+      </td>
+      <td>
+        <p>Interrupt Pin</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+  <hr>
+  <div class='pull-right small'>
+    <a href='./linkStatus.html'> >>> </a>
+  </div>
+  <div>
+    <h2>
+      <a href='#description-index'
+        class='accordion-toggle'
+        data-toggle='collapse'
+        data-parent='#accordion'>
+         linkStatus
+      </a><br>
+      <small>Get link status</small>
+    </h2>
+  </div>
+  <div id='description-index' class='collapse accordion-body'>
+    <h3>Examples</h3>
+    <pre class="prettyprint">var e = new ENC28J60(SPI1, GPIO_PE3, GPIO_PF4);
+console.log('link status: ' + e.linkStatus ? 'connected' : 'disconnected')
+</pre>
+  </div>
+  <hr>
+  <div class='pull-right small'>
+    <a href='./MACAddrGet.html'> >>> </a>
+  </div>
+  <div>
+    <h2>
+      <a href='#description-index'
+        class='accordion-toggle'
+        data-toggle='collapse'
+        data-parent='#accordion'>
+         MACAddrGet
+      </a><br>
+      <small>Get Interface MAC Address</small>
+    </h2>
+  </div>
+  <div id='description-index' class='collapse accordion-body'>
+    <h3>Examples</h3>
+    <pre class="prettyprint">var e = new ENC28J60(SPI1, GPIO_PE3, GPIO_PF4);
+console.log(e.MACAddrGet());
+</pre>
+  </div>
+  <hr>
+  <div class='pull-right small'>
+    <a href='./IPAddrGet.html'> >>> </a>
+  </div>
+  <div>
+    <h2>
+      <a href='#description-index'
+        class='accordion-toggle'
+        data-toggle='collapse'
+        data-parent='#accordion'>
+         IPAddrGet
+      </a><br>
+      <small>Get Interface IP Address</small>
+    </h2>
+  </div>
+  <div id='description-index' class='collapse accordion-body'>
+    <h3>Examples</h3>
+    <pre class="prettyprint">var e = new NetifINET('eth0');
+console.log(e.IPAddrGet());
+</pre>
+  </div>
+  <hr>
+  <div class='pull-right small'>
+    <a href='./onPortChange.html'> >>> </a>
+  </div>
+  <div>
+    <h2>
+      <a href='#description-index'
+        class='accordion-toggle'
+        data-toggle='collapse'
+        data-parent='#accordion'>
+         onPortChange
+      </a><br>
+      <small>Calls 'cb' when link state has changed</small>
+    </h2>
+  </div>
+  <div id='description-index' class='collapse accordion-body'>
+    <h3>Examples</h3>
+    <pre class="prettyprint">var e = new ENC28J60(SPI1, GPIO_PE3, GPIO_PF4);
+e.onPortChange(function() { console.log('port state changed!'); });</pre>
+<h2>Params</h2>
+<table class='table'>
+  <thead>
+    <tr>
+      <th>Parameter name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <strong>cb</strong><br>
+      </td>
+      <td>
+        <p>callback function called when link status has changed</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+  <hr>
+  <div class='pull-right small'>
+    <a href='./IPConnect.html'> >>> </a>
+  </div>
+  <div>
+    <h2>
+      <a href='#description-index'
+        class='accordion-toggle'
+        data-toggle='collapse'
+        data-parent='#accordion'>
+         IPConnect
+      </a><br>
+      <small>Obtain IP Address</small>
+    </h2>
+  </div>
+  <div id='description-index' class='collapse accordion-body'>
+    <h3>Examples</h3>
+    <pre class="prettyprint">var e = new ENC28J60(SPI1, GPIO_PE3, GPIO_PF4);
+e.IPConnect();</pre>
+<h2>Params</h2>
+<table class='table'>
+  <thead>
+    <tr>
+      <th>Parameter name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <strong>cb (optional)</strong><br>
+      </td>
+      <td>
+        <p>callback function called on IP address availablity</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+  <hr>
+  <div class='pull-right small'>
+    <a href='./IPDisconnect.html'> >>> </a>
+  </div>
+  <div>
+    <h2>
+      <a href='#description-index'
+        class='accordion-toggle'
+        data-toggle='collapse'
+        data-parent='#accordion'>
+         IPDisconnect
+      </a><br>
+      <small>Release IP Address</small>
+    </h2>
+  </div>
+  <div id='description-index' class='collapse accordion-body'>
+    <h3>Examples</h3>
+    <pre class="prettyprint">var e = new ENC28J60(SPI1, GPIO_PE3, GPIO_PF4);
+e.IPDisconnect();</pre>
+  </div>
+  <hr>
+  <div class='pull-right small'>
+    <a href='./TCPConnect.html'> >>> </a>
+  </div>
+  <div>
+    <h2>
+      <a href='#description-index'
+        class='accordion-toggle'
+        data-toggle='collapse'
+        data-parent='#accordion'>
+         TCPConnect
+      </a><br>
+      <small>Connect to a TCP IP:PORT</small>
+    </h2>
+  </div>
+  <div id='description-index' class='collapse accordion-body'>
+    <h3>Examples</h3>
+    <pre class="prettyprint">var e = new NetifINET();
+e.TCPIPConnect('192.168.1.10', 80, function() { console.log('connected'); });</pre>
+<h2>Params</h2>
+<table class='table'>
+  <thead>
+    <tr>
+      <th>Parameter name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <strong>ip</strong><br>
+      </td>
+      <td>
+        <p>IP address to connect to</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong>port</strong><br>
+      </td>
+      <td>
+        <p>tcp port to connect to</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong>cb</strong><br>
+      </td>
+      <td>
+        <p>callback function called on TCP connectivity</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+  <hr>
+  <div class='pull-right small'>
+    <a href='./TCPDisconnect.html'> >>> </a>
+  </div>
+  <div>
+    <h2>
+      <a href='#description-index'
+        class='accordion-toggle'
+        data-toggle='collapse'
+        data-parent='#accordion'>
+         TCPDisconnect
+      </a><br>
+      <small>Release TCP connection</small>
+    </h2>
+  </div>
+  <div id='description-index' class='collapse accordion-body'>
+    <h3>Examples</h3>
+    <pre class="prettyprint">var e = new NetifINET();
+e.TCPIPConnect('192.168.1.10', 80, function() { console.log('connected'); e.TCPDisconnect() });</pre>
+  </div>
+  <hr>
+  <div class='pull-right small'>
+    <a href='./onTCPData.html'> >>> </a>
+  </div>
+  <div>
+    <h2>
+      <a href='#description-index'
+        class='accordion-toggle'
+        data-toggle='collapse'
+        data-parent='#accordion'>
+         onTCPData
+      </a><br>
+      <small>Calls 'cb' when TCP data is available</small>
+    </h2>
+  </div>
+  <div id='description-index' class='collapse accordion-body'>
+    <h3>Examples</h3>
+    <pre class="prettyprint">var e = new NetifINET();
+e.onTCPData(function() { console.log('TCP data ready!'); });</pre>
+<h2>Params</h2>
+<table class='table'>
+  <thead>
+    <tr>
+      <th>Parameter name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <strong>cb</strong><br>
+      </td>
+      <td>
+        <p>callback function called when TCP data is available. Empty callback removes the listener</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+  <hr>
+  <div class='pull-right small'>
+    <a href='./onTCPDisconnect.html'> >>> </a>
+  </div>
+  <div>
+    <h2>
+      <a href='#description-index'
+        class='accordion-toggle'
+        data-toggle='collapse'
+        data-parent='#accordion'>
+         onTCPDisconnect
+      </a><br>
+      <small>Calls 'cb' when TCP stream is disconnected</small>
+    </h2>
+  </div>
+  <div id='description-index' class='collapse accordion-body'>
+    <h3>Examples</h3>
+    <pre class="prettyprint">var e = new NetifINET();
+e.onTCPDisconnect(function() { console.log('TCP disconnected!'); });</pre>
+<h2>Params</h2>
+<table class='table'>
+  <thead>
+    <tr>
+      <th>Parameter name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <strong>cb</strong><br>
+      </td>
+      <td>
+        <p>callback function called when TCP stream is disconnected. Empty callback removes the listener</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+  <hr>
+  <div class='pull-right small'>
+    <a href='./TCPWrite.html'> >>> </a>
+  </div>
+  <div>
+    <h2>
+      <a href='#description-index'
+        class='accordion-toggle'
+        data-toggle='collapse'
+        data-parent='#accordion'>
+         TCPWrite
+      </a><br>
+      <small>Writes data to the TCP socket</small>
+    </h2>
+  </div>
+  <div id='description-index' class='collapse accordion-body'>
+    <h3>Examples</h3>
+    <pre class="prettyprint">var e = new NetifINET();
+e.TCPIPConnect('192.168.1.10', 80, function() { e.TCPWrite('GET / HTTP 1.0
+
+'); });</pre>
+<h2>Params</h2>
+<table class='table'>
+  <thead>
+    <tr>
+      <th>Parameter name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <strong>data</strong><br>
+      </td>
+      <td>
+        <p>Data (byte/array/string/typed array) to be sent</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+  <hr>
+  <div class='pull-right small'>
+    <a href='./TCPRead.html'> >>> </a>
+  </div>
+  <div>
+    <h2>
+      <a href='#description-index'
+        class='accordion-toggle'
+        data-toggle='collapse'
+        data-parent='#accordion'>
+         TCPRead
+      </a><br>
+      <small>Reads data from the TCP socket</small>
+    </h2>
+  </div>
+  <div id='description-index' class='collapse accordion-body'>
+    <h3>Examples</h3>
+    <pre class="prettyprint">var e = new NetifINET();
+e.onTCPData(function() { console.log(n.TCPRead()); });
+e.TCPIPConnect('192.168.1.10', 80, function() { e.TCPWrite('GET / HTTP 1.0
+
+'); });</pre>
+  </div>
+  <hr>
+  <div class='pull-right small'>
+    <a href='./NetifINET_constructor.html'> >>> </a>
+  </div>
+  <div>
+    <h2>
+      <a href='#description-index'
+        class='accordion-toggle'
+        data-toggle='collapse'
+        data-parent='#accordion'>
+         NetifINET
+      </a><br>
+      <small>INET Network Interface Object Constructor</small>
+    </h2>
+  </div>
+  <div id='description-index' class='collapse accordion-body'>
+    <h3>Examples</h3>
+    <pre class="prettyprint">var  n = new NetifINET('eth0');
+console.log('link status: ' + n.linkStatus() ? 'connected' : 'disconnected');</pre>
+<h2>Params</h2>
+<table class='table'>
+  <thead>
+    <tr>
+      <th>Parameter name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <strong>Net Device</strong><br>
+      </td>
+      <td>
+        <p>Network Interface Name</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+  <hr>
+  <div class='pull-right small'>
+    <a href='./LinuxPacketEth_constructor.html'> >>> </a>
+  </div>
+  <div>
+    <h2>
+      <a href='#description-index'
+        class='accordion-toggle'
+        data-toggle='collapse'
+        data-parent='#accordion'>
+         LinuxPacketEth
+      </a><br>
+      <small>Linux Packet Ethernet Object Constructor</small>
+    </h2>
+  </div>
+  <div id='description-index' class='collapse accordion-body'>
+    <h3>Examples</h3>
+    <pre class="prettyprint">var  n = new LinuxPacketEth('eth0');
+console.log('link status: ' + n.linkStatus() ? 'connected' : 'disconnected');</pre>
+<h2>Params</h2>
+<table class='table'>
+  <thead>
+    <tr>
+      <th>Parameter name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <strong>Net Device</strong><br>
+      </td>
+      <td>
+        <p>Linux Network Interface Name</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+  <hr>
+  <div class='pull-right small'>
+    <a href='./StellarisEth_constructor.html'> >>> </a>
+  </div>
+  <div>
+    <h2>
+      <a href='#description-index'
+        class='accordion-toggle'
+        data-toggle='collapse'
+        data-parent='#accordion'>
+         StellarisEth
+      </a><br>
+      <small>Stellaris Ethernet Object Constructor</small>
+    </h2>
+  </div>
+  <div id='description-index' class='collapse accordion-body'>
+    <h3>Examples</h3>
+    <pre class="prettyprint">var enc = new StellarisEth();
+console.log('link status: ' + enc.linkStatus() ? 'connected' : 'disconnected');</pre>
+  </div>
+</div>
+      </div>
+    </div>
+    <hr>
+    <footer>
+    </footer>
+  </div>
+  <script type='text/javascript' src='http://code.jquery.com/jquery-1.9.1.min.js'></script>
+<script type='text/javascript' src='https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?lang=css&skin=desert'></script>
+</body>
+</html>

@@ -19,22 +19,25 @@
     <span class='divider'>/</span>
   </li>
   <li>
-   <a href='../gpio/gpio.html'>GPIO</a>
+   <a href='../netif/netif.html'>Netif</a>
     <span class='divider'>/</span>
   </li>
   <li class='active'>
-    analogWrite
+    ESP8266
   </li>
 </ul>
 <div>
   <div class='page-header'>
     <h1>
-      GPIO.analogWrite(pin, value, options (Optional))<br>      <small>Set the analog value of a GPIO pin</small>
+      Netif.ESP8266(cb, Serial port (optional))<br>      <small>ESP8266 Wi-Fi Constructor</small>
     </h1>
   </div>
 <div>
 <h2>Example</h2>
-<pre class="prettyprint">analogWrite(GPIO_PF2, 0.5);</pre>
+<pre class="prettyprint">var esp = new ESP8266(function() {
+esp.IPConnect(function() { console.log('connected'); });
+}, UART4);
+</pre>
 <h2>Params</h2>
 <table class='table'>
   <thead>
@@ -46,32 +49,24 @@
   <tbody>
     <tr>
       <td>
-        <strong>pin</strong><br>
+        <strong>cb</strong><br>
       </td>
       <td>
-        <p>GPIO pin ID</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <strong>value</strong><br>
-      </td>
-      <td>
-        <p>Floating point number with range [0-1]</p>
+        <p>Callback to be called when device is ready</p>
       </td>
     </tr>
     <tr>
       <td>
-        <strong>options (Optional)</strong><br>
+        <strong>Serial port (optional)</strong><br>
       </td>
       <td>
-        <p>Object: { freq : <frequency> }</p>
+        <p>Serial Port</p>
       </td>
     </tr>
   </tbody>
 </table>
 <h2>Return Value</h2>
-None
+Created object
       </div>
     </div>
     <hr>
