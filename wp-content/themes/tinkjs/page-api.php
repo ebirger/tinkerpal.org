@@ -12,13 +12,15 @@
  * Last Revised: July 16, 2012
  */
 
-get_header(); ?>
-
+/* get_header(); */ ?>
+<!--
 <div class="container">
   <div id="main">
     <div id="content" class="container">
+    -->
       <iframe src="./doc/index.html" frameborder="0" width="100%" height="10000px" ></iframe>
-    </div>
+<!--    </div>
   </div>
 </div>
+-->
 <?php /* get_footer(); */ ?>
