@@ -1,800 +1,2186 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>API documentation</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <link type='text/css' rel='stylesheet' href='http://tinkerpal.org/wp-content/themes/tinkjs/css/bootstrapwp.css?ver=0.90'/>
-  <!-- IE6-8 support of HTML5 elements -->
-  <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
+    <title>API Guide | Tinkerpal 0.1.3</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="media/css/restdown.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 </head>
 <body>
-  <div class="container">
-    <div class="row">
-      <div id='container'>
-<ul class='breadcrumb'>
-  <li class='active'>
-    TinkerPal 0.1.3 API
-  </li>
+<div id="header">
+    <h1>API Guide | Tinkerpal 0.1.3 Documentation</h1>
+</div>
+
+    <div id="sidebar">
+<ul>
+  <li><div><a href="#global">Global</a></div>
+  <ul>
+    <li><div><a href="#eval">eval</a></div></li>
+    <li><div><a href="#tointeger">toInteger</a></div></li>
+    <li><div><a href="#isnan">isNaN</a></div></li>
+    <li><div><a href="#meminfo">meminfo</a></div></li>
+    <li><div><a href="#describe">describe</a></div></li>
+    <li><div><a href="#compile">compile</a></div></li>
+  </ul></li>
+  <li><div><a href="#canvas">Canvas</a></div>
+  <ul>
+    <li><div><a href="#pixeldraw">pixelDraw</a></div></li>
+    <li><div><a href="#fill">fill</a></div></li>
+    <li><div><a href="#flip">flip</a></div></li>
+    <li><div><a href="#ssd1306-constructor">SSD1306 (constructor)</a></div></li>
+    <li><div><a href="#ssd1329-constructor">SSD1329 (constructor)</a></div></li>
+    <li><div><a href="#pcd8544-constructor">PCD8544 (constructor)</a></div></li>
+    <li><div><a href="#ili93xx-constructor">ILI93XX (constructor)</a></div></li>
+    <li><div><a href="#dogs102x6-constructor">Dogs102x6 (constructor)</a></div></li>
+    <li><div><a href="#sdlscreen-constructor">SDLScreen (constructor)</a></div></li>
+  </ul></li>
+  <li><div><a href="#graphics">Graphics</a></div>
+  <ul>
+    <li><div><a href="#graphics-constructor">Graphics (constructor)</a></div></li>
+    <li><div><a href="#stringdraw">stringDraw</a></div></li>
+    <li><div><a href="#circledraw">circleDraw</a></div></li>
+    <li><div><a href="#linedraw">lineDraw</a></div></li>
+    <li><div><a href="#rectdraw">rectDraw</a></div></li>
+    <li><div><a href="#roundrectdraw">roundRectDraw</a></div></li>
+  </ul></li>
+  <li><div><a href="#file-system">File System</a></div>
+  <ul>
+    <li><div><a href="#readfilesync">readFileSync</a></div></li>
+    <li><div><a href="#writefilesync">writeFileSync</a></div></li>
+    <li><div><a href="#readdirsync">readdirSync</a></div></li>
+  </ul></li>
+  <li><div><a href="#console">console</a></div>
+  <ul>
+    <li><div><a href="#set">set</a></div></li>
+    <li><div><a href="#log">log</a></div></li>
+  </ul></li>
+  <li><div><a href="#mmc">MMC</a></div>
+  <ul>
+    <li><div><a href="#mmc-constructor">MMC (constructor)</a></div></li>
+  </ul></li>
+  <li><div><a href="#serial">Serial</a></div>
+  <ul>
+    <li><div><a href="#serial-constructor">Serial (constructor)</a></div></li>
+    <li><div><a href="#enable">enable</a></div></li>
+    <li><div><a href="#disable">disable</a></div></li>
+    <li><div><a href="#print">print</a></div></li>
+    <li><div><a href="#write">write</a></div></li>
+    <li><div><a href="#ondata">onData</a></div></li>
+  </ul></li>
+  <li><div><a href="#spi">SPI</a></div>
+  <ul>
+    <li><div><a href="#spi-constructor">SPI (constructor)</a></div></li>
+    <li><div><a href="#send">send</a></div></li>
+    <li><div><a href="#receive">receive</a></div></li>
+  </ul></li>
+  <li><div><a href="#gpio">GPIO</a></div>
+  <ul>
+    <li><div><a href="#digitalwrite">digitalWrite</a></div></li>
+    <li><div><a href="#digitalpulse">digitalPulse</a></div></li>
+    <li><div><a href="#digitalread">digitalRead</a></div></li>
+    <li><div><a href="#analogwrite">analogWrite</a></div></li>
+    <li><div><a href="#analogread">analogRead</a></div></li>
+    <li><div><a href="#setwatch">setWatch</a></div></li>
+  </ul></li>
+  <li><div><a href="#function">Function</a></div>
+  <ul>
+    <li><div><a href="#function-constructor">Function (constructor)</a></div></li>
+    <li><div><a href="#call">call</a></div></li>
+    <li><div><a href="#apply">apply</a></div></li>
+    <li><div><a href="#bind">bind</a></div></li>
+  </ul></li>
+  <li><div><a href="#array">Array</a></div>
+  <ul>
+    <li><div><a href="#array-constructor">Array (constructor)</a></div></li>
+    <li><div><a href="#push">push</a></div></li>
+    <li><div><a href="#pop">pop</a></div></li>
+    <li><div><a href="#foreach">forEach</a></div></li>
+    <li><div><a href="#indexof">indexOf</a></div></li>
+    <li><div><a href="#join">join</a></div></li>
+    <li><div><a href="#map">map</a></div></li>
+    <li><div><a href="#slice">slice</a></div></li>
+    <li><div><a href="#sort">sort</a></div></li>
+  </ul></li>
+  <li><div><a href="#object">Object</a></div>
+  <ul>
+    <li><div><a href="#object-constructor">Object (constructor)</a></div></li>
+    <li><div><a href="#tostring">toString</a></div></li>
+    <li><div><a href="#on">on</a></div></li>
+    <li><div><a href="#emit">emit</a></div></li>
+    <li><div><a href="#removealllisteners">removeAllListeners</a></div></li>
+    <li><div><a href="#listeners">listeners</a></div></li>
+  </ul></li>
+  <li><div><a href="#arraybuffer">ArrayBuffer</a></div>
+  <ul>
+    <li><div><a href="#arraybuffer-constructor">ArrayBuffer (constructor)</a></div></li>
+  </ul></li>
+  <li><div><a href="#arraybufferview">ArrayBufferView</a></div>
+  <ul>
+    <li><div><a href="#int8array-constructor">Int8Array (constructor)</a></div></li>
+    <li><div><a href="#uint8array-constructor">Uint8Array (constructor)</a></div></li>
+    <li><div><a href="#int16array-constructor">Int16Array (constructor)</a></div></li>
+    <li><div><a href="#uint16array-constructor">Uint16Array (constructor)</a></div></li>
+    <li><div><a href="#int32array-constructor">Int32Array (constructor)</a></div></li>
+    <li><div><a href="#uint32array-constructor">Uint32Array (constructor)</a></div></li>
+    <li><div><a href="#subarray">subarray</a></div></li>
+  </ul></li>
+  <li><div><a href="#string">String</a></div>
+  <ul>
+    <li><div><a href="#string-constructor">String (constructor)</a></div></li>
+    <li><div><a href="#split">split</a></div></li>
+    <li><div><a href="#indexof-2">indexOf</a></div></li>
+    <li><div><a href="#substring">substring</a></div></li>
+    <li><div><a href="#charat">charAt</a></div></li>
+    <li><div><a href="#charcodeat">charCodeAt</a></div></li>
+    <li><div><a href="#tolowercase">toLowerCase</a></div></li>
+    <li><div><a href="#touppercase">toUpperCase</a></div></li>
+  </ul></li>
+  <li><div><a href="#timer">Timer</a></div>
+  <ul>
+    <li><div><a href="#settimeout">setTimeout</a></div></li>
+    <li><div><a href="#setinterval">setInterval</a></div></li>
+    <li><div><a href="#cleartimeout">clearTimeout</a></div></li>
+    <li><div><a href="#clearinterval">clearInterval</a></div></li>
+    <li><div><a href="#gettime">getTime</a></div></li>
+  </ul></li>
+  <li><div><a href="#math">Math</a></div>
+  <ul>
+    <li><div><a href="#sin">sin</a></div></li>
+    <li><div><a href="#asin">asin</a></div></li>
+    <li><div><a href="#cos">cos</a></div></li>
+    <li><div><a href="#acos">acos</a></div></li>
+    <li><div><a href="#tan">tan</a></div></li>
+    <li><div><a href="#atan">atan</a></div></li>
+    <li><div><a href="#sqrt">sqrt</a></div></li>
+    <li><div><a href="#log-2">log</a></div></li>
+    <li><div><a href="#exp">exp</a></div></li>
+    <li><div><a href="#floor">floor</a></div></li>
+    <li><div><a href="#ceil">ceil</a></div></li>
+    <li><div><a href="#round">round</a></div></li>
+    <li><div><a href="#abs">abs</a></div></li>
+    <li><div><a href="#atan2">atan2</a></div></li>
+    <li><div><a href="#pow">pow</a></div></li>
+  </ul></li>
+  <li><div><a href="#debug">debug</a></div>
+  <ul>
+    <li><div><a href="#assert">assert</a></div></li>
+    <li><div><a href="#assert_cond">assert_cond</a></div></li>
+    <li><div><a href="#assert_exception">assert_exception</a></div></li>
+    <li><div><a href="#dump_env">dump_env</a></div></li>
+  </ul></li>
+  <li><div><a href="#module">Module</a></div>
+  <ul>
+    <li><div><a href="#require">require</a></div></li>
+  </ul></li>
+  <li><div><a href="#netif">Netif</a></div>
+  <ul>
+    <li><div><a href="#esp8266-constructor">ESP8266 (constructor)</a></div></li>
+    <li><div><a href="#enc28j60-constructor">ENC28J60 (constructor)</a></div></li>
+    <li><div><a href="#linkstatus">linkStatus</a></div></li>
+    <li><div><a href="#macaddrget">MACAddrGet</a></div></li>
+    <li><div><a href="#ipaddrget">IPAddrGet</a></div></li>
+    <li><div><a href="#onportchange">onPortChange</a></div></li>
+    <li><div><a href="#ipconnect">IPConnect</a></div></li>
+    <li><div><a href="#ipdisconnect">IPDisconnect</a></div></li>
+    <li><div><a href="#tcpconnect">TCPConnect</a></div></li>
+    <li><div><a href="#tcpdisconnect">TCPDisconnect</a></div></li>
+    <li><div><a href="#ontcpdata">onTCPData</a></div></li>
+    <li><div><a href="#ontcpdisconnect">onTCPDisconnect</a></div></li>
+    <li><div><a href="#tcpwrite">TCPWrite</a></div></li>
+    <li><div><a href="#tcpread">TCPRead</a></div></li>
+    <li><div><a href="#netifinet-constructor">NetifINET (constructor)</a></div></li>
+    <li><div><a href="#linuxpacketeth-constructor">LinuxPacketEth (constructor)</a></div></li>
+    <li><div><a href="#stellariseth-constructor">StellarisEth (constructor)</a></div></li>
+  </ul></li>
 </ul>
-<div>API description</div>
-<h1 class='page-header'>Functions</h1>
-<h2>
-  <a href='./global/global.html'>Global</a></br>
-  <small></small>
-</h2>
-<table class='table'>
-  <thead>
-    <tr>
-      <th>Method</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href='./global/eval.html'>eval()</a></td>
-      <td width='60%'>Evaluate the given String</td>
-    </tr>
-    <tr>
-      <td><a href='./global/toInteger.html'>toInteger()</a></td>
-      <td width='60%'>Convert the given object to an integer value</td>
-    </tr>
-    <tr>
-      <td><a href='./global/isNaN.html'>isNaN()</a></td>
-      <td width='60%'>Tests if the object is NaN</td>
-    </tr>
-    <tr>
-      <td><a href='./global/meminfo.html'>meminfo()</a></td>
-      <td width='60%'>Prints platform dependent memory information</td>
-    </tr>
-    <tr>
-      <td><a href='./global/describe.html'>describe()</a></td>
-      <td width='60%'>Print object description to the console</td>
-    </tr>
-    <tr>
-      <td><a href='./global/compile.html'>compile()</a></td>
-      <td width='60%'>Compiles a function for faster execution</td>
-    </tr>
-  </tbody>
-</table>
-<h2>
-  <a href='./canvas/canvas.html'>Canvas</a></br>
-  <small></small>
-</h2>
-<table class='table'>
-  <thead>
-    <tr>
-      <th>Constructor</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td><a href='./canvas/SSD1306_constructor.html'>SSD1306()</a></td></tr>
-    <tr><td><a href='./canvas/SSD1329_constructor.html'>SSD1329()</a></td></tr>
-    <tr><td><a href='./canvas/PCD8544_constructor.html'>PCD8544()</a></td></tr>
-    <tr><td><a href='./canvas/ILI93XX_constructor.html'>ILI93XX()</a></td></tr>
-    <tr><td><a href='./canvas/Dogs102x6_constructor.html'>Dogs102x6()</a></td></tr>
-    <tr><td><a href='./canvas/SDLScreen_constructor.html'>SDLScreen()</a></td></tr>
-  </tbody>
-</table>
-<table class='table'>
-  <thead>
-    <tr>
-      <th>Method</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href='./canvas/pixelDraw.html'>pixelDraw()</a></td>
-      <td width='60%'>Draw a pixel on the screen</td>
-    </tr>
-    <tr>
-      <td><a href='./canvas/fill.html'>fill()</a></td>
-      <td width='60%'>Fills the canvas with a color</td>
-    </tr>
-    <tr>
-      <td><a href='./canvas/flip.html'>flip()</a></td>
-      <td width='60%'>Publishes stored buffer onto canvas</td>
-    </tr>
-  </tbody>
-</table>
-<h2>
-  <a href='./graphics/graphics.html'>Graphics</a></br>
-  <small></small>
-</h2>
-<table class='table'>
-  <thead>
-    <tr>
-      <th>Constructor</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td><a href='./graphics/Graphics_constructor.html'>Graphics()</a></td></tr>
-  </tbody>
-</table>
-<table class='table'>
-  <thead>
-    <tr>
-      <th>Method</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href='./graphics/stringDraw.html'>stringDraw()</a></td>
-      <td width='60%'>Prints string on LCD</td>
-    </tr>
-    <tr>
-      <td><a href='./graphics/circleDraw.html'>circleDraw()</a></td>
-      <td width='60%'>Draws a circle on LCD</td>
-    </tr>
-    <tr>
-      <td><a href='./graphics/lineDraw.html'>lineDraw()</a></td>
-      <td width='60%'>Draws a line on LCD</td>
-    </tr>
-    <tr>
-      <td><a href='./graphics/rectDraw.html'>rectDraw()</a></td>
-      <td width='60%'>Draws a rectangle on LCD</td>
-    </tr>
-    <tr>
-      <td><a href='./graphics/roundRectDraw.html'>roundRectDraw()</a></td>
-      <td width='60%'>Draws a round rectangle on LCD</td>
-    </tr>
-  </tbody>
-</table>
-<h2>
-  <a href='./fs/fs.html'>File System</a></br>
-  <small></small>
-</h2>
-<table class='table'>
-  <thead>
-    <tr>
-      <th>Method</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href='./fs/readFileSync.html'>readFileSync()</a></td>
-      <td width='60%'>Synchronously reads the entire contents of a file</td>
-    </tr>
-    <tr>
-      <td><a href='./fs/writeFileSync.html'>writeFileSync()</a></td>
-      <td width='60%'>Synchronously writes the entire contents of a file</td>
-    </tr>
-    <tr>
-      <td><a href='./fs/readdirSync.html'>readdirSync()</a></td>
-      <td width='60%'>Synchronously reads the directory listing of a path</td>
-    </tr>
-  </tbody>
-</table>
-<h2>
-  <a href='./console/console.html'>console</a></br>
-  <small></small>
-</h2>
-<table class='table'>
-  <thead>
-    <tr>
-      <th>Method</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href='./console/set.html'>set()</a></td>
-      <td width='60%'>Sets TinkerPal console to a given serial port</td>
-    </tr>
-    <tr>
-      <td><a href='./console/log.html'>log()</a></td>
-      <td width='60%'>Logs object to the console</td>
-    </tr>
-  </tbody>
-</table>
-<h2>
-  <a href='./mmc/mmc.html'>MMC</a></br>
-  <small></small>
-</h2>
-<table class='table'>
-  <thead>
-    <tr>
-      <th>Constructor</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td><a href='./mmc/MMC_constructor.html'>MMC()</a></td></tr>
-  </tbody>
-</table>
-<h2>
-  <a href='./serial/serial.html'>Serial</a></br>
-  <small></small>
-</h2>
-<table class='table'>
-  <thead>
-    <tr>
-      <th>Constructor</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td><a href='./serial/Serial_constructor.html'>Serial()</a></td></tr>
-  </tbody>
-</table>
-<table class='table'>
-  <thead>
-    <tr>
-      <th>Method</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href='./serial/enable.html'>enable()</a></td>
-      <td width='60%'>Enable a serial port</td>
-    </tr>
-    <tr>
-      <td><a href='./serial/disable.html'>disable()</a></td>
-      <td width='60%'>Disable a serial port</td>
-    </tr>
-    <tr>
-      <td><a href='./serial/print.html'>print()</a></td>
-      <td width='60%'>Prints string</td>
-    </tr>
-    <tr>
-      <td><a href='./serial/write.html'>write()</a></td>
-      <td width='60%'>Writes data to the serial port</td>
-    </tr>
-    <tr>
-      <td><a href='./serial/onData.html'>onData()</a></td>
-      <td width='60%'>Calls 'cb' when data is available on serial port.
-If cb is undefined, removes the previously set cb</td>
-    </tr>
-  </tbody>
-</table>
-<h2>
-  <a href='./spi/spi.html'>SPI</a></br>
-  <small></small>
-</h2>
-<table class='table'>
-  <thead>
-    <tr>
-      <th>Constructor</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td><a href='./spi/SPI_constructor.html'>SPI()</a></td></tr>
-  </tbody>
-</table>
-<table class='table'>
-  <thead>
-    <tr>
-      <th>Method</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href='./spi/send.html'>send()</a></td>
-      <td width='60%'>Sends data via SPI bus</td>
-    </tr>
-    <tr>
-      <td><a href='./spi/receive.html'>receive()</a></td>
-      <td width='60%'>Reads data via SPI bus (dummy data is sent)</td>
-    </tr>
-  </tbody>
-</table>
-<h2>
-  <a href='./gpio/gpio.html'>GPIO</a></br>
-  <small></small>
-</h2>
-<table class='table'>
-  <thead>
-    <tr>
-      <th>Method</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href='./gpio/digitalWrite.html'>digitalWrite()</a></td>
-      <td width='60%'>Set the digital value of a GPIO or a number of GPIOs</td>
-    </tr>
-    <tr>
-      <td><a href='./gpio/digitalPulse.html'>digitalPulse()</a></td>
-      <td width='60%'>Create a digital pulse on a GPIO pin for a given period</td>
-    </tr>
-    <tr>
-      <td><a href='./gpio/digitalRead.html'>digitalRead()</a></td>
-      <td width='60%'>Read the digital state of a GPIO pin or a number of pins</td>
-    </tr>
-    <tr>
-      <td><a href='./gpio/analogWrite.html'>analogWrite()</a></td>
-      <td width='60%'>Set the analog value of a GPIO pin</td>
-    </tr>
-    <tr>
-      <td><a href='./gpio/analogRead.html'>analogRead()</a></td>
-      <td width='60%'>Read the analog value of a GPIO pin</td>
-    </tr>
-    <tr>
-      <td><a href='./gpio/setWatch.html'>setWatch()</a></td>
-      <td width='60%'>Calls a function whenever the GPIO pin changes state
-</td>
-    </tr>
-  </tbody>
-</table>
-<h2>
-  <a href='./function_prototype/function_prototype.html'>Function</a></br>
-  <small></small>
-</h2>
-<table class='table'>
-  <thead>
-    <tr>
-      <th>Constructor</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td><a href='./function_prototype/Function_constructor.html'>Function()</a></td></tr>
-  </tbody>
-</table>
-<table class='table'>
-  <thead>
-    <tr>
-      <th>Method</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href='./function_prototype/call.html'>call()</a></td>
-      <td width='60%'>Invoke function call</td>
-    </tr>
-    <tr>
-      <td><a href='./function_prototype/apply.html'>apply()</a></td>
-      <td width='60%'>Invoke function call</td>
-    </tr>
-    <tr>
-      <td><a href='./function_prototype/bind.html'>bind()</a></td>
-      <td width='60%'>Returns a new Function object based on the current function object, but the 'this' value is bound to thisArg</td>
-    </tr>
-  </tbody>
-</table>
-<h2>
-  <a href='./array_prototype/array_prototype.html'>Array</a></br>
-  <small></small>
-</h2>
-<table class='table'>
-  <thead>
-    <tr>
-      <th>Constructor</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td><a href='./array_prototype/Array_constructor.html'>Array()</a></td></tr>
-  </tbody>
-</table>
-<table class='table'>
-  <thead>
-    <tr>
-      <th>Method</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href='./array_prototype/push.html'>push()</a></td>
-      <td width='60%'>The arguments are appended to the end of the array, in the order in which they appear</td>
-    </tr>
-    <tr>
-      <td><a href='./array_prototype/pop.html'>pop()</a></td>
-      <td width='60%'>The last element of the array is removed from the array and returned</td>
-    </tr>
-    <tr>
-      <td><a href='./array_prototype/forEach.html'>forEach()</a></td>
-      <td width='60%'>Calls cb once for each element present in the array, in ascending order</td>
-    </tr>
-    <tr>
-      <td><a href='./array_prototype/indexOf.html'>indexOf()</a></td>
-      <td width='60%'>Searches for searchElement in the elements of the array</td>
-    </tr>
-    <tr>
-      <td><a href='./array_prototype/join.html'>join()</a></td>
-      <td width='60%'>Joins the string coversions of the elements of the array separated by occurrences of the separator</td>
-    </tr>
-    <tr>
-      <td><a href='./array_prototype/map.html'>map()</a></td>
-      <td width='60%'>Calls cb once for each element present in the array, in ascending order, and constructs a new Array from the results</td>
-    </tr>
-    <tr>
-      <td><a href='./array_prototype/slice.html'>slice()</a></td>
-      <td width='60%'>Creates a new array with elements from the specified array starting from index 'start' up to index 'end'</td>
-    </tr>
-    <tr>
-      <td><a href='./array_prototype/sort.html'>sort()</a></td>
-      <td width='60%'>Sorts the array elements</td>
-    </tr>
-  </tbody>
-</table>
-<h2>
-  <a href='./object_prototype/object_prototype.html'>Object</a></br>
-  <small></small>
-</h2>
-<table class='table'>
-  <thead>
-    <tr>
-      <th>Constructor</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td><a href='./object_prototype/Object_constructor.html'>Object()</a></td></tr>
-  </tbody>
-</table>
-<table class='table'>
-  <thead>
-    <tr>
-      <th>Method</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href='./object_prototype/toString.html'>toString()</a></td>
-      <td width='60%'>The object is converted to a string</td>
-    </tr>
-    <tr>
-      <td><a href='./object_prototype/on.html'>on()</a></td>
-      <td width='60%'>Adds a listener for the specified event</td>
-    </tr>
-    <tr>
-      <td><a href='./object_prototype/emit.html'>emit()</a></td>
-      <td width='60%'>Execute each of the listeners on the event</td>
-    </tr>
-    <tr>
-      <td><a href='./object_prototype/removeAllListeners.html'>removeAllListeners()</a></td>
-      <td width='60%'>removes listeners on a specified event, or all events</td>
-    </tr>
-    <tr>
-      <td><a href='./object_prototype/listeners.html'>listeners()</a></td>
-      <td width='60%'>Returns an array with listeners for the specified event</td>
-    </tr>
-  </tbody>
-</table>
-<h2>
-  <a href='./array_buffer_prototype/array_buffer_prototype.html'>ArrayBuffer</a></br>
-  <small></small>
-</h2>
-<table class='table'>
-  <thead>
-    <tr>
-      <th>Constructor</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td><a href='./array_buffer_prototype/ArrayBuffer_constructor.html'>ArrayBuffer()</a></td></tr>
-  </tbody>
-</table>
-<h2>
-  <a href='./array_buffer_view_prototype/array_buffer_view_prototype.html'>ArrayBufferView</a></br>
-  <small></small>
-</h2>
-<table class='table'>
-  <thead>
-    <tr>
-      <th>Constructor</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td><a href='./array_buffer_view_prototype/Int8Array_constructor.html'>Int8Array()</a></td></tr>
-    <tr><td><a href='./array_buffer_view_prototype/Uint8Array_constructor.html'>Uint8Array()</a></td></tr>
-    <tr><td><a href='./array_buffer_view_prototype/Int16Array_constructor.html'>Int16Array()</a></td></tr>
-    <tr><td><a href='./array_buffer_view_prototype/Uint16Array_constructor.html'>Uint16Array()</a></td></tr>
-    <tr><td><a href='./array_buffer_view_prototype/Int32Array_constructor.html'>Int32Array()</a></td></tr>
-    <tr><td><a href='./array_buffer_view_prototype/Uint32Array_constructor.html'>Uint32Array()</a></td></tr>
-  </tbody>
-</table>
-<table class='table'>
-  <thead>
-    <tr>
-      <th>Method</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href='./array_buffer_view_prototype/subarray.html'>subarray()</a></td>
-      <td width='60%'>Return a partial typed array based on the typed arrayIf end is unspecified, the subarray contains all elements from begin to the end of the TypedArray. If either begin or end are negative, they are calculated from the end of the array</td>
-    </tr>
-  </tbody>
-</table>
-<h2>
-  <a href='./string_prototype/string_prototype.html'>String</a></br>
-  <small></small>
-</h2>
-<table class='table'>
-  <thead>
-    <tr>
-      <th>Constructor</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td><a href='./string_prototype/String_constructor.html'>String()</a></td></tr>
-  </tbody>
-</table>
-<table class='table'>
-  <thead>
-    <tr>
-      <th>Method</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href='./string_prototype/split.html'>split()</a></td>
-      <td width='60%'>Breaks a string into substrings based on occurences of 'separator'</td>
-    </tr>
-    <tr>
-      <td><a href='./string_prototype/indexOf.html'>indexOf()</a></td>
-      <td width='60%'>Search for occurences of 'searchString' in a given string</td>
-    </tr>
-    <tr>
-      <td><a href='./string_prototype/substring.html'>substring()</a></td>
-      <td width='60%'>Creates a new string based on a subset of a given string</td>
-    </tr>
-    <tr>
-      <td><a href='./string_prototype/charAt.html'>charAt()</a></td>
-      <td width='60%'>Creates a new string containing the character at a position</td>
-    </tr>
-    <tr>
-      <td><a href='./string_prototype/charCodeAt.html'>charCodeAt()</a></td>
-      <td width='60%'>Get the ASCII value of the character at a position</td>
-    </tr>
-    <tr>
-      <td><a href='./string_prototype/toLowerCase.html'>toLowerCase()</a></td>
-      <td width='60%'>Convert a string to lower case characters</td>
-    </tr>
-    <tr>
-      <td><a href='./string_prototype/toUpperCase.html'>toUpperCase()</a></td>
-      <td width='60%'>Convert a string to upper case characters</td>
-    </tr>
-  </tbody>
-</table>
-<h2>
-  <a href='./timers/timers.html'>Timer</a></br>
-  <small></small>
-</h2>
-<table class='table'>
-  <thead>
-    <tr>
-      <th>Method</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href='./timers/setTimeout.html'>setTimeout()</a></td>
-      <td width='60%'>Schedule 'cb' to run in ms milliseconds</td>
-    </tr>
-    <tr>
-      <td><a href='./timers/setInterval.html'>setInterval()</a></td>
-      <td width='60%'>Schedule 'cb' to run periodically every ms milliseconds</td>
-    </tr>
-    <tr>
-      <td><a href='./timers/clearTimeout.html'>clearTimeout()</a></td>
-      <td width='60%'>Cancel timeout timer if timeout hadn't expired</td>
-    </tr>
-    <tr>
-      <td><a href='./timers/clearInterval.html'>clearInterval()</a></td>
-      <td width='60%'>Cancel periodic timer</td>
-    </tr>
-    <tr>
-      <td><a href='./timers/getTime.html'>getTime()</a></td>
-      <td width='60%'>Get number of seconds since system startup</td>
-    </tr>
-  </tbody>
-</table>
-<h2>
-  <a href='./math/math.html'>Math</a></br>
-  <small></small>
-</h2>
-<table class='table'>
-  <thead>
-    <tr>
-      <th>Method</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href='./math/sin.html'>sin()</a></td>
-      <td width='60%'>Compute the sine of an angle</td>
-    </tr>
-    <tr>
-      <td><a href='./math/asin.html'>asin()</a></td>
-      <td width='60%'>Compute the arc sine of a number</td>
-    </tr>
-    <tr>
-      <td><a href='./math/cos.html'>cos()</a></td>
-      <td width='60%'>Compute the cosine of an angle</td>
-    </tr>
-    <tr>
-      <td><a href='./math/acos.html'>acos()</a></td>
-      <td width='60%'>Compute the arc cosine of a number</td>
-    </tr>
-    <tr>
-      <td><a href='./math/tan.html'>tan()</a></td>
-      <td width='60%'>Compute the tangent of an angle</td>
-    </tr>
-    <tr>
-      <td><a href='./math/atan.html'>atan()</a></td>
-      <td width='60%'>Compute the arc tangent of a number</td>
-    </tr>
-    <tr>
-      <td><a href='./math/sqrt.html'>sqrt()</a></td>
-      <td width='60%'>Compute the square root of a number</td>
-    </tr>
-    <tr>
-      <td><a href='./math/log.html'>log()</a></td>
-      <td width='60%'>Compute the natural logarithm of a number</td>
-    </tr>
-    <tr>
-      <td><a href='./math/exp.html'>exp()</a></td>
-      <td width='60%'>Compute the base-e exponent of a number</td>
-    </tr>
-    <tr>
-      <td><a href='./math/floor.html'>floor()</a></td>
-      <td width='60%'>Compute the largest integral value not greater than the argument</td>
-    </tr>
-    <tr>
-      <td><a href='./math/ceil.html'>ceil()</a></td>
-      <td width='60%'>Compute the smallest integral value not less than the argument</td>
-    </tr>
-    <tr>
-      <td><a href='./math/round.html'>round()</a></td>
-      <td width='60%'>Round to nearest integer, away from zero</td>
-    </tr>
-    <tr>
-      <td><a href='./math/abs.html'>abs()</a></td>
-      <td width='60%'>Compute the absolute value of an integer</td>
-    </tr>
-    <tr>
-      <td><a href='./math/atan2.html'>atan2()</a></td>
-      <td width='60%'>Compute the arc tangent of two variables</td>
-    </tr>
-    <tr>
-      <td><a href='./math/pow.html'>pow()</a></td>
-      <td width='60%'>Power function</td>
-    </tr>
-  </tbody>
-</table>
-<h2>
-  <a href='./debug/debug.html'>debug</a></br>
-  <small></small>
-</h2>
-<table class='table'>
-  <thead>
-    <tr>
-      <th>Method</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href='./debug/assert.html'>assert()</a></td>
-      <td width='60%'>Panic on mismatch between two objects</td>
-    </tr>
-    <tr>
-      <td><a href='./debug/assert_cond.html'>assert_cond()</a></td>
-      <td width='60%'>Panic if object is false</td>
-    </tr>
-    <tr>
-      <td><a href='./debug/assert_exception.html'>assert_exception()</a></td>
-      <td width='60%'>Panic if calling cb() does not raise an exception</td>
-    </tr>
-    <tr>
-      <td><a href='./debug/dump_env.html'>dump_env()</a></td>
-      <td width='60%'>Dump global environment information to the console</td>
-    </tr>
-  </tbody>
-</table>
-<h2>
-  <a href='./module/module.html'>Module</a></br>
-  <small></small>
-</h2>
-<table class='table'>
-  <thead>
-    <tr>
-      <th>Method</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href='./module/require.html'>require()</a></td>
-      <td width='60%'>Searches for a module and evaluates its code</td>
-    </tr>
-  </tbody>
-</table>
-<h2>
-  <a href='./netif/netif.html'>Netif</a></br>
-  <small></small>
-</h2>
-<table class='table'>
-  <thead>
-    <tr>
-      <th>Constructor</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td><a href='./netif/ESP8266_constructor.html'>ESP8266()</a></td></tr>
-    <tr><td><a href='./netif/ENC28J60_constructor.html'>ENC28J60()</a></td></tr>
-    <tr><td><a href='./netif/NetifINET_constructor.html'>NetifINET()</a></td></tr>
-    <tr><td><a href='./netif/LinuxPacketEth_constructor.html'>LinuxPacketEth()</a></td></tr>
-    <tr><td><a href='./netif/StellarisEth_constructor.html'>StellarisEth()</a></td></tr>
-  </tbody>
-</table>
-<table class='table'>
-  <thead>
-    <tr>
-      <th>Method</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href='./netif/linkStatus.html'>linkStatus()</a></td>
-      <td width='60%'>Get link status</td>
-    </tr>
-    <tr>
-      <td><a href='./netif/MACAddrGet.html'>MACAddrGet()</a></td>
-      <td width='60%'>Get Interface MAC Address</td>
-    </tr>
-    <tr>
-      <td><a href='./netif/IPAddrGet.html'>IPAddrGet()</a></td>
-      <td width='60%'>Get Interface IP Address</td>
-    </tr>
-    <tr>
-      <td><a href='./netif/onPortChange.html'>onPortChange()</a></td>
-      <td width='60%'>Calls 'cb' when link state has changed</td>
-    </tr>
-    <tr>
-      <td><a href='./netif/IPConnect.html'>IPConnect()</a></td>
-      <td width='60%'>Obtain IP Address</td>
-    </tr>
-    <tr>
-      <td><a href='./netif/IPDisconnect.html'>IPDisconnect()</a></td>
-      <td width='60%'>Release IP Address</td>
-    </tr>
-    <tr>
-      <td><a href='./netif/TCPConnect.html'>TCPConnect()</a></td>
-      <td width='60%'>Connect to a TCP IP:PORT</td>
-    </tr>
-    <tr>
-      <td><a href='./netif/TCPDisconnect.html'>TCPDisconnect()</a></td>
-      <td width='60%'>Release TCP connection</td>
-    </tr>
-    <tr>
-      <td><a href='./netif/onTCPData.html'>onTCPData()</a></td>
-      <td width='60%'>Calls 'cb' when TCP data is available</td>
-    </tr>
-    <tr>
-      <td><a href='./netif/onTCPDisconnect.html'>onTCPDisconnect()</a></td>
-      <td width='60%'>Calls 'cb' when TCP stream is disconnected</td>
-    </tr>
-    <tr>
-      <td><a href='./netif/TCPWrite.html'>TCPWrite()</a></td>
-      <td width='60%'>Writes data to the TCP socket</td>
-    </tr>
-    <tr>
-      <td><a href='./netif/TCPRead.html'>TCPRead()</a></td>
-      <td width='60%'>Reads data from the TCP socket</td>
-    </tr>
-  </tbody>
-</table>
-      </div>
+
     </div>
-    <hr>
-    <footer>
-    </footer>
-  </div>
-  <script type='text/javascript' src='http://code.jquery.com/jquery-1.9.1.min.js'></script>
-<script type='text/javascript' src='https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?lang=css&skin=desert'></script>
+    <div id="content">
+
+<h1>API</h1>
+<div class="intro">
+
+
+<p>Objects and methods detailed below</p>
+
+
+</div>
+<h1 id="global">Global</h1>
+
+<h2 id="eval">eval</h2>
+
+<p>Evaluate the given String</p>
+
+<h3 id="example">Example</h3>
+
+<pre><code>var two = eval('1+1');
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>str</td><td>String to be evaluated</td></tr>
+</tbody>
+</table>
+
+<h2 id="tointeger">toInteger</h2>
+
+<p>Convert the given object to an integer value</p>
+
+<h3 id="example-2">Example</h3>
+
+<pre><code>var n = toInteger('5') + 1;
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>object</td><td>Object to be converted</td></tr>
+</tbody>
+</table>
+
+<h2 id="isnan">isNaN</h2>
+
+<p>Tests if the object is NaN</p>
+
+<h3 id="example-3">Example</h3>
+
+<pre><code>isNaN(1); // false
+isNaN('abc'); // true
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>number</td><td>Object to be tested for NaNity</td></tr>
+</tbody>
+</table>
+
+<h2 id="meminfo">meminfo</h2>
+
+<p>Prints platform dependent memory information</p>
+
+<h3 id="example-4">Example</h3>
+
+<pre><code>meminfo()
+</code></pre>
+
+<h2 id="describe">describe</h2>
+
+<p>Print object description to the console</p>
+
+<h3 id="example-5">Example</h3>
+
+<pre><code>describe(describe);
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>object</td><td>Object to describe</td></tr>
+</tbody>
+</table>
+
+<h2 id="compile">compile</h2>
+
+<p>Compiles a function for faster execution</p>
+
+<h3 id="example-6">Example</h3>
+
+<pre><code>var f = compile(function() { return 1 + 1; });
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>function</td><td>function_to_be_compiled</td></tr>
+</tbody>
+</table>
+
+<h1 id="canvas">Canvas</h1>
+
+<h2 id="pixeldraw">pixelDraw</h2>
+
+<p>Draw a pixel on the screen</p>
+
+<h3 id="example-7">Example</h3>
+
+<pre><code>var l = new ILI93XX();
+l.pixelDraw(10, 10, 1);
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>x</td><td>X Coordinate</td></tr>
+<tr><td>y</td><td>Y Coordinate</td></tr>
+<tr><td>value</td><td>Color Value</td></tr>
+</tbody>
+</table>
+
+<h2 id="fill">fill</h2>
+
+<p>Fills the canvas with a color</p>
+
+<h3 id="example-8">Example</h3>
+
+<pre><code>var l = new ILI93XX();
+l.fill(0xfe);
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>value</td><td>Color Value</td></tr>
+</tbody>
+</table>
+
+<h2 id="flip">flip</h2>
+
+<p>Publishes stored buffer onto canvas</p>
+
+<h3 id="example-9">Example</h3>
+
+<pre><code>var l = new SSD1306();
+l.pixelDraw(1, 1, 1);
+l.flip();
+</code></pre>
+
+<h2 id="ssd1306-constructor">SSD1306 (constructor)</h2>
+
+<p>SSD1306 Constructor</p>
+
+<h3 id="example-10">Example</h3>
+
+<pre><code>var lcd = new SSD1306();
+lcd.pixelDraw(10, 10, 1);
+</code></pre>
+
+<h2 id="ssd1329-constructor">SSD1329 (constructor)</h2>
+
+<p>SSD1329 Constructor</p>
+
+<h3 id="example-11">Example</h3>
+
+<pre><code>var lcd = new SSD1329();
+lcd.pixelDraw(10, 10, 1);
+</code></pre>
+
+<h2 id="pcd8544-constructor">PCD8544 (constructor)</h2>
+
+<p>PCD8544 Constructor</p>
+
+<h3 id="example-12">Example</h3>
+
+<pre><code>var lcd = new PCD8544();
+lcd.pixelDraw(10, 10, 1);
+</code></pre>
+
+<h2 id="ili93xx-constructor">ILI93XX (constructor)</h2>
+
+<p>ili93xx Constructor</p>
+
+<h3 id="example-13">Example</h3>
+
+<pre><code>var lcd = new ILI93XX();
+lcd.pixelDraw(10, 10, 1);
+</code></pre>
+
+<h2 id="dogs102x6-constructor">Dogs102x6 (constructor)</h2>
+
+<p>Dogs102x6 Constructor</p>
+
+<h3 id="example-14">Example</h3>
+
+<pre><code>var lcd = new Dogs102x6();
+lcd.pixelDraw(10, 10, 1);
+</code></pre>
+
+<h2 id="sdlscreen-constructor">SDLScreen (constructor)</h2>
+
+<p>SDL screen Constructor</p>
+
+<h3 id="example-15">Example</h3>
+
+<pre><code>var lcd = new SDLScreen();
+lcd.pixelDraw(10, 10, 1);
+</code></pre>
+
+<h1 id="graphics">Graphics</h1>
+
+<h2 id="graphics-constructor">Graphics (constructor)</h2>
+
+<p>Graphics Constructor</p>
+
+<h3 id="example-16">Example</h3>
+
+<pre><code>var lcd = new Dogs102x6();
+var g = new Graphics(lcd);
+g.stringDraw(0, 0, 'Hello World!', 0xffff);
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>Canvas</td><td>Canvas Object</td></tr>
+</tbody>
+</table>
+
+<h2 id="stringdraw">stringDraw</h2>
+
+<p>Prints string on LCD</p>
+
+<h3 id="example-17">Example</h3>
+
+<pre><code>var lcd = new Dogs102x6();
+var g = new Graphics(lcd);
+g.stringDraw(0, 0, 'Hello World!', 0xffff);
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>x</td><td>X coordinate</td></tr>
+<tr><td>y</td><td>Y coordinate</td></tr>
+<tr><td>str</td><td>String to be drawn</td></tr>
+<tr><td>color</td><td>Color</td></tr>
+</tbody>
+</table>
+
+<h2 id="circledraw">circleDraw</h2>
+
+<p>Draws a circle on LCD</p>
+
+<h3 id="example-18">Example</h3>
+
+<pre><code>var lcd = new Dogs102x6();
+var g = new Graphics(lcd);
+g.circleDraw(20, 20, 10, 0xffff);
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>x</td><td>X coordinate</td></tr>
+<tr><td>y</td><td>Y coordinate</td></tr>
+<tr><td>radius</td><td>Circle Radius</td></tr>
+<tr><td>color</td><td>Color</td></tr>
+</tbody>
+</table>
+
+<h2 id="linedraw">lineDraw</h2>
+
+<p>Draws a line on LCD</p>
+
+<h3 id="example-19">Example</h3>
+
+<pre><code>var lcd = new Dogs102x6();
+var g = new Graphics(lcd);
+g.lineDraw(10, 10, 20, 20, 0xffff);
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>x0</td><td>X0 coordinate</td></tr>
+<tr><td>y0</td><td>Y0 coordinate</td></tr>
+<tr><td>x1</td><td>X1 coordinate</td></tr>
+<tr><td>y1</td><td>Y1 coordinate</td></tr>
+<tr><td>color</td><td>Color</td></tr>
+</tbody>
+</table>
+
+<h2 id="rectdraw">rectDraw</h2>
+
+<p>Draws a rectangle on LCD</p>
+
+<h3 id="example-20">Example</h3>
+
+<pre><code>var lcd = new Dogs102x6();
+var g = new Graphics(lcd);
+g.rectDraw(10, 10, 20, 20, 0xffff);
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>x</td><td>X coordinate</td></tr>
+<tr><td>y</td><td>Y coordinate</td></tr>
+<tr><td>w</td><td>Width</td></tr>
+<tr><td>h</td><td>Height</td></tr>
+<tr><td>color</td><td>Color</td></tr>
+</tbody>
+</table>
+
+<h2 id="roundrectdraw">roundRectDraw</h2>
+
+<p>Draws a round rectangle on LCD</p>
+
+<h3 id="example-21">Example</h3>
+
+<pre><code>var lcd = new Dogs102x6();
+var g = new Graphics(lcd);
+g.roundRectDraw(10, 10, 20, 20, 4, 0xffff);
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>x</td><td>X coordinate</td></tr>
+<tr><td>y</td><td>Y coordinate</td></tr>
+<tr><td>w</td><td>Width</td></tr>
+<tr><td>h</td><td>Height</td></tr>
+<tr><td>r</td><td>Corner Radius</td></tr>
+<tr><td>color</td><td>Color</td></tr>
+</tbody>
+</table>
+
+<h1 id="file-system">File System</h1>
+
+<h2 id="readfilesync">readFileSync</h2>
+
+<p>Synchronously reads the entire contents of a file</p>
+
+<h3 id="example-22">Example</h3>
+
+<pre><code>var s = fs.readFileSync('FAT/file.txt');
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>path</td><td>File Path</td></tr>
+</tbody>
+</table>
+
+<h2 id="writefilesync">writeFileSync</h2>
+
+<p>Synchronously writes the entire contents of a file</p>
+
+<h3 id="example-23">Example</h3>
+
+<pre><code>fs.writeFileSync('FAT/file.txt', 'hello world!');
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>path</td><td>File Path</td></tr>
+<tr><td>data</td><td>String to be written to file</td></tr>
+</tbody>
+</table>
+
+<h2 id="readdirsync">readdirSync</h2>
+
+<p>Synchronously reads the directory listing of a path</p>
+
+<h3 id="example-24">Example</h3>
+
+<pre><code>var s = fs.readdirSync('FAT/');
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>path</td><td>Directory Path</td></tr>
+</tbody>
+</table>
+
+<h1 id="console">console</h1>
+
+<h2 id="set">set</h2>
+
+<p>Sets TinkerPal console to a given serial port</p>
+
+<h3 id="example-25">Example</h3>
+
+<pre><code>console.set(new Serial(UART1));
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>serial</td><td>Serial object</td></tr>
+</tbody>
+</table>
+
+<h2 id="log">log</h2>
+
+<p>Logs object to the console</p>
+
+<h3 id="example-26">Example</h3>
+
+<pre><code>console.log('Hello World');
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>object</td><td>Object to display</td></tr>
+</tbody>
+</table>
+
+<h1 id="mmc">MMC</h1>
+
+<h2 id="mmc-constructor">MMC (constructor)</h2>
+
+<p>MMC Constructor</p>
+
+<h3 id="example-27">Example</h3>
+
+<pre><code>new MMC();
+</code></pre>
+
+<h1 id="serial">Serial</h1>
+
+<h2 id="serial-constructor">Serial (constructor)</h2>
+
+<p>Serial Constructor</p>
+
+<h3 id="example-28">Example</h3>
+
+<pre><code>var s = new Serial(UART1);
+s.print('Hello World!);
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>UART</td><td>HW UART ID</td></tr>
+<tr><td>options</td><td>optional options object of type { baud_rate : int // Serial Baud Rate }</td></tr>
+</tbody>
+</table>
+
+<h2 id="enable">enable</h2>
+
+<p>Enable a serial port</p>
+
+<h3 id="example-29">Example</h3>
+
+<pre><code>var s = new Serial(UART1);
+s.enable();
+</code></pre>
+
+<h2 id="disable">disable</h2>
+
+<p>Disable a serial port</p>
+
+<h3 id="example-30">Example</h3>
+
+<pre><code>var s = new Serial(UART1);
+s.disable();
+</code></pre>
+
+<h2 id="print">print</h2>
+
+<p>Prints string</p>
+
+<h3 id="example-31">Example</h3>
+
+<pre><code>var s = new Serial(UART1);
+s.print('Hello World!');
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>string</td><td>String to be printed to serial port</td></tr>
+</tbody>
+</table>
+
+<h2 id="write">write</h2>
+
+<p>Writes data to the serial port</p>
+
+<h3 id="example-32">Example</h3>
+
+<pre><code>var s = new Serial(UART1);
+s.write(255);
+s.write([1,2,3])
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>data</td><td>Data (byte/array/string/typed array) to be sent</td></tr>
+</tbody>
+</table>
+
+<h2 id="ondata">onData</h2>
+
+<p>Calls 'cb' when data is available on serial port.
+If cb is undefined, removes the previously set cb</p>
+
+<h3 id="example-33">Example</h3>
+
+<pre><code>var s = new Serial(UART1);
+s.onData(function(e) { s.print(e.data); });
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>cb</td><td>callback function accepting a data object</td></tr>
+</tbody>
+</table>
+
+<h1 id="spi">SPI</h1>
+
+<h2 id="spi-constructor">SPI (constructor)</h2>
+
+<p>SPI Object Constructor</p>
+
+<h3 id="example-34">Example</h3>
+
+<pre><code>var s = new SPI(SPI1);
+s.send(0xff);
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>Port ID</td><td>HW SPI Port ID</td></tr>
+</tbody>
+</table>
+
+<h2 id="send">send</h2>
+
+<p>Sends data via SPI bus</p>
+
+<h3 id="example-35">Example</h3>
+
+<pre><code>var s = new SPI(SPI1);
+s.send(0x1f);
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>data</td><td>Data to be sent on SPI (integer)</td></tr>
+</tbody>
+</table>
+
+<h2 id="receive">receive</h2>
+
+<p>Reads data via SPI bus (dummy data is sent)</p>
+
+<h3 id="example-36">Example</h3>
+
+<pre><code>var s = new SPI(SPI1);
+var data = s.receive();
+</code></pre>
+
+<h1 id="gpio">GPIO</h1>
+
+<h2 id="digitalwrite">digitalWrite</h2>
+
+<p>Set the digital value of a GPIO or a number of GPIOs</p>
+
+<h3 id="example-37">Example</h3>
+
+<pre><code>digitalWrite(GPIO_PF2, true); /* Turn on PF2 */
+digitalWrite([GPIO_PF1, GPIO_PF2, GPIO_PF3], 0x5); /* Turn on PF1 &amp; PF3 */
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>pin[s]</td><td>Single GPIO ID or array of GPIO IDs</td></tr>
+<tr><td>value</td><td>Boolean for a single GPIO<br>In case of an array, value is considered an integer where the<br>first array element maps to the MSB</td></tr>
+</tbody>
+</table>
+
+<h2 id="digitalpulse">digitalPulse</h2>
+
+<p>Create a digital pulse on a GPIO pin for a given period</p>
+
+<h3 id="example-38">Example</h3>
+
+<pre><code>digitalPulse(GPIO_PF2, true, 0.1);
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>pin</td><td>GPIO pin ID</td></tr>
+<tr><td>value</td><td>Boolean</td></tr>
+<tr><td>ms</td><td>Pulse period in milliseconds</td></tr>
+</tbody>
+</table>
+
+<h2 id="digitalread">digitalRead</h2>
+
+<p>Read the digital state of a GPIO pin or a number of pins</p>
+
+<h3 id="example-39">Example</h3>
+
+<pre><code>var state = digitalRead(GPIO_PF2);
+var a = digitalRead([GPIO_PF0, GPIO_PF1, GPIO_PF2
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>pin[s]</td><td>GPIO pin ID or array of GPIO pin IDs</td></tr>
+</tbody>
+</table>
+
+<h2 id="analogwrite">analogWrite</h2>
+
+<p>Set the analog value of a GPIO pin</p>
+
+<h3 id="example-40">Example</h3>
+
+<pre><code>analogWrite(GPIO_PF2, 0.5);
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>pin</td><td>GPIO pin ID</td></tr>
+<tr><td>value</td><td>Floating point number with range [0-1]</td></tr>
+<tr><td>options (Optional)</td><td>Object: { freq : <frequency> }</td></tr>
+</tbody>
+</table>
+
+<h2 id="analogread">analogRead</h2>
+
+<p>Read the analog value of a GPIO pin</p>
+
+<h3 id="example-41">Example</h3>
+
+<pre><code>var f = analogRead(GPIO_PF2);
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>pin</td><td>GPIO pin ID</td></tr>
+</tbody>
+</table>
+
+<h2 id="setwatch">setWatch</h2>
+
+<p>Calls a function whenever the GPIO pin changes state</p>
+
+<h3 id="example-42">Example</h3>
+
+<pre><code>setWatch(function() { console.log('button changed state'); }, GPIO_PF0);
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>cb</td><td>callback function:<br>The function may receive an object of type:<br>{<br>     timestamp: in seconds,<br>     state: current pin state<br>}</td></tr>
+<tr><td>pin</td><td>GPIO pin ID</td></tr>
+<tr><td>options</td><td>optional options object of type { qlen : int // number of pending samples for processing  smaller than 128, must be power of 2. Default =1 }</td></tr>
+</tbody>
+</table>
+
+<h1 id="function">Function</h1>
+
+<h2 id="function-constructor">Function (constructor)</h2>
+
+<p>Function Constructor</p>
+
+<h3 id="example-43">Example</h3>
+
+<pre><code>var f = new Function('a', 'b', 'return a+b');
+console.log('1+2=' + f(1, 2));
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>[arg1, [arg2, [.. ]]]</td><td>Formal Parameter Names</td></tr>
+<tr><td>Body</td><td>Function Body</td></tr>
+</tbody>
+</table>
+
+<h2 id="call">call</h2>
+
+<p>Invoke function call</p>
+
+<h3 id="example-44">Example</h3>
+
+<pre><code>function fun() { this.prop = 'prop' }
+var obj = {};
+fun.call(obj);
+obj; // { prop : 'prop' }
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>thisArg</td><td>The 'this' value on function invocation</td></tr>
+<tr><td>arg1, arg2, ...</td><td>[optional] arguments to pass to function</td></tr>
+</tbody>
+</table>
+
+<h2 id="apply">apply</h2>
+
+<p>Invoke function call</p>
+
+<h3 id="example-45">Example</h3>
+
+<pre><code>function fun(a, b) { return a + b; }
+fun.apply(undefined, [1, 2]); // 3
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>thisArg</td><td>The 'this' value on function invocation</td></tr>
+<tr><td>argArray</td><td>[optional] Array of arguments to pass to function</td></tr>
+</tbody>
+</table>
+
+<h2 id="bind">bind</h2>
+
+<p>Returns a new Function object based on the current function object, but the 'this' value is bound to thisArg</p>
+
+<h3 id="example-46">Example</h3>
+
+<pre><code>function fun() { return this.prop; }
+var f = fun.bind({ prop : 1});
+f(); // 1
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>thisArg</td><td>The 'this' value on function invokation</td></tr>
+</tbody>
+</table>
+
+<h1 id="array">Array</h1>
+
+<h2 id="array-constructor">Array (constructor)</h2>
+
+<p>Array Constructor</p>
+
+<h3 id="example-47">Example</h3>
+
+<pre><code>var a = new Array(5);
+var b = new Array(1, 2, 3);
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>Length or [item1, item2, ..]</td><td>Number of entries to Allocate or comma separated list of items to push to the new array</td></tr>
+</tbody>
+</table>
+
+<h2 id="push">push</h2>
+
+<p>The arguments are appended to the end of the array, in the order in which they appear</p>
+
+<h3 id="example-48">Example</h3>
+
+<pre><code>var a = [];
+a.push(1);
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>item1 [, item2 [, ...] ]</td><td>object[s] to be added</td></tr>
+</tbody>
+</table>
+
+<h2 id="pop">pop</h2>
+
+<p>The last element of the array is removed from the array and returned</p>
+
+<h3 id="example-49">Example</h3>
+
+<pre><code>var a = [ 2, 1 ];
+var one = a.pop();
+</code></pre>
+
+<h2 id="foreach">forEach</h2>
+
+<p>Calls cb once for each element present in the array, in ascending order</p>
+
+<h3 id="example-50">Example</h3>
+
+<pre><code>var a = [ 1, 2, 3 ];
+a.forEach(function(value, k, obj) { console.log(value + ' [' + k + '] ' + ' @ ' + obj); });
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>cb</td><td>function that accepts three arguments:<br>Value of the element, <br>Index of the element, <br>The object being traversed</td></tr>
+<tr><td>this</td><td>[optional] if provided, used as the 'this' value for each invocation of 'cb'. If not provided, 'undefined' is used</td></tr>
+</tbody>
+</table>
+
+<h2 id="indexof">indexOf</h2>
+
+<p>Searches for searchElement in the elements of the array</p>
+
+<h3 id="example-51">Example</h3>
+
+<pre><code>var a = [ 1, 2, 3 ];
+var one = a.indexOf(2);
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>searchElement</td><td>Object to search for</td></tr>
+<tr><td>fromIndex</td><td>[optional] start search index</td></tr>
+</tbody>
+</table>
+
+<h2 id="join">join</h2>
+
+<p>Joins the string coversions of the elements of the array separated by occurrences of the separator</p>
+
+<h3 id="example-52">Example</h3>
+
+<pre><code>var a = [ 1, 2, 3 ];
+debug.assert(a.join('-'), '1-2-3');
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>separator</td><td>[optional] string. If not provided, a single comma is used</td></tr>
+</tbody>
+</table>
+
+<h2 id="map">map</h2>
+
+<p>Calls cb once for each element present in the array, in ascending order, and constructs a new Array from the results</p>
+
+<h3 id="example-53">Example</h3>
+
+<pre><code>var a = [ 1, 2, 3 ];
+var b = a.map(function(value, k, obj) { return value + 1 });
+debug.assert(b, [ 2, 3, 4 ]);
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>cb</td><td>function that accepts three arguments:<br>Value of the element, <br>Index of the element, <br>The object being traversed</td></tr>
+<tr><td>this</td><td>[optional] if provided, used as the 'this' value for each invocation of 'cb'. If not provided, 'undefined' is used</td></tr>
+</tbody>
+</table>
+
+<h2 id="slice">slice</h2>
+
+<p>Creates a new array with elements from the specified array starting from index 'start' up to index 'end'</p>
+
+<h3 id="example-54">Example</h3>
+
+<pre><code>[ 1, 2, 3].slice(1); // [2, 3]
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>start</td><td>Element index to start from, may be undefined</td></tr>
+<tr><td>end</td><td>Last element index (not inclusive), may be undefined</td></tr>
+</tbody>
+</table>
+
+<h2 id="sort">sort</h2>
+
+<p>Sorts the array elements</p>
+
+<h3 id="example-55">Example</h3>
+
+<pre><code>[ 3, 1, 2 ].sort(); // [1, 2, 3]
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>comparefn</td><td>Function receiving (x, y) and returns a negative value if x &lt; y, zero if x = y or a positive value if x &gt; y</td></tr>
+</tbody>
+</table>
+
+<h1 id="object">Object</h1>
+
+<h2 id="object-constructor">Object (constructor)</h2>
+
+<p>Object Constructor</p>
+
+<h3 id="example-56">Example</h3>
+
+<pre><code>var o = new Object(5);
+</code></pre>
+
+<h2 id="tostring">toString</h2>
+
+<p>The object is converted to a string</p>
+
+<h3 id="example-57">Example</h3>
+
+<pre><code>var a = 1;
+debug.assert(a.toString(), '1');
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>radix</td><td>(optional) radix to use in conversion</td></tr>
+</tbody>
+</table>
+
+<h2 id="on">on</h2>
+
+<p>Adds a listener for the specified event</p>
+
+<h3 id="example-58">Example</h3>
+
+<pre><code>a.on('data', function() { console.log('data!'); });
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>event</td><td>event to listen on</td></tr>
+<tr><td>cb</td><td>callback function called on event</td></tr>
+</tbody>
+</table>
+
+<h2 id="emit">emit</h2>
+
+<p>Execute each of the listeners on the event</p>
+
+<h3 id="example-59">Example</h3>
+
+<pre><code>a.emit('data');
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>event</td><td>event to listen on</td></tr>
+</tbody>
+</table>
+
+<h2 id="removealllisteners">removeAllListeners</h2>
+
+<p>removes listeners on a specified event, or all events</p>
+
+<h3 id="example-60">Example</h3>
+
+<pre><code>a.removeAllListeners('data');
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>event</td><td>(optional) event to stop listening on</td></tr>
+</tbody>
+</table>
+
+<h2 id="listeners">listeners</h2>
+
+<p>Returns an array with listeners for the specified event</p>
+
+<h3 id="example-61">Example</h3>
+
+<pre><code>a.listeners('data');
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>event</td><td>event for fetching listeners</td></tr>
+</tbody>
+</table>
+
+<h1 id="arraybuffer">ArrayBuffer</h1>
+
+<h2 id="arraybuffer-constructor">ArrayBuffer (constructor)</h2>
+
+<p>ArrayBuffer Constructor</p>
+
+<h3 id="example-62">Example</h3>
+
+<pre><code>var a = new ArrayBuffer(5);
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>Size</td><td>Number of bytes in Array Buffer</td></tr>
+</tbody>
+</table>
+
+<h1 id="arraybufferview">ArrayBufferView</h1>
+
+<h2 id="int8array-constructor">Int8Array (constructor)</h2>
+
+<p>Int8Array Constructor</p>
+
+<h3 id="example-63">Example</h3>
+
+<pre><code>var a = new Int8Array(5);
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>Array/ArrayBuffer/Size</td><td>Array, ArrayBuffer or Number of Elements in a newly created ArrayBuffer</td></tr>
+</tbody>
+</table>
+
+<h2 id="uint8array-constructor">Uint8Array (constructor)</h2>
+
+<p>Uint8Array Constructor</p>
+
+<h3 id="example-64">Example</h3>
+
+<pre><code>var a = new Uint8Array(5);
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>Array/ArrayBuffer/Size</td><td>Array, ArrayBuffer or Number of Elements in a newly created ArrayBuffer</td></tr>
+</tbody>
+</table>
+
+<h2 id="int16array-constructor">Int16Array (constructor)</h2>
+
+<p>Int16Array Constructor</p>
+
+<h3 id="example-65">Example</h3>
+
+<pre><code>var a = new Int16Array(5);
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>Array/ArrayBuffer/Size</td><td>Array, ArrayBuffer or Number of Elements in a newly created ArrayBuffer</td></tr>
+</tbody>
+</table>
+
+<h2 id="uint16array-constructor">Uint16Array (constructor)</h2>
+
+<p>Uint16Array Constructor</p>
+
+<h3 id="example-66">Example</h3>
+
+<pre><code>var a = new Uint16Array(5);
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>Array/ArrayBuffer/Size</td><td>Array, ArrayBuffer or Number of Elements in a newly created ArrayBuffer</td></tr>
+</tbody>
+</table>
+
+<h2 id="int32array-constructor">Int32Array (constructor)</h2>
+
+<p>Int32Array Constructor</p>
+
+<h3 id="example-67">Example</h3>
+
+<pre><code>var a = new Int32Array(5);
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>Array/ArrayBuffer/Size</td><td>Array, ArrayBuffer or Number of Elements in a newly created ArrayBuffer</td></tr>
+</tbody>
+</table>
+
+<h2 id="uint32array-constructor">Uint32Array (constructor)</h2>
+
+<p>Uint32Array Constructor</p>
+
+<h3 id="example-68">Example</h3>
+
+<pre><code>var a = new Uint32Array(5);
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>Array/ArrayBuffer/Size</td><td>Array, ArrayBuffer or Number of Elements in a newly created ArrayBuffer</td></tr>
+</tbody>
+</table>
+
+<h2 id="subarray">subarray</h2>
+
+<p>Return a partial typed array based on the typed arrayIf end is unspecified, the subarray contains all elements from begin to the end of the TypedArray. If either begin or end are negative, they are calculated from the end of the array</p>
+
+<h3 id="example-69">Example</h3>
+
+<pre><code>var a = new Int8Array(16);
+var b = a.subarray(1, 5);
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>begin</td><td>Start offset (inclusive)</td></tr>
+<tr><td>end</td><td>(Optional) End offset (exclusive)</td></tr>
+</tbody>
+</table>
+
+<h1 id="string">String</h1>
+
+<h2 id="string-constructor">String (constructor)</h2>
+
+<p>String Constructor</p>
+
+<h3 id="example-70">Example</h3>
+
+<pre><code>var s = new String('hello');
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>String</td><td>String</td></tr>
+</tbody>
+</table>
+
+<h2 id="split">split</h2>
+
+<p>Breaks a string into substrings based on occurences of 'separator'</p>
+
+<h3 id="example-71">Example</h3>
+
+<pre><code>var s = '1|2|3';
+var a = s.split('|');
+debug.assert(a, [ '1', '2', '3' ]);
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>separator</td><td>Delimiter</td></tr>
+</tbody>
+</table>
+
+<h2 id="indexof-2">indexOf</h2>
+
+<p>Search for occurences of 'searchString' in a given string</p>
+
+<h3 id="example-72">Example</h3>
+
+<pre><code>var s = 'looking for me';
+var i = s.indexOf('for');
+debug.assert(i, 8);
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>searchString</td><td>String to search for</td></tr>
+</tbody>
+</table>
+
+<h2 id="substring">substring</h2>
+
+<p>Creates a new string based on a subset of a given string</p>
+
+<h3 id="example-73">Example</h3>
+
+<pre><code>var s = 'a big string';
+var big = s.substring(2, 5);
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>start</td><td>Character position to start from</td></tr>
+<tr><td>end</td><td>Character position to end with (not including</td></tr>
+</tbody>
+</table>
+
+<h2 id="charat">charAt</h2>
+
+<p>Creates a new string containing the character at a position</p>
+
+<h3 id="example-74">Example</h3>
+
+<pre><code>var s = 'a string';
+var a = s.charAt(0);
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>pos</td><td>Position of character</td></tr>
+</tbody>
+</table>
+
+<h2 id="charcodeat">charCodeAt</h2>
+
+<p>Get the ASCII value of the character at a position</p>
+
+<h3 id="example-75">Example</h3>
+
+<pre><code>var s = 'a string';
+var ninty_seven = s.charCodeAt(0);
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>pos</td><td>Position of character</td></tr>
+</tbody>
+</table>
+
+<h2 id="tolowercase">toLowerCase</h2>
+
+<p>Convert a string to lower case characters</p>
+
+<h3 id="example-76">Example</h3>
+
+<pre><code>var s = 'Hello World';
+s.toLowerCase(); // 'hello world'
+</code></pre>
+
+<h2 id="touppercase">toUpperCase</h2>
+
+<p>Convert a string to upper case characters</p>
+
+<h3 id="example-77">Example</h3>
+
+<pre><code>var s = 'Hello World';
+s.toUpperCase(); // 'HELLO WORLD'
+</code></pre>
+
+<h1 id="timer">Timer</h1>
+
+<h2 id="settimeout">setTimeout</h2>
+
+<p>Schedule 'cb' to run in ms milliseconds</p>
+
+<h3 id="example-78">Example</h3>
+
+<pre><code>setTimeout(function() { console.log('Timer Expired'); }, 1000);
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>cb</td><td>Callback to be run</td></tr>
+<tr><td>ms</td><td>Timeout in milliseconds</td></tr>
+</tbody>
+</table>
+
+<h2 id="setinterval">setInterval</h2>
+
+<p>Schedule 'cb' to run periodically every ms milliseconds</p>
+
+<h3 id="example-79">Example</h3>
+
+<pre><code>setInterval(function() { console.log('.'); }, 1000);
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>cb</td><td>Callback to be run</td></tr>
+<tr><td>ms</td><td>Period in milliseconds</td></tr>
+</tbody>
+</table>
+
+<h2 id="cleartimeout">clearTimeout</h2>
+
+<p>Cancel timeout timer if timeout hadn't expired</p>
+
+<h3 id="example-80">Example</h3>
+
+<pre><code>var to = setTimeout(function() { console.log('timeout'); }, 1000);
+clearTimeout(to);
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>tid</td><td>Timer ID to cancel</td></tr>
+</tbody>
+</table>
+
+<h2 id="clearinterval">clearInterval</h2>
+
+<p>Cancel periodic timer</p>
+
+<h3 id="example-81">Example</h3>
+
+<pre><code>var to = setInterval(function() { console.log('.'); }, 1000);
+clearInterval(to);
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>tid</td><td>Timer ID to cancel</td></tr>
+</tbody>
+</table>
+
+<h2 id="gettime">getTime</h2>
+
+<p>Get number of seconds since system startup</p>
+
+<h3 id="example-82">Example</h3>
+
+<pre><code>console.log('Up for ' + getTime() + ' seconds');
+</code></pre>
+
+<h1 id="math">Math</h1>
+
+<h2 id="sin">sin</h2>
+
+<p>Compute the sine of an angle</p>
+
+<h3 id="example-83">Example</h3>
+
+<pre><code>var zero = Math.sin(Pi);
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>angle</td><td>angle in radians</td></tr>
+</tbody>
+</table>
+
+<h2 id="asin">asin</h2>
+
+<p>Compute the arc sine of a number</p>
+
+<h3 id="example-84">Example</h3>
+
+<pre><code>var pi = Math.asin(1) * 2;
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>x</td><td>number</td></tr>
+</tbody>
+</table>
+
+<h2 id="cos">cos</h2>
+
+<p>Compute the cosine of an angle</p>
+
+<h3 id="example-85">Example</h3>
+
+<pre><code>var one = Math.cos(0);
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>angle</td><td>angle in radians</td></tr>
+</tbody>
+</table>
+
+<h2 id="acos">acos</h2>
+
+<p>Compute the arc cosine of a number</p>
+
+<h3 id="example-86">Example</h3>
+
+<pre><code>var zero = Math.acos(1);
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>x</td><td>number</td></tr>
+</tbody>
+</table>
+
+<h2 id="tan">tan</h2>
+
+<p>Compute the tangent of an angle</p>
+
+<h3 id="example-87">Example</h3>
+
+<pre><code>var half =  Math.tan(0.463648);
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>angle</td><td>angle in radians</td></tr>
+</tbody>
+</table>
+
+<h2 id="atan">atan</h2>
+
+<p>Compute the arc tangent of a number</p>
+
+<h3 id="example-88">Example</h3>
+
+<pre><code>var pi = Math.atan(1) * 4;
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>x</td><td>number</td></tr>
+</tbody>
+</table>
+
+<h2 id="sqrt">sqrt</h2>
+
+<p>Compute the square root of a number</p>
+
+<h3 id="example-89">Example</h3>
+
+<pre><code>var three = Math.sqrt(9);
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>x</td><td>number</td></tr>
+</tbody>
+</table>
+
+<h2 id="log-2">log</h2>
+
+<p>Compute the natural logarithm of a number</p>
+
+<h3 id="example-90">Example</h3>
+
+<pre><code>var zero = Math.log(1);
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>x</td><td>number</td></tr>
+</tbody>
+</table>
+
+<h2 id="exp">exp</h2>
+
+<p>Compute the base-e exponent of a number</p>
+
+<h3 id="example-91">Example</h3>
+
+<pre><code>var e = Math.exp(1);
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>x</td><td>number</td></tr>
+</tbody>
+</table>
+
+<h2 id="floor">floor</h2>
+
+<p>Compute the largest integral value not greater than the argument</p>
+
+<h3 id="example-92">Example</h3>
+
+<pre><code>var three = Math.floor(3.5);
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>x</td><td>number</td></tr>
+</tbody>
+</table>
+
+<h2 id="ceil">ceil</h2>
+
+<p>Compute the smallest integral value not less than the argument</p>
+
+<h3 id="example-93">Example</h3>
+
+<pre><code>var three = Math.ceil(2.5);
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>x</td><td>number</td></tr>
+</tbody>
+</table>
+
+<h2 id="round">round</h2>
+
+<p>Round to nearest integer, away from zero</p>
+
+<h3 id="example-94">Example</h3>
+
+<pre><code>var three = Math.round(2.7);
+var two = Math.round(2.2);
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>x</td><td>number</td></tr>
+</tbody>
+</table>
+
+<h2 id="abs">abs</h2>
+
+<p>Compute the absolute value of an integer</p>
+
+<h3 id="example-95">Example</h3>
+
+<pre><code>var two = Math.abs(-2);
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>x</td><td>number</td></tr>
+</tbody>
+</table>
+
+<h2 id="atan2">atan2</h2>
+
+<p>Compute the arc tangent of two variables</p>
+
+<h3 id="example-96">Example</h3>
+
+<pre><code>var pi = Math.atan2(1, 1) * 4;
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>x</td><td>number</td></tr>
+<tr><td>y</td><td>number</td></tr>
+</tbody>
+</table>
+
+<h2 id="pow">pow</h2>
+
+<p>Power function</p>
+
+<h3 id="example-97">Example</h3>
+
+<pre><code>var hundred = Math.pow(10, 2);
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>x</td><td>number</td></tr>
+<tr><td>y</td><td>number</td></tr>
+</tbody>
+</table>
+
+<h1 id="debug">debug</h1>
+
+<h2 id="assert">assert</h2>
+
+<p>Panic on mismatch between two objects</p>
+
+<h3 id="example-98">Example</h3>
+
+<pre><code>debug.assert(1, 1);
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>object1</td><td>Object for comparison</td></tr>
+<tr><td>object2</td><td>Object for comparison</td></tr>
+</tbody>
+</table>
+
+<h2 id="assert_cond">assert_cond</h2>
+
+<p>Panic if object is false</p>
+
+<h3 id="example-99">Example</h3>
+
+<pre><code>debug.assert_cond(1 == 1);
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>object</td><td>Object to test</td></tr>
+</tbody>
+</table>
+
+<h2 id="assert_exception">assert_exception</h2>
+
+<p>Panic if calling cb() does not raise an exception</p>
+
+<h3 id="example-100">Example</h3>
+
+<pre><code>debug.assert_exception(function() { throw 'error'; });
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>cb</td><td>function to test</td></tr>
+</tbody>
+</table>
+
+<h2 id="dump_env">dump_env</h2>
+
+<p>Dump global environment information to the console</p>
+
+<h3 id="example-101">Example</h3>
+
+<pre><code>debug.dump_env();
+</code></pre>
+
+<h1 id="module">Module</h1>
+
+<h2 id="require">require</h2>
+
+<p>Searches for a module and evaluates its code</p>
+
+<h3 id="example-102">Example</h3>
+
+<pre><code>var as = require('assert');
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>module_name</td><td>String containing module name to load</td></tr>
+</tbody>
+</table>
+
+<h1 id="netif">Netif</h1>
+
+<h2 id="esp8266-constructor">ESP8266 (constructor)</h2>
+
+<p>ESP8266 Wi-Fi Constructor</p>
+
+<h3 id="example-103">Example</h3>
+
+<pre><code>var esp = new ESP8266(function() {
+esp.IPConnect(function() { console.log('connected'); });
+}, UART4);
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>cb</td><td>Callback to be called when device is ready</td></tr>
+<tr><td>Serial port (optional)</td><td>Serial Port</td></tr>
+</tbody>
+</table>
+
+<h2 id="enc28j60-constructor">ENC28J60 (constructor)</h2>
+
+<p>ENC28J60 Ethernet Constructor</p>
+
+<h3 id="example-104">Example</h3>
+
+<pre><code>var enc = new ENC28J60(SPI0, GPIO_PF0, GPIO_PF1);
+console.log('link status: ' + enc.linkStatus() ? 'connected' : 'disconnected');
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>SPI port</td><td>SPI Port</td></tr>
+<tr><td>CS</td><td>SPI Chip Select Pin</td></tr>
+<tr><td>Interrupt</td><td>Interrupt Pin</td></tr>
+</tbody>
+</table>
+
+<h2 id="linkstatus">linkStatus</h2>
+
+<p>Get link status</p>
+
+<h3 id="example-105">Example</h3>
+
+<pre><code>var e = new ENC28J60(SPI1, GPIO_PE3, GPIO_PF4);
+console.log('link status: ' + e.linkStatus ? 'connected' : 'disconnected')
+</code></pre>
+
+<h2 id="macaddrget">MACAddrGet</h2>
+
+<p>Get Interface MAC Address</p>
+
+<h3 id="example-106">Example</h3>
+
+<pre><code>var e = new ENC28J60(SPI1, GPIO_PE3, GPIO_PF4);
+console.log(e.MACAddrGet());
+</code></pre>
+
+<h2 id="ipaddrget">IPAddrGet</h2>
+
+<p>Get Interface IP Address</p>
+
+<h3 id="example-107">Example</h3>
+
+<pre><code>var e = new NetifINET('eth0');
+console.log(e.IPAddrGet());
+</code></pre>
+
+<h2 id="onportchange">onPortChange</h2>
+
+<p>Calls 'cb' when link state has changed</p>
+
+<h3 id="example-108">Example</h3>
+
+<pre><code>var e = new ENC28J60(SPI1, GPIO_PE3, GPIO_PF4);
+e.onPortChange(function() { console.log('port state changed!'); });
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>cb</td><td>callback function called when link status has changed</td></tr>
+</tbody>
+</table>
+
+<h2 id="ipconnect">IPConnect</h2>
+
+<p>Obtain IP Address</p>
+
+<h3 id="example-109">Example</h3>
+
+<pre><code>var e = new ENC28J60(SPI1, GPIO_PE3, GPIO_PF4);
+e.IPConnect();
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>cb (optional)</td><td>callback function called on IP address availablity</td></tr>
+</tbody>
+</table>
+
+<h2 id="ipdisconnect">IPDisconnect</h2>
+
+<p>Release IP Address</p>
+
+<h3 id="example-110">Example</h3>
+
+<pre><code>var e = new ENC28J60(SPI1, GPIO_PE3, GPIO_PF4);
+e.IPDisconnect();
+</code></pre>
+
+<h2 id="tcpconnect">TCPConnect</h2>
+
+<p>Connect to a TCP IP:PORT</p>
+
+<h3 id="example-111">Example</h3>
+
+<pre><code>var e = new NetifINET();
+e.TCPIPConnect('192.168.1.10', 80, function() { console.log('connected'); });
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>ip</td><td>IP address to connect to</td></tr>
+<tr><td>port</td><td>tcp port to connect to</td></tr>
+<tr><td>cb</td><td>callback function called on TCP connectivity</td></tr>
+</tbody>
+</table>
+
+<h2 id="tcpdisconnect">TCPDisconnect</h2>
+
+<p>Release TCP connection</p>
+
+<h3 id="example-112">Example</h3>
+
+<pre><code>var e = new NetifINET();
+e.TCPIPConnect('192.168.1.10', 80, function() { console.log('connected'); e.TCPDisconnect() });
+</code></pre>
+
+<h2 id="ontcpdata">onTCPData</h2>
+
+<p>Calls 'cb' when TCP data is available</p>
+
+<h3 id="example-113">Example</h3>
+
+<pre><code>var e = new NetifINET();
+e.onTCPData(function() { console.log('TCP data ready!'); });
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>cb</td><td>callback function called when TCP data is available. Empty callback removes the listener</td></tr>
+</tbody>
+</table>
+
+<h2 id="ontcpdisconnect">onTCPDisconnect</h2>
+
+<p>Calls 'cb' when TCP stream is disconnected</p>
+
+<h3 id="example-114">Example</h3>
+
+<pre><code>var e = new NetifINET();
+e.onTCPDisconnect(function() { console.log('TCP disconnected!'); });
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>cb</td><td>callback function called when TCP stream is disconnected. Empty callback removes the listener</td></tr>
+</tbody>
+</table>
+
+<h2 id="tcpwrite">TCPWrite</h2>
+
+<p>Writes data to the TCP socket</p>
+
+<h3 id="example-115">Example</h3>
+
+<pre><code>var e = new NetifINET();
+e.TCPIPConnect('192.168.1.10', 80, function() { e.TCPWrite('GET / HTTP 1.0
+
+'); });
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>data</td><td>Data (byte/array/string/typed array) to be sent</td></tr>
+</tbody>
+</table>
+
+<h2 id="tcpread">TCPRead</h2>
+
+<p>Reads data from the TCP socket</p>
+
+<h3 id="example-116">Example</h3>
+
+<pre><code>var e = new NetifINET();
+e.onTCPData(function() { console.log(n.TCPRead()); });
+e.TCPIPConnect('192.168.1.10', 80, function() { e.TCPWrite('GET / HTTP 1.0
+
+'); });
+</code></pre>
+
+<h2 id="netifinet-constructor">NetifINET (constructor)</h2>
+
+<p>INET Network Interface Object Constructor</p>
+
+<h3 id="example-117">Example</h3>
+
+<pre><code>var  n = new NetifINET('eth0');
+console.log('link status: ' + n.linkStatus() ? 'connected' : 'disconnected');
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>Net Device</td><td>Network Interface Name</td></tr>
+</tbody>
+</table>
+
+<h2 id="linuxpacketeth-constructor">LinuxPacketEth (constructor)</h2>
+
+<p>Linux Packet Ethernet Object Constructor</p>
+
+<h3 id="example-118">Example</h3>
+
+<pre><code>var  n = new LinuxPacketEth('eth0');
+console.log('link status: ' + n.linkStatus() ? 'connected' : 'disconnected');
+</code></pre>
+
+<table>
+<tbody>
+<tr><td><strong>Parameter Name</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>Net Device</td><td>Linux Network Interface Name</td></tr>
+</tbody>
+</table>
+
+<h2 id="stellariseth-constructor">StellarisEth (constructor)</h2>
+
+<p>Stellaris Ethernet Object Constructor</p>
+
+<h3 id="example-119">Example</h3>
+
+<pre><code>var enc = new StellarisEth();
+console.log('link status: ' + enc.linkStatus() ? 'connected' : 'disconnected');
+</code></pre>
+
+    </div> <!-- #content -->
+<script type="text/javascript" charset="utf-8">
+$(function() {
+    var headerHeight = $("#header").height();
+
+    var sections = $("#content h1[id], #content h2[id]");
+    var sectionOffsets = [];
+    var slack = 100;  // Give the section scroll some slack (in pixels).
+    sections.each(function(elem) {
+        sectionOffsets.push($(this).offset().top - headerHeight - slack);
+    });
+
+    var currSectionIdx = -1;
+    function getSectionIdx(scrollDistance) {
+        if (scrollDistance < sectionOffsets[0]) {
+            return -1;
+        } else {
+            for (var id = sectionOffsets.length; id > 0; id--) {
+                if (scrollDistance > sectionOffsets[id - 1]) {
+                    return id - 1;
+                    break;
+                }
+            }
+        }
+    }
+
+    /** {{{ http://code.activestate.com/recipes/577787/ (r2) */
+    _slugify_strip_re = /[^\w\s-]/g;
+    _slugify_hyphenate_re = /[-\s]+/g;
+    function slugify(s) {
+      s = s.replace(_slugify_strip_re, '').trim().toLowerCase();
+      s = s.replace(_slugify_hyphenate_re, '-');
+      return s;
+    }
+    /** end of http://code.activestate.com/recipes/577787/ }}} */
+
+    /* See <https://github.com/trentm/restdown/issues/11>. */
+    function safechars(s) {
+      return s.replace(_slugify_strip_re, '');
+    }
+
+    $("#content").scroll(function() {
+        var scrollDistance = $("#content").scrollTop();
+        var sectionIdx = getSectionIdx(scrollDistance);
+
+        if (sectionIdx !== currSectionIdx) {
+            $("#sidebar li>div").removeClass("current");
+            currSectionIdx = sectionIdx;
+            if (currSectionIdx >= 0) {
+                var heading = $(sections[currSectionIdx]).text();
+                var possibleAnchors = [
+                    slugify(heading), // h1 or non-method h2
+                    heading.replace(/ /g, '-'), // h2 method, just name or just endpoint
+                    heading.slice(0, heading.lastIndexOf(' (')).trimRight().replace(/ /g, '-'), // h2 method, name and endpoint
+                ];
+                for (var i=0; i < possibleAnchors.length; i++) {
+                    var anchor = safechars(possibleAnchors[i]);
+                    try {
+                        $("#sidebar a[href=#" + anchor + "]").parent().addClass("current");
+                    } catch (e) {
+                        /* Ignore error if no such element. */
+                        console.log(e)
+                    }
+                }
+            }
+        }
+    });
+});
+</script>
+
 </body>
 </html>
